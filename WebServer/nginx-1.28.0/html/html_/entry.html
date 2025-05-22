@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스마트픽 - 쇼핑의 시작</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* 라이트 모드 (기본) 변수 */
+            --primary: #e93170;
+            --primary-dark: #d42665;
+            --primary-light: #ffedf3;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --white: #ffffff;
+            --gray: #e0e0e0;
+            --gray-light: #f8f9fa;
+            --text: #212529;
+            --body-bg: #ffffff;
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --success: #28a745;
+            --success-light: #ebf9ee;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --border-radius: 10px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+
+            /* 장바구니 페이지 기존 변수 */
+            --text-light: #767676;
+            --radius: 8px;
+        }
+
+        /* 다크 모드 변수 */
+        [data-theme="dark"] {
+            --primary: #4287f5;
+            /* 핑크색에서 파란색으로 변경 */
+            --primary-dark: #2e6ad1;
+            /* 더 어두운 파란색 */
+            --primary-light: #213547;
+            /* 파란색 계열의 어두운 배경 */
+            --secondary: #343a40;
+            --dark: #f8f9fa;
+            --white: #343a40;
+            --gray: #495057;
+            --gray-light: #343a40;
+            --text: #f8f9fa;
+            --body-bg: #212529;
+            --card-bg: #343a40;
+            --header-bg: #282c31;
+            --border-color: #495057;
+            --success: #5cb85c;
+            --warning: #f0ad4e;
+            --danger: #d9534f;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--gray-light);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header styles - Sticky */
+        header {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow);
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        
+
+        .logo-box {
+            background-color: var(--gray);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            margin-right: 10px;
+            font-size: 14px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background-color: var(--secondary);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--gray);
+            transform: rotate(30deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 20px;
+        }
+
+        .welcome-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .welcome-description {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option-card {
+            width: 340px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-header {
+            padding: 30px 20px;
+            background-color: var(--primary-light);
+            text-align: center;
+        }
+
+        .option-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .option-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .option-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .option-body {
+            padding: 25px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .option-features {
+            margin-bottom: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: var(--secondary);
+            color: var(--text);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-light);
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 60px;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--dark);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .options-container {
+                gap: 20px;
+            }
+
+            .option-card {
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .welcome-title {
+                font-size: 24px;
+            }
+
+            .welcome-text {
+                font-size: 16px;
+            }
+
+            .welcome-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>알림 메시지</span>
+    </div>
+
+    <!-- Header section - Sticky -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="window.location.href='mainpage.html'">
+                    <div class="logo-box">스마<br>트픽</div>
+                    <span>스마트픽</span>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1 class="welcome-title">스마트픽에 오신 것을 환영합니다</h1>
+            <p class="welcome-text">스마트한 쇼핑의 시작</p>
+            <p class="welcome-description">
+                스마트픽과 함께 쉽고 편리한 쇼핑을 경험해보세요. 바로 쇼핑을 시작하거나, 스캔을 통해 원하는 상품을 쉽게 찾을 수 있습니다.
+            </p>
+        </div>
+
+        <div class="options-container">
+            <!-- 메인 홈페이지로 가는 옵션 카드 -->
+            <div class="option-card">
+                <div class="option-header">
+                    <div class="option-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h2 class="option-title">바로 쇼핑하기</h2>
+                    <p class="option-description">다양한 상품 카테고리를 탐색하며 원하는 제품을 찾아보세요.</p>
+                </div>
+                <div class="option-body">
+                    <div class="option-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>다양한 전자제품 카테고리</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>최신 인기 상품 확인</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>특별 할인 혜택</span>
+                        </div>
+                    </div>
+                    <a href="mainpage.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> 쇼핑 시작하기
+                    </a>
+                </div>
+            </div>
+
+            <!-- 설문조사로 가는 옵션 카드 -->
+            <div class="option-card">
+                <div class="option-header">
+                    <div class="option-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h2 class="option-title">맞춤 제품 찾기</h2>
+                    <p class="option-description">간단한 정보 입력만으로 최적의 상품을 추천받으세요</p>
+                </div>
+                <div class="option-body">
+                    <div class="option-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>사용 목적에 맞는 제품 추천</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>가격대별 최적의 선택</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle feature-icon"></i>
+                            <span>개인 맞춤형 상품 비교</span>
+                        </div>
+                    </div>
+                    <a href="surveypage.html" class="btn btn-outline">
+                        <i class="fas fa-search"></i> 원하는 상품 스캔
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-text">
+            © 2025 스마트픽. 모든 권리 보유. 최신 브라우저에 최적화되어 있습니다.
+        </p>
+    </div>
+
+    <script>
+        // DOM이 로드되면 실행
+        document.addEventListener('DOMContentLoaded', function () {
+            // 테마 관련 초기화
+            initTheme();
+
+            // 스크롤 이벤트 리스너
+            window.addEventListener('scroll', handleScroll);
+
+            // 로고 클릭 이벤트
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('click', function () {
+                window.location.href = 'mainpage.html';
+            });
+        });
+
+        // 테마 초기화 및 설정
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+
+            // 저장된 테마 적용
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+
+            // 테마 토글 이벤트
+            themeToggle.addEventListener('click', function () {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // 아이콘 변경
+                if (newTheme === 'dark') {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
+        }
+
+        // 스크롤 이벤트 처리
+        function handleScroll() {
+            const header = document.getElementById('header');
+
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.querySelector('.toast');
+            const toastMessage = toast.querySelector('span');
+            toastMessage.textContent = message || '알림 메시지';
+
+            toast.classList.add('show');
+
+            setTimeout(function () {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
