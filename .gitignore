@@ -1,0 +1,4 @@
+WebServer/nginx-1.28.0/logs/access.log
+WebServer/nginx-1.28.0/logs/access.log
+WebServer/nginx-1.28.0/logs/error.log
+WebServer/nginx-1.28.0/logs/nginx.pid
