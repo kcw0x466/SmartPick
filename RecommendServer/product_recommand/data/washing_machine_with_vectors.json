@@ -1,0 +1,2402 @@
+[
+  {
+    "_id": 1,
+    "name": "로보락 H1 ",
+    "brand": "로보락",
+    "description": "1인가구용 일체형 세탁건조기",
+    "price": 1599000,
+    "category": "세탁건조기",
+    "stock": 26,
+    "spec": {
+      "capacity": "10kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1599000,
+      10,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "로보락 M1",
+    "brand": "로보락",
+    "description": "속옷빨래에 적합한일체형 세탁건조기",
+    "price": 599000,
+    "category": "세탁건조기",
+    "stock": 44,
+    "spec": {
+      "capacity": "1kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      599000,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 3,
+    "name": "LG전자 시그니처 FH25LMTH",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 6555570,
+    "category": "세탁건조기",
+    "stock": 39,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      6555570,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 4,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25EA",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3182280,
+    "category": "세탁건조기",
+    "stock": 21,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3182280,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 5,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25EAE",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3335770,
+    "category": "세탁건조기",
+    "stock": 12,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3335770,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 6,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25WA",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3210000,
+    "category": "세탁건조기",
+    "stock": 48,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3210000,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 7,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25GA",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3204730,
+    "category": "세탁건조기",
+    "stock": 34,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3204730,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 8,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25GAG",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3335880,
+    "category": "세탁건조기",
+    "stock": 38,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3335880,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 9,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25VA",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3385770,
+    "category": "세탁건조기",
+    "stock": 43,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3385770,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 10,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25KA",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3246920,
+    "category": "세탁건조기",
+    "stock": 29,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3246920,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 11,
+    "name": "삼성전자 비스포크 AI 콤보 WD25DB8690BE",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 2599660,
+    "category": "세탁건조기",
+    "stock": 11,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      2599660,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 12,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25ES",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3617680,
+    "category": "세탁건조기",
+    "stock": 51,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3617680,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 13,
+    "name": "삼성전자 비스포크 AI 콤보 WD25DB8995BZ",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3266630,
+    "category": "세탁건조기",
+    "stock": 20,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3266630,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 14,
+    "name": "삼성전자 비스포크 AI 콤보 WD25DB8695BC",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3280180,
+    "category": "세탁건조기",
+    "stock": 48,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3280180,
+      25,
+      1,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 15,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25GS",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3617680,
+    "category": "세탁건조기",
+    "stock": 22,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3617680,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 16,
+    "name": "삼성전자 비스포크 AI 콤보 WD25DB8995BC",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3175550,
+    "category": "세탁건조기",
+    "stock": 12,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3175550,
+      25,
+      1,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 17,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25ESE",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3765480,
+    "category": "세탁건조기",
+    "stock": 41,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3765480,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 18,
+    "name": "LG전자 트롬 오브제컬렉션 워시콤보 FH25GSG",
+    "brand": "LG",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3768050,
+    "category": "세탁건조기",
+    "stock": 30,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3768050,
+      25,
+      1,
+      1,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 19,
+    "name": "삼성전자 비스포크 AI 콤보 WD25DB8995BB",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3280180,
+    "category": "세탁건조기",
+    "stock": 49,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "2등급",
+      "noise": "low"
+    },
+    "vector": [
+      3280180,
+      25,
+      1,
+      1,
+      2,
+      1
+    ]
+  },
+  {
+    "_id": 20,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25CHY",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 4027480,
+    "category": "세탁건조기",
+    "stock": 42,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      4027480,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 21,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25AHS",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 4198990,
+    "category": "세탁건조기",
+    "stock": 34,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "2등급",
+      "noise": "low"
+    },
+    "vector": [
+      4198990,
+      25,
+      1,
+      1,
+      2,
+      1
+    ]
+  },
+  {
+    "_id": 22,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25AHY",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 4219510,
+    "category": "세탁건조기",
+    "stock": 19,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      4219510,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 23,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25CHB",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 4099000,
+    "category": "세탁건조기",
+    "stock": 32,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      4099000,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 24,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25CHW",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 3999000,
+    "category": "세탁건조기",
+    "stock": 13,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      3999000,
+      25,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 25,
+    "name": "삼성전자 비스포크 AI 콤보 WD90F25AHT",
+    "brand": "삼성",
+    "description": "AI기능이 특화된 세탁건조기",
+    "price": 4219510,
+    "category": "세탁건조기",
+    "stock": 50,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      4219510,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 26,
+    "name": "LG전자 트롬 워시타워 컴팩트 W10BHN",
+    "brand": "LG",
+    "description": "세탁기와 건조기가 세로로 합쳐진 타워형 세탁기",
+    "price": 1537450,
+    "category": "세탁+건조기",
+    "stock": 17,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1537450,
+      13,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 27,
+    "name": "LG전자 트롬 오브제컬렉션 워시타워 컴팩트 W10EGN ",
+    "brand": "LG",
+    "description": "1,2인 가구들이 쓰기 좋은 작은사이즈 워시타워",
+    "price": 1701620,
+    "category": "세탁+건조기",
+    "stock": 10,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1701620,
+      13,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 28,
+    "name": "LG전자 트롬 워시타워 컴팩트 W10WAN",
+    "brand": "LG",
+    "description": "세탁실 좁아 워시타워 설치가 어렵거나, 1,2인 가구가 사용하기 좋음",
+    "price": 1653330,
+    "category": "세탁+건조기",
+    "stock": 33,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1653330,
+      13,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 29,
+    "name": "LG전자 트롬 워시타워 컴팩트 W10BN",
+    "brand": "LG",
+    "description": "1,2인 가구들이 쓰기 좋은 작은사이즈 워시타워",
+    "price": 1607350,
+    "category": "세탁+건조기",
+    "stock": 24,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1607350,
+      13,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 30,
+    "name": "LG전자 트롬 F12WVA + RH10WTA",
+    "brand": "LG",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1265620,
+    "category": "세탁+건조기",
+    "stock": 38,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1265620,
+      12,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 31,
+    "name": "삼성전자 WW90T3000KW + DV90T5440KW",
+    "brand": "삼성",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1097090,
+    "category": "세탁+건조기",
+    "stock": 23,
+    "spec": {
+      "capacity": "9kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1097090,
+      9,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 32,
+    "name": "삼성전자 비스포크 그랑데 AI 슬림 WW13BB844DGH + AI DV10BB8440GH",
+    "brand": "삼성",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1879190,
+    "category": "세탁+건조기",
+    "stock": 20,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1879190,
+      13,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 33,
+    "name": "삼성전자 그랑데 AI WW10TP34DSG + AI DV90T5740SE",
+    "brand": "삼성",
+    "description": "AI에 특화된 세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1575800,
+    "category": "세탁+건조기",
+    "stock": 24,
+    "spec": {
+      "capacity": "10kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1575800,
+      10,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 34,
+    "name": "LG전자 트롬 F12VVA + RH10VTA",
+    "brand": "LG",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1493150,
+    "category": "세탁+건조기",
+    "stock": 10,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1493150,
+      12,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 35,
+    "name": "마이디어 트윈타워 MF200W120B/WW-KRH + MD200H100B/WW-KRH ",
+    "brand": "마이디어",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1118600,
+    "category": "세탁+건조기",
+    "stock": 46,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "high"
+    },
+    "vector": [
+      1118600,
+      12,
+      1,
+      1,
+      1,
+      3
+    ]
+  },
+  {
+    "_id": 36,
+    "name": "LG전자 트롬 F12WVA + RH9WV",
+    "brand": "LG",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1438770,
+    "category": "세탁+건조기",
+    "stock": 29,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1438770,
+      12,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 37,
+    "name": "삼성전자 그랑데 AI WW10TP34DBH + AI DV90T5740BW",
+    "brand": "삼성",
+    "description": "AI에 특화된 세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1627990,
+    "category": "세탁+건조기",
+    "stock": 16,
+    "spec": {
+      "capacity": "10kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1627990,
+      10,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 38,
+    "name": "캐리어 모드비 MWFB12WEI1 + MDIB10WEI1",
+    "brand": "캐리어",
+    "description": "세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1390000,
+    "category": "세탁+건조기",
+    "stock": 41,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1390000,
+      12,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 39,
+    "name": "삼성전자 그랑데 WF16T6000KW + DV90T5440KW",
+    "brand": "삼성",
+    "description": "2~3인 가구에 적합한 세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1600000,
+    "category": "세탁+건조기",
+    "stock": 51,
+    "spec": {
+      "capacity": "16kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1600000,
+      16,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 40,
+    "name": "LG전자 트롬 오브제컬렉션 FG19WN + RG18WNST",
+    "brand": "LG",
+    "description": "3~5인 가구에 적합한 세탁기와 건조기가 세로로 분리된 세탁+건조 세트",
+    "price": 1589270,
+    "category": "세탁+건조기",
+    "stock": 37,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1589270,
+      19,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 41,
+    "name": "LG전자 트롬 F21WDSP + RH18WTSN",
+    "brand": "LG",
+    "description": "4인이상 가구에 적합하고 AI가 탑재되있는 세탁+건조 세트",
+    "price": 1470220,
+    "category": "세탁+건조기",
+    "stock": 34,
+    "spec": {
+      "capacity": "21kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1470220,
+      21,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 42,
+    "name": "삼성전자 비스포크 그랑데 AI WF21CB6850BE + AI DV20CB8800BE",
+    "brand": "삼성",
+    "description": "4인이상 가구에 적합하고 AI가 탑재되있는 세탁+건조 세트",
+    "price": 1668390,
+    "category": "세탁+건조기",
+    "stock": 13,
+    "spec": {
+      "capacity": "21kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1668390,
+      21,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 43,
+    "name": "LG전자 트롬 FX23WNA + RD20WSQ",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI가 탑재되있는 세탁+건조 세트",
+    "price": 1893990,
+    "category": "세탁+건조기",
+    "stock": 24,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1893990,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 44,
+    "name": "LG전자 트롬 오브제컬렉션 FX23GNG + RD20ENE",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI가 탑재되있는 세탁+건조 세트",
+    "price": 2175990,
+    "category": "세탁+건조기",
+    "stock": 42,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      2175990,
+      23,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 45,
+    "name": "삼성전자 그랑데 WF23T8000KV + DV16T8520BV",
+    "brand": "삼성",
+    "description": "5인이상 가구에 적합하고 AI가 탑재되있는 세탁+건조 세트",
+    "price": 2900770,
+    "category": "세탁+건조기",
+    "stock": 12,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      2900770,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 46,
+    "name": "LG전자 트롬 워시타워 W20WAN",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합하고 AI가 탑재된 타워형 세탁기",
+    "price": 2125460,
+    "category": "세탁+건조기",
+    "stock": 28,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      2125460,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 47,
+    "name": "LG전자 트롬 오브제컬렉션 워시타워 W20GEAN",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합하고 AI가 탑재된 타워형 세탁기",
+    "price": 2374320,
+    "category": "세탁+건조기",
+    "stock": 46,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      2374320,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 48,
+    "name": "삼성전자 비스포크 그랑데 AI 원바디 Top-Fit WF2517HDVVD",
+    "brand": "삼성",
+    "description": "5인이상 가구에 적합하고 AI가 탑재된 타워형 세탁기",
+    "price": 1878990,
+    "category": "세탁+건조기",
+    "stock": 12,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1878990,
+      25,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 49,
+    "name": "LG전자 트롬 오브제컬렉션 워시타워 W20GGAN",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI가 탑재된 타워형 세탁기",
+    "price": 2479080,
+    "category": "세탁+건조기",
+    "stock": 34,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      2479080,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 50,
+    "name": "LG전자 트롬 오브제컬렉션 워시타워 W20EGAN ",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI가 탑재된 타워형 세탁기",
+    "price": 2343600,
+    "category": "세탁+건조기",
+    "stock": 48,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": true,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      2343600,
+      23,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 51,
+    "name": "LG전자 트롬 F12WVA",
+    "brand": "LG",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 662390,
+    "category": "드럼세탁기",
+    "stock": 30,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      662390,
+      12,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 52,
+    "name": "삼성전자 그랑데AI WW12T504DTW",
+    "brand": "삼성",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 556470,
+    "category": "드럼세탁기",
+    "stock": 31,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      556470,
+      12,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 53,
+    "name": "LG전자 트롬 F12VVA",
+    "brand": "LG",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 666210,
+    "category": "드럼세탁기",
+    "stock": 48,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      666210,
+      12,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 54,
+    "name": "위니아 BWD12GED",
+    "brand": "위니아",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 490240,
+    "category": "드럼세탁기",
+    "stock": 43,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      490240,
+      12,
+      1,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 55,
+    "name": "마이디어 MF200W120B/WW-KRH",
+    "brand": "마이디어",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 498200,
+    "category": "드럼세탁기",
+    "stock": 46,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      498200,
+      12,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 56,
+    "name": "캐리어 모드비 MWFB12WEI1",
+    "brand": "캐리어",
+    "description": "1인가구에 적합한 드럼세탁기",
+    "price": 599000,
+    "category": "드럼세탁기",
+    "stock": 23,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      599000,
+      12,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 57,
+    "name": "LG전자 트롬 F15WQWP",
+    "brand": "LG",
+    "description": "2~3인가구에 적합한 드럼세탁기",
+    "price": 549830,
+    "category": "드럼세탁기",
+    "stock": 38,
+    "spec": {
+      "capacity": "15kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      549830,
+      15,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 58,
+    "name": "LG전자 트롬 F15SQAP",
+    "brand": "LG",
+    "description": "2~3인가구에 적합한 드럼세탁기",
+    "price": 681570,
+    "category": "드럼세탁기",
+    "stock": 18,
+    "spec": {
+      "capacity": "15kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      681570,
+      15,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 59,
+    "name": "LG전자 트롬 F15WQT",
+    "brand": "LG",
+    "description": "2~3인가구에 적합한 드럼세탁기",
+    "price": 782990,
+    "category": "드럼세탁기",
+    "stock": 50,
+    "spec": {
+      "capacity": "15kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "4등급",
+      "noise": "low"
+    },
+    "vector": [
+      782990,
+      15,
+      1,
+      0,
+      4,
+      1
+    ]
+  },
+  {
+    "_id": 60,
+    "name": "LG전자 트롬 F15WQA",
+    "brand": "LG",
+    "description": "2~3인가구에 적합한 드럼세탁기",
+    "price": 877483,
+    "category": "드럼세탁기",
+    "stock": 32,
+    "spec": {
+      "capacity": "15kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      877483,
+      15,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 61,
+    "name": "LG전자 트롬 F18WDAU",
+    "brand": "LG",
+    "description": "4인가구에 적합한 드럼세탁기",
+    "price": 1501000,
+    "category": "드럼세탁기",
+    "stock": 11,
+    "spec": {
+      "capacity": "18kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1501000,
+      18,
+      1,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 62,
+    "name": "LG전자 트롬 오브제컬렉션 FX23ENE",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI기능이 탑재된 드럼세탁기",
+    "price": 1127610,
+    "category": "드럼세탁기",
+    "stock": 35,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1127610,
+      23,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 63,
+    "name": "LG전자 트롬 오브제컬렉션 FX23VN",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI기능이 탑재된 드럼세탁기",
+    "price": 1101040,
+    "category": "드럼세탁기",
+    "stock": 37,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1101040,
+      23,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 64,
+    "name": "LG전자 트롬 오브제컬렉션 FX23KN ",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI기능이 탑재된 드럼세탁기",
+    "price": 1125790,
+    "category": "드럼세탁기",
+    "stock": 40,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1125790,
+      23,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 65,
+    "name": "삼성전자 버블샷 애드워시 WF23N9951KV",
+    "brand": "삼성",
+    "description": "5인이상 가구에 적합한 드럼세탁기",
+    "price": 3490000,
+    "category": "드럼세탁기",
+    "stock": 51,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      3490000,
+      23,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 66,
+    "name": "LG전자 트롬 FX23WNA",
+    "brand": "LG",
+    "description": "5인이상 가구에 적합하고 AI기능이 탑재된 드럼세탁기",
+    "price": 1136800,
+    "category": "드럼세탁기",
+    "stock": 14,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1136800,
+      23,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 67,
+    "name": "삼성전자 그랑데 WF19T6000KW",
+    "brand": "삼성",
+    "description": "3인이상 가구에서 대형용량 세탁기를 원한다면 가성비 좋은 세탁기",
+    "price": 677560,
+    "category": "드럼세탁기",
+    "stock": 48,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      677560,
+      19,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 68,
+    "name": "LG전자 트롬 F19WDLP",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합한 드럼세탁기",
+    "price": 809400,
+    "category": "드럼세탁기",
+    "stock": 26,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      809400,
+      19,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 69,
+    "name": "LG전자 트롬 오브제컬렉션 FG19WN",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합하고 AI가 탑재된 드럼세탁기",
+    "price": 856770,
+    "category": "드럼세탁기",
+    "stock": 17,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      856770,
+      19,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 70,
+    "name": "LG전자 트롬 오브제컬렉션 FG19GN",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합하고 AI가 탑재된 드럼세탁기",
+    "price": 1107690,
+    "category": "드럼세탁기",
+    "stock": 16,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1107690,
+      19,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 71,
+    "name": "LG전자 트롬 오브제컬렉션 트윈워시 FG19ENX",
+    "brand": "LG",
+    "description": "3~4인 가구에 적합하고 미니워시가 있으며 AI가 탑재된 드럼세탁기",
+    "price": 1794460,
+    "category": "드럼세탁기",
+    "stock": 22,
+    "spec": {
+      "capacity": "19kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1794460,
+      19,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 72,
+    "name": "삼성전자 비스포크 그랑데AI WF25CB8890BE",
+    "brand": "삼성",
+    "description": "올인원컨트롤이 탑재된 6인이상 가구에 적합한 드럼 세탁기",
+    "price": 1035110,
+    "category": "드럼세탁기",
+    "stock": 27,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1035110,
+      25,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 73,
+    "name": "LG전자 트롬 오브제컬렉션 트윈워시 FX25WSQX",
+    "brand": "LG",
+    "description": "올인원컨트롤이 탑재된 6인이상 가구에 적합한 드럼 세탁기",
+    "price": 1487130,
+    "category": "드럼세탁기",
+    "stock": 26,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1487130,
+      25,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 74,
+    "name": "삼성전자 비스포크 그랑데AI WF25CB8895BW",
+    "brand": "삼성",
+    "description": "올인원컨트롤이 탑재된 6인이상 가구에 적합한 드럼 세탁기",
+    "price": 1228470,
+    "category": "드럼세탁기",
+    "stock": 42,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1228470,
+      25,
+      1,
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "_id": 75,
+    "name": "LG전자 트롬 오브제컬렉션 FX25WSR",
+    "brand": "LG",
+    "description": "올인원컨트롤이 탑재된 6인이상 가구에 적합한 드럼 세탁기",
+    "price": 1552150,
+    "category": "드럼세탁기",
+    "stock": 36,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "drum",
+      "dry_function": false,
+      "energy_rating": "1등급",
+      "noise": "low"
+    },
+    "vector": [
+      1552150,
+      25,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "_id": 76,
+    "name": "LG전자 통돌이 TR13ML2",
+    "brand": "LG",
+    "description": "물높이되는 통돌이",
+    "price": 345810,
+    "category": "일반 세탁기",
+    "stock": 47,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "3등급",
+      "noise": "mid"
+    },
+    "vector": [
+      345810,
+      13,
+      0,
+      0,
+      3,
+      2
+    ]
+  },
+  {
+    "_id": 77,
+    "name": "삼성전자 워블 WA13T5262BW",
+    "brand": "삼성",
+    "description": "워블테크가 있는 통돌이",
+    "price": 422990,
+    "category": "일반 세탁기",
+    "stock": 11,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      422990,
+      13,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 78,
+    "name": "LG전자 통돌이 TR13BK",
+    "brand": "LG",
+    "description": "펀치물살이 있는 통돌이",
+    "price": 433760,
+    "category": "일반 세탁기",
+    "stock": 31,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      433760,
+      13,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 79,
+    "name": "캐리어 클라윈드 KWMT-130AWNWO",
+    "brand": "캐리어",
+    "description": "무세제통세척하는 통돌이",
+    "price": 317680,
+    "category": "일반 세탁기",
+    "stock": 10,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      317680,
+      13,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 80,
+    "name": "LG전자 통돌이 TR13BL",
+    "brand": "LG",
+    "description": "물높이조절하는 통돌이",
+    "price": 466040,
+    "category": "일반 세탁기",
+    "stock": 38,
+    "spec": {
+      "capacity": "13kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      466040,
+      13,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 81,
+    "name": "LG전자 통돌이 T21MX9A",
+    "brand": "LG",
+    "description": "향기강화가 있는 통돌이",
+    "price": 708350,
+    "category": "일반 세탁기",
+    "stock": 28,
+    "spec": {
+      "capacity": "21kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      708350,
+      21,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 82,
+    "name": "삼성전자 그랑데 통버블 WA21A8376KV",
+    "brand": "삼성",
+    "description": "제트샷이 있는 통돌이",
+    "price": 682210,
+    "category": "일반 세탁기",
+    "stock": 38,
+    "spec": {
+      "capacity": "21kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      682210,
+      21,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 83,
+    "name": "LG전자 통돌이 T21MX9",
+    "brand": "LG",
+    "description": "6모션이 있는 통돌이",
+    "price": 682670,
+    "category": "일반 세탁기",
+    "stock": 24,
+    "spec": {
+      "capacity": "21kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      682670,
+      21,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 84,
+    "name": "삼성전자 그랑데 통버블 WA25B8377KV",
+    "brand": "삼성",
+    "description": "버블폭포, 입체돌풍세탁, 안심위생관리",
+    "price": 919570,
+    "category": "일반 세탁기",
+    "stock": 21,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      919570,
+      25,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 85,
+    "name": "LG전자 통돌이 T25PX9A",
+    "brand": "LG",
+    "description": "빠르고 강력한 세탁, 인공지능 세탁",
+    "price": 1009000,
+    "category": "일반 세탁기",
+    "stock": 38,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1009000,
+      25,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 86,
+    "name": "LG전자 통돌이 TA25GZ9",
+    "brand": "LG",
+    "description": "인공지능 세탁",
+    "price": 1426850,
+    "category": "일반 세탁기",
+    "stock": 17,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1426850,
+      25,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 87,
+    "name": "LG전자 통돌이 T25PX9",
+    "brand": "LG",
+    "description": "인공지능 세탁",
+    "price": 1048300,
+    "category": "일반 세탁기",
+    "stock": 34,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1048300,
+      25,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 88,
+    "name": "LG전자 통돌이 T25MX9",
+    "brand": "LG",
+    "description": "인공지능 세탁, 대포물살",
+    "price": 1475000,
+    "category": "일반 세탁기",
+    "stock": 47,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      1475000,
+      25,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 89,
+    "name": "LG전자 통돌이 블랙라벨 플러스 TS25BVD",
+    "brand": "LG",
+    "description": "인공지능 세탁, 입체물살",
+    "price": 2999000,
+    "category": "일반 세탁기",
+    "stock": 12,
+    "spec": {
+      "capacity": "25kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      2999000,
+      25,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 90,
+    "name": "LG전자 통돌이 블랙라벨 플러스 TS24MVD",
+    "brand": "LG",
+    "description": "인공지능 세탁, 입체물살",
+    "price": 2499000,
+    "category": "일반 세탁기",
+    "stock": 43,
+    "spec": {
+      "capacity": "24kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      2499000,
+      24,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 91,
+    "name": "위니아전자 클라쎄 파워스핀 WFA912PSA",
+    "brand": "위니아",
+    "description": "터보물살이 있는 통돌이",
+    "price": 322920,
+    "category": "일반 세탁기",
+    "stock": 22,
+    "spec": {
+      "capacity": "12kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      322920,
+      12,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 92,
+    "name": "LG전자 통돌이 T23MX9A",
+    "brand": "LG",
+    "description": "ai세탁기능이 들어간 통돌이",
+    "price": 792390,
+    "category": "일반 세탁기",
+    "stock": 35,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      792390,
+      23,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 93,
+    "name": "삼성전자 그랑데 통버블 WA23A8377KV",
+    "brand": "삼성",
+    "description": "제트샷이 있는 통돌이",
+    "price": 798480,
+    "category": "일반 세탁기",
+    "stock": 38,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      798480,
+      23,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 94,
+    "name": "LG전자 통돌이 T23PX9A",
+    "brand": "LG",
+    "description": "터보물살이 있는 통돌이",
+    "price": 842980,
+    "category": "일반 세탁기",
+    "stock": 46,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      842980,
+      23,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 95,
+    "name": "삼성전자 그랑데 통버블 WA23A8375KV",
+    "brand": "삼성",
+    "description": "버블키트가 있는 통돌이",
+    "price": 860590,
+    "category": "일반 세탁기",
+    "stock": 37,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      860590,
+      23,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 96,
+    "name": "LG전자 통돌이 T23MX9",
+    "brand": "LG",
+    "description": "향기강화가 있는 통돌이",
+    "price": 946680,
+    "category": "일반 세탁기",
+    "stock": 34,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      946680,
+      23,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 97,
+    "name": "LG전자 통돌이 T23PX9",
+    "brand": "LG",
+    "description": "물높이조절하는 통돌이",
+    "price": 931590,
+    "category": "일반 세탁기",
+    "stock": 47,
+    "spec": {
+      "capacity": "23kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      931590,
+      23,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 98,
+    "name": "삼성전자 액티브워시 WA22T7870KV",
+    "brand": "삼성",
+    "description": "살균세탁이 있는 통돌이",
+    "price": 1990380,
+    "category": "일반 세탁기",
+    "stock": 24,
+    "spec": {
+      "capacity": "22kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "mid"
+    },
+    "vector": [
+      1990380,
+      22,
+      0,
+      0,
+      2,
+      2
+    ]
+  },
+  {
+    "_id": 99,
+    "name": "LG전자 통돌이 블랙라벨 플러스 T22HVD",
+    "brand": "LG",
+    "description": "6모션이 있는 통돌이",
+    "price": 5625000,
+    "category": "일반 세탁기",
+    "stock": 11,
+    "spec": {
+      "capacity": "22kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      5625000,
+      22,
+      0,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "_id": 100,
+    "name": "LG전자 통돌이 블랙라벨 플러스 인공지능 TS22BVD",
+    "brand": "LG",
+    "description": "대포물살이 있는 통돌이",
+    "price": 2200000,
+    "category": "일반 세탁기",
+    "stock": 44,
+    "spec": {
+      "capacity": "22kg",
+      "washing_type": "top",
+      "dry_function": false,
+      "energy_rating": "2등급",
+      "noise": "high"
+    },
+    "vector": [
+      2200000,
+      22,
+      0,
+      0,
+      2,
+      3
+    ]
+  }
+]

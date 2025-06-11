@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>제품 추천 설문</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 폰트 및 아이콘 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- 사용자 제공 CSS 포함 -->
+  <style>
+    /* 너가 준 CSS 전체 복사해 붙여넣기 (너무 길어서 생략) */
+    /* 중간 생략 */
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <div class="survey-container">
+      <div class="survey-header">
+        <h1 class="survey-title">나에게 맞는 상품 찾기</h1>
+        <p class="survey-description">몇 가지 질문에 답하시면 고객님께 딱 맞는 상품을 추천해 드립니다.</p>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 / 0 완료</div>
+      </div>
+
+      <div class="survey-form" id="surveyForm">
+        <!-- 여기에 모든 문항이 들어감. 각 문항은 product 속성과 step 순서를 가짐 -->
+        <!-- 공통 문항 -->
+        <div class="question-container active" data-step="1" data-product="all">
+          <h2 class="question-title">1. 어떤 제품에 가장 관심이 있으신가요?</h2>
+          <div class="options-container">
+            <div class="option-item" data-product="pc">PC</div>
+            <div class="option-item" data-product="laptop">노트북</div>
+            <div class="option-item" data-product="tv">TV</div>
+            <div class="option-item" data-product="washer">세탁기</div>
+          </div>
+        </div>
+
+        <!-- PC 문항 예시 -->
+        <div class="question-container" data-step="2" data-product="pc">
+          <h2 class="question-title">주요 사용 목적은?</h2>
+          <div class="options-container">
+            <div class="option-item">문서작업 및 인터넷</div>
+            <div class="option-item">영상 시청 및 인기 온라인 게임</div>
+            <div class="option-item">고사양 게임</div>
+            <div class="option-item">영상 편집 / 3D 작업</div>
+            <div class="option-item">AI / 데이터 분석 / 가상화 / 서버 등</div>
+          </div>
+        </div>
+        <div class="question-container" data-step="3" data-product="pc">
+          <h2 class="question-title">예산은 어느 정도?</h2>
+          <div class="slider-container">
+            <input type="range" min="10" max="300" value="100" class="slider" id="budgetSlider">
+            <div class="slider-value" id="budgetValue">100만원</div>
+            <div class="slider-labels">
+              <span>10만원</span>
+              <span>300만원+</span>
+            </div>
+          </div>
+        </div>
+        <div class="question-container" data-step="4" data-product="pc">
+          <h2 class="question-title">파일 저장 공간이 얼마나 필요하신가요?</h2>
+          <div class="options-container">
+            <div class="option-item">256GB 이하</div>
+            <div class="option-item">512GB</div>
+            <div class="option-item">1TB</div>
+            <div class="option-item">2TB</div>
+            <div class="option-item">4TB 이상</div>
+          </div>
+        </div>
+
+        <!-- 노트북, TV, 세탁기 문항도 같은 구조로 계속 이어짐 -->
+        <!-- ... 생략 ... -->
+
+        <div class="nav-buttons-container">
+          <button class="survey-button prev" onclick="goToPrev()">← 이전</button>
+          <button class="survey-button next" onclick="goToNext()">다음 →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- JS 동작 -->
+  <script>
+    let currentIndex = 0;
+    let selectedProduct = null;
+
+    const allQuestions = [...document.querySelectorAll(".question-container")];
+    const progressText = document.getElementById("progressText");
+    const progressFill = document.getElementById("progressFill");
+    const slider = document.getElementById("budgetSlider");
+    const sliderValue = document.getElementById("budgetValue");
+
+    const showStep = (index) => {
+      allQuestions.forEach(q => q.classList.remove("active"));
+      const visible = allQuestions.filter(q => {
+        const p = q.dataset.product;
+        return p === "all" || p === selectedProduct;
+      });
+      if (index < 0 || index >= visible.length) return;
+      visible[index].classList.add("active");
+      currentIndex = index;
+
+      // 업데이트 진행률
+      progressText.textContent = `${index + 1} / ${visible.length} 완료`;
+      progressFill.style.width = `${((index + 1) / visible.length) * 100}%`;
+    };
+
+    const goToNext = () => {
+      showStep(currentIndex + 1);
+    };
+
+    const goToPrev = () => {
+      showStep(currentIndex - 1);
+    };
+
+    document.querySelectorAll('[data-product]').forEach(el => {
+      el.addEventListener("click", () => {
+        selectedProduct = el.dataset.product;
+        showStep(1); // 공통문항 다음부터 시작
+      });
+    });
+
+    if (slider && sliderValue) {
+      slider.addEventListener("input", () => {
+        sliderValue.textContent = `${slider.value}만원`;
+      });
+    }
+
+    // 최초 로드 시
+    showStep(0);
+  </script>
+</body>
+</html>

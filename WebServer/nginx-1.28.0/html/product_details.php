@@ -1,3 +1,53 @@
+<?php 
+    session_start();
+    $isLoggedIn = isset($_SESSION['member_id']);
+?>
+<?php
+require_once 'DBconnect/mongo_connect.php';
+
+use MongoDB\BSON\ObjectId;
+
+// 1. GET 파라미터 검증
+$category = $_GET['category'] ?? '';
+$id = $_GET['id'] ?? '';
+
+if (!$category || !$id) {
+    die("❌ 잘못된 요청입니다.");
+}
+
+try {
+
+    // 3. MongoDB에서 해당 문서 조회
+    if (is_numeric($id)) {
+        // 만약 TV 컬렉션이라면 문자열 "1"일 수 있으므로 그대로 사용
+        // 또는 컬렉션명 기준으로 처리 분기 가능
+        $filter = ['_id' => ($category === 'products_TV') || ($category === 'products_laptop') ? $id : (int)$id];
+        
+    } else {
+        $filter = ['_id' => $id];
+    }
+    $options = ['projection' => ['name' => 1, 'price' => 1, 'category' => 1, 'description' => 1, 'spec' => 1]];
+    $query = new MongoDB\Driver\Query($filter, $options);
+    $cursor = $mongoManager->executeQuery("$mongoDBName.$category", $query);
+
+    $product = current($cursor->toArray());
+
+    if (!$product) {
+        die("❌ 해당 제품을 찾을 수 없습니다.");
+    }
+
+    // 4. 데이터 정리
+    $name = $product->name ?? '이름 없음';
+    $price = number_format($product->price ?? 0) . '원';
+    $description = nl2br(htmlspecialchars($product->description ?? ''));
+    $spec = (array)($product->spec ?? []);
+
+} catch (Exception $e) {
+    die("❌ 오류 발생: " . $e->getMessage());
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -107,6 +157,7 @@
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .logo:hover {
@@ -127,6 +178,7 @@
             font-size: 14px;
             line-height: 1.2;
             text-align: center;
+            text-decoration: none;
         }
 
         /* Search bar with animation */
@@ -1200,36 +1252,43 @@
         </div>
     </div>
 
-    <!-- Header section - Sticky (메인 홈페이지 스타일) -->
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="mainpage.html" class="logo">
+                <a href="mainpage.php" class="logo">
                     <div class="logo">
                         <div class="logo-box">스마<br>트픽</div>
                         <span>스마트픽</span>
                     </div>
                 </a>
+
                 <div class="search-container">
-                    <form id="searchForm" action="search_results.html" method="get">
+                    <form id="searchForm" action="search_results.php" method="get">
                         <input type="text" class="search-bar" name="query" placeholder="찾으시는 상품을 검색해보세요">
                         <button type="submit" class="search-icon">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
                 </div>
+
                 <div class="nav-buttons">
-                    <button class="nav-button" onclick="window.location.href='log-in.html'">
-                        <i class="fas fa-user"></i>
-                        로그인
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='join1.html'">
-                        <i class="fas fa-user-plus"></i>
-                        회원가입
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='cart.html'">
-                        <i class="fas fa-shopping-cart"></i>
-                        장바구니
+                    <?php if (!$isLoggedIn): ?>
+                        <button class="nav-button" onclick="window.location.href='/log-in.php'">
+                            <i class="fas fa-user"></i> 로그인
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/join.php'">
+                            <i class="fas fa-user-plus"></i> 회원가입
+                        </button>
+                    <?php else: ?>
+                        <button class="nav-button" onclick="window.location.href='/api/process_logout.php'">
+                            <i class="fas fa-sign-out-alt"></i> 로그아웃
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/mypage.php'">
+                            <i class="fas fa-user-circle"></i> 마이페이지
+                        </button>
+                    <?php endif; ?>
+                    <button class="nav-button" onclick="window.location.href='/cart.php'">
+                        <i class="fas fa-shopping-cart"></i> 장바구니
                     </button>
                     <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
                         <i class="fas fa-sun"></i>
@@ -1242,13 +1301,13 @@
     <div class="container">
         <!-- Breadcrumb -->
         <div class="breadcrumb">
-            <a href="mainpage.html">홈</a>
+            <a href="mainpage.php">홈</a>
             <span class="breadcrumb-separator">></span>
-            <a href="computer.html">노트북</a>
+            <a href="javascript:history.back()">
+                <?= $product->category ?>
+            </a>
             <span class="breadcrumb-separator">></span>
-            <a href="ultrabook.html">울트라북</a>
-            <span class="breadcrumb-separator">></span>
-            <span>스마트픽 울트라북 X15</span>
+            <span><?= $name ?></span>
         </div>
 
         <!-- Main Content -->
@@ -1258,38 +1317,27 @@
                 <!-- Product Gallery -->
                 <div class="product-gallery">
                     <div class="main-image" id="mainImage">
-                        <img src="/api/placeholder/700/500" alt="Product" id="currentImage">
+                        <?php
+                            $categoryDirMap = [
+                                'products_PC' => 'computer',
+                                'products_laptop' => 'laptop',
+                                'products_TV' => 'tv',
+                                'products_WashingMachine' => 'washer'
+                            ];
+                            
+                        ?>
+                        <img src="/static/img/<?= $categoryDirMap[$category] ?>/<?= $id ?>.png" alt="Product" id="currentImage">
                         <div class="zoom-lens" id="zoomLens"></div>
                         <div class="zoom-result" id="zoomResult"></div>
-                    </div>
-
-                    <div class="image-thumbnails">
-                        <div class="thumbnail active" data-img="/api/placeholder/700/500">
-                            <img src="/api/placeholder/80/80" alt="Thumbnail 1">
-                        </div>
-                        <div class="thumbnail" data-img="/api/placeholder/700/500?text=Image+2">
-                            <img src="/api/placeholder/80/80?text=2" alt="Thumbnail 2">
-                        </div>
-                        <div class="thumbnail" data-img="/api/placeholder/700/500?text=Image+3">
-                            <img src="/api/placeholder/80/80?text=3" alt="Thumbnail 3">
-                        </div>
-                        <div class="thumbnail" data-img="/api/placeholder/700/500?text=Image+4">
-                            <img src="/api/placeholder/80/80?text=4" alt="Thumbnail 4">
-                        </div>
-                        <div class="thumbnail" data-img="/api/placeholder/700/500?text=Image+5">
-                            <img src="/api/placeholder/80/80?text=5" alt="Thumbnail 5">
-                        </div>
                     </div>
                 </div>
 
                 <!-- Product Info -->
                 <div class="product-info">
-                    <h1 class="product-title">스마트픽 울트라북 X15 노트북 (인텔 코어 i7, 16GB, 512GB)</h1>
+                    <h1 class="product-title"><?= htmlspecialchars($name) ?></h1>
 
                     <div class="product-price">
-                        1,290,000원
-                        <span class="original-price">1,490,000원</span>
-                        <span class="discount-rate">13%</span>
+                        <?= $price ?>
                     </div>
 
                     <div class="product-rating">
@@ -1305,19 +1353,6 @@
                     </div>
 
                     <div class="product-options">
-                        <div class="option-label">색상</div>
-                        <select class="option-select" id="colorSelect">
-                            <option value="silver">실버</option>
-                            <option value="space-gray">스페이스 그레이</option>
-                            <option value="white">화이트</option>
-                        </select>
-
-                        <div class="option-label">저장 용량</div>
-                        <select class="option-select" id="storageSelect">
-                            <option value="512">512GB</option>
-                            <option value="1">1TB (+200,000원)</option>
-                            <option value="2">2TB (+400,000원)</option>
-                        </select>
 
                         <div class="option-label">수량</div>
                         <div class="quantity-selector">
@@ -1329,7 +1364,7 @@
 
                     <div class="total-price">
                         <span>총 상품 금액</span>
-                        <span id="totalPrice">1,290,000원</span>
+                        <span id="totalPrice"><?= $price ?></span>
                     </div>
 
                     <div class="product-actions">
@@ -1344,6 +1379,14 @@
                     </div>
                 </div>
             </div>
+            
+            <!--hidden form -->
+            <form action="/api/cart_add.php" method="POST" id="cartForm">
+                <input type="hidden" name="product_id" value="<?= htmlspecialchars($id) ?>">
+                <input type="hidden" name="category" value="<?= htmlspecialchars($category) ?>">
+                <input type="hidden" name="quantity" id="cartQuantity" value="1">
+            </form>
+
 
             <!-- Tabs -->
             <div class="tabs-container">
@@ -1356,63 +1399,20 @@
                 <!-- Tab Content: Details -->
                 <div class="tab-content active" id="details">
                     <div class="product-details">
-                        <h2 class="section-title">제품 상세 정보</h2>
+                        <h2 class="section-title">제품 정보</h2>
 
                         <div class="product-description">
-                            <p>스마트픽 울트라북 X15는 강력한 성능과 세련된 디자인을 갖춘 프리미엄 노트북입니다. 최신 인텔 코어 i7 프로세서와 16GB 메모리를 탑재하여 멀티태스킹과
-                                고사양 작업도 원활하게 수행할 수 있습니다.</p>
-                            <p>15.6인치 풀HD IPS 디스플레이는 생생한 색상과 넓은 시야각을 제공하여 영화 감상이나 사진/영상 편집 작업에 최적화되어 있습니다. 초슬림 베젤 디자인으로
-                                몰입감 있는 화면을 경험해보세요.</p>
-                            <p>1.5kg의 가벼운 무게와 최대 12시간의 배터리 수명으로 외부에서도 걱정 없이 사용할 수 있습니다. 또한 지문 인식 센서와 IR 카메라를 통한 안면 인식
-                                기능이 적용되어 보안까지 강화되었습니다.</p>
+                            <?= $description ?>
                         </div>
 
                         <h3 class="section-title">제품 사양</h3>
                         <table class="spec-table">
-                            <tr>
-                                <th>프로세서</th>
-                                <td>인텔 코어 i7-1165G7 (11세대, 최대 4.7GHz)</td>
-                            </tr>
-                            <tr>
-                                <th>메모리</th>
-                                <td>16GB LPDDR4X (최대 32GB)</td>
-                            </tr>
-                            <tr>
-                                <th>저장 장치</th>
-                                <td>512GB PCIe NVMe SSD (업그레이드 가능)</td>
-                            </tr>
-                            <tr>
-                                <th>그래픽</th>
-                                <td>인텔 Iris Xe 그래픽스</td>
-                            </tr>
-                            <tr>
-                                <th>디스플레이</th>
-                                <td>15.6인치 풀HD IPS 디스플레이 (1920 x 1080), 안티글레어</td>
-                            </tr>
-                            <tr>
-                                <th>배터리</th>
-                                <td>72Wh 리튬 이온 배터리 (최대 12시간)</td>
-                            </tr>
-                            <tr>
-                                <th>무게</th>
-                                <td>1.5kg</td>
-                            </tr>
-                            <tr>
-                                <th>크기 (WxDxH)</th>
-                                <td>356.8 x 233.7 x 16.9 mm</td>
-                            </tr>
-                            <tr>
-                                <th>포트</th>
-                                <td>Thunderbolt 4 (2개), USB 3.2 Type-A (2개), HDMI, 오디오 잭</td>
-                            </tr>
-                            <tr>
-                                <th>무선 연결</th>
-                                <td>Wi-Fi 6 (802.11ax), Bluetooth 5.1</td>
-                            </tr>
-                            <tr>
-                                <th>운영체제</th>
-                                <td>Windows 11 Home</td>
-                            </tr>
+                            <?php foreach ($spec as $label => $value): ?>
+                                <tr>
+                                    <th><?= htmlspecialchars($label) ?></th>
+                                    <td><?= htmlspecialchars($value) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </table>
                     </div>
                 </div>
@@ -1696,186 +1696,7 @@
             // 테마 관련 초기화
             initTheme();
 
-            // 스크롤 이벤트 리스너
-            window.addEventListener('scroll', handleScroll);
-
-            // URL에서 상품 ID 가져오기
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('id');
-
-            if (productId) {
-                // 상품 정보 로드 - 실제 구현에서는 서버에서 데이터 가져오기
-                loadProductDetails(productId);
-            }
-
-            // Thumbnail switching
-            document.querySelectorAll('.thumbnail').forEach(thumbnail => {
-                thumbnail.addEventListener('click', function () {
-                    // Remove active class from all thumbnails
-                    document.querySelectorAll('.thumbnail').forEach(thumb => {
-                        thumb.classList.remove('active');
-                    });
-
-                    // Add active class to clicked thumbnail
-                    this.classList.add('active');
-
-                    // Update main image
-                    const imgSrc = this.getAttribute('data-img');
-                    document.getElementById('currentImage').src = imgSrc;
-                });
-            });
-
-            // Tab switching
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', function () {
-                    const tabId = this.getAttribute('data-tab');
-
-                    // Remove active class from all buttons and contents
-                    document.querySelectorAll('.tab-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    document.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-
-                    // Add active class to current button and content
-                    this.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            // Q&A accordion
-            document.querySelectorAll('.qa-question').forEach(question => {
-                question.addEventListener('click', function () {
-                    const answer = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-
-                    if (answer.classList.contains('active')) {
-                        answer.classList.remove('active');
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    } else {
-                        answer.classList.add('active');
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    }
-                });
-            });
-
-            // Quantity selector
-            document.getElementById('decreaseQuantity').addEventListener('click', function () {
-                const input = document.getElementById('quantityInput');
-                const value = parseInt(input.value);
-                if (value > 1) {
-                    input.value = value - 1;
-                    updateTotalPrice();
-                }
-            });
-
-            document.getElementById('increaseQuantity').addEventListener('click', function () {
-                const input = document.getElementById('quantityInput');
-                const value = parseInt(input.value);
-                input.value = value + 1;
-                updateTotalPrice();
-            });
-
-            document.getElementById('quantityInput').addEventListener('change', function () {
-                const value = parseInt(this.value);
-                if (isNaN(value) || value < 1) {
-                    this.value = 1;
-                }
-                updateTotalPrice();
-            });
-
-            document.getElementById('storageSelect').addEventListener('change', function () {
-                updateTotalPrice();
-            });
-
-            // Add to cart buttons
-            document.getElementById('addToCartButton').addEventListener('click', function () {
-                showToast('장바구니에 추가되었습니다.');
-            });
-
-            document.getElementById('stickyCartButton').addEventListener('click', function () {
-                showToast('장바구니에 추가되었습니다.');
-            });
-
-            // Review images modal
-            document.querySelectorAll('.review-image, .main-image img').forEach(image => {
-                image.addEventListener('click', function () {
-                    const modal = document.getElementById('imageModal');
-                    const modalImage = document.getElementById('modalImage');
-                    const imgSrc = this.getAttribute('data-img') || this.src;
-
-                    modalImage.src = imgSrc;
-                    modal.classList.add('show');
-                });
-            });
-
-            document.getElementById('modalClose').addEventListener('click', function () {
-                document.getElementById('imageModal').classList.remove('show');
-            });
-            document.getElementById('buyNowButton').addEventListener('click', function () {
-                window.location.href = 'cart.html';
-            });
-
-            document.getElementById('stickyBuyButton').addEventListener('click', function () {
-                window.location.href = 'cart.html';
-            });
-
-            // Image zoom
-            const mainImage = document.getElementById('mainImage');
-            const currentImage = document.getElementById('currentImage');
-            const zoomLens = document.getElementById('zoomLens');
-            const zoomResult = document.getElementById('zoomResult');
-
-            mainImage.addEventListener('mouseenter', function () {
-                zoomLens.style.display = 'block';
-                zoomResult.style.display = 'block';
-            });
-
-            mainImage.addEventListener('mouseleave', function () {
-                zoomLens.style.display = 'none';
-                zoomResult.style.display = 'none';
-            });
-
-            mainImage.addEventListener('mousemove', function (e) {
-                const rect = mainImage.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                // Calculate lens position
-                const lensWidth = zoomLens.offsetWidth;
-                const lensHeight = zoomLens.offsetHeight;
-
-                let lensX = x - lensWidth / 2;
-                let lensY = y - lensHeight / 2;
-
-                // Restrict lens position
-                lensX = Math.max(0, Math.min(lensX, mainImage.offsetWidth - lensWidth));
-                lensY = Math.max(0, Math.min(lensY, mainImage.offsetHeight - lensHeight));
-
-                // Position lens
-                zoomLens.style.left = lensX + 'px';
-                zoomLens.style.top = lensY + 'px';
-
-                // Calculate background position for result
-                const ratio = 3; // Zoom ratio
-                const resultX = -lensX * ratio;
-                const resultY = -lensY * ratio;
-
-                // Update result
-                zoomResult.style.backgroundImage = `url(${currentImage.src})`;
-                zoomResult.style.backgroundSize = `${mainImage.offsetWidth * ratio}px ${mainImage.offsetHeight * ratio}px`;
-                zoomResult.style.backgroundPosition = `${resultX}px ${resultY}px`;
-            });
-            const searchBar = document.querySelector('.search-bar');
-            if (searchBar) {
-                searchBar.style.cursor = 'pointer';  // 클릭 가능 커서 표시
-                searchBar.addEventListener('click', () => {
-                    window.location.href = 'search_results.html';
-                });
-            }
+           
         });
 
         // 테마 초기화 및 설정
@@ -1910,62 +1731,15 @@
             });
         }
 
-        // 스크롤 이벤트 처리
-        function handleScroll() {
-            const header = document.getElementById('header');
-            const productSection = document.querySelector('.product-section');
-            const stickyBuy = document.getElementById('stickyBuy');
+        // 장바구니 추가
+        document.getElementById('addToCartButton').addEventListener('click', function () {
+            const quantity = document.getElementById('quantityInput').value;
+            document.getElementById('cartQuantity').value = quantity;
+            document.getElementById('cartForm').submit();
+        });
 
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
 
-            if (productSection && stickyBuy) {
-                if (window.scrollY > (productSection.offsetTop + productSection.offsetHeight)) {
-                    stickyBuy.classList.add('show');
-                } else {
-                    stickyBuy.classList.remove('show');
-                }
-            }
-        }
-
-        // Toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-
-            setTimeout(function () {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // Update total price
-        function updateTotalPrice() {
-            const basePrice = 1290000;
-            const quantity = parseInt(document.getElementById('quantityInput').value);
-            const storage = document.getElementById('storageSelect').value;
-
-            let additionalPrice = 0;
-            if (storage === '1') {
-                additionalPrice = 200000;
-            } else if (storage === '2') {
-                additionalPrice = 400000;
-            }
-
-            const total = (basePrice + additionalPrice) * quantity;
-            document.getElementById('totalPrice').textContent = total.toLocaleString() + '원';
-        }
-
-        // Load product details
-        function loadProductDetails(productId) {
-            // 여기서 상품 ID에 해당하는 정보를 가져와 페이지에 표시하는 로직 구현
-            console.log(`상품 ID ${productId}의 상세 정보를 로드합니다.`);
-            // ... 데이터 로드 및 페이지 업데이트 로직
-        }
+       
     </script>
 </body>
 

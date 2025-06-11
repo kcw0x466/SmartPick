@@ -1,0 +1,2402 @@
+[
+  {
+    "_id": "1",
+    "name": "LG전자 스탠바이미2",
+    "brand": "LG전자",
+    "description": "배터리 내장 이동식 27인치 터치스크린 스마트 TV로, 회전 가능한 스탠드로 집안 어디서나 자유롭게 사용 가능합니다.",
+    "price": "1127620",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "27 inch",
+      "resolution": "QHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "Dolby Vision,HDR10,HLG",
+      "hdmi_ports": 1
+    },
+    "vector": [
+      1127620,
+      27,
+      1440,
+      60,
+      1
+    ]
+  },
+  {
+    "_id": "2",
+    "name": "삼성전자 QLED",
+    "brand": "삼성전자",
+    "description": "압도적인 85인치 대화면과 생생한 색감의 QLED 패널로 몰입감 있는 시청 경험을 선사합니다. 120Hz 주사율과 4K 해상도로 선명한 화질을 제공합니다.",
+    "price": "2152220",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2152220,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "3",
+    "name": "삼성전자 SMART M7 S43DM703 이동형 패키지",
+    "brand": "삼성전자",
+    "description": "이동이 가능한 43인치 4K 디스플레이로, 120Hz 주사율이 적용되어 스포츠 경기의 빠른 움직임도 선명하게 표현합니다. 컴팩트한 크기로 다양한 공간에서 활용 가능합니다.",
+    "price": "623140",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      623140,
+      43,
+      2160,
+      120,
+      2
+    ]
+  },
+  {
+    "_id": "4",
+    "name": "LG전자 올레드 OLED65B4MNA",
+    "brand": "LG전자",
+    "description": "완벽한 블랙과 생생한 색감을 구현하는 65인치 OLED 패널로 영화관 같은 몰입감을 제공합니다. Dolby Vision HDR과 4개의 HDMI 포트로 다양한 미디어 기기 연결이 가능합니다.",
+    "price": "1650570",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "Dolby Vision",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1650570,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "5",
+    "name": "LG전자 울트라HD 75UT8300NNA",
+    "brand": "LG전자",
+    "description": "75인치 대화면으로 압도적인 시청 경험을 제공하는 울트라HD TV입니다. 선명한 4K 해상도와 HDR10 지원으로 풍부한 색감과 디테일을 즐길 수 있습니다.",
+    "price": "1072620",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      1072620,
+      75,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "6",
+    "name": "삼성전자 네오QLED KQ75QND88AFXKR",
+    "brand": "삼성전자",
+    "description": "네오 퀀텀 프로세서와 미니 LED 백라이트를 탑재한 프리미엄 75인치 TV로, 정밀한 명암 제어와 선명한 화질을 제공합니다. 120Hz 주사율과 HDR10+로 역동적인 콘텐츠도 생생하게 표현합니다.",
+    "price": "2231690",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2231690,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "7",
+    "name": "삼성전자 네오QLED KQ43QND90AFXKR",
+    "brand": "삼성전자",
+    "description": "컴팩트한 43인치 크기에 네오 QLED 기술을 적용한 프리미엄 TV로, 선명한 화질과 빠른 120Hz 주사율, 낮은 입력 지연으로 게임에 최적화되어 있습니다. 4개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "717390",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      717390,
+      43,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "8",
+    "name": "LG전자 QNED 65QNED65TBA",
+    "brand": "LG전자",
+    "description": "퀀텀닷과 나노셀 기술이 결합된 65인치 QNED TV로, 더 넓은 색 영역과 선명한 화질을 제공합니다. 4K 해상도와 다양한 스마트 기능으로 일상적인 시청에 최적화되어 있습니다.",
+    "price": "1113040",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDMI2.0,CEC",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      1113040,
+      65,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "9",
+    "name": "LG전자 울트라HD 65UR342C9NC",
+    "brand": "LG전자",
+    "description": "선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공하는 65인치 울트라HD TV입니다. 3개의 HDMI 포트와 다양한 스마트 기능으로 편리한 시청 경험을 선사합니다.",
+    "price": "750320",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      750320,
+      65,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "10",
+    "name": "LG전자 올레드 evo OLED65G4KNA",
+    "brand": "LG전자",
+    "description": "LG의 차세대 OLED evo 패널이 탑재된 프리미엄 TV로, 향상된 밝기와 완벽한 블랙 표현으로 영화관 같은 화질을 경험할 수 있습니다. 120Hz 주사율과 4개의 HDMI 포트로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "2832510",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG ",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2832510,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "11",
+    "name": "LG전자 울트라HD 86UT8300ENA",
+    "brand": "LG전자",
+    "description": "압도적인 86인치 대화면으로 몰입감 있는 시청 경험을 제공하는 울트라HD TV입니다. 4K 해상도와 HDR 지원으로 선명하고 생생한 화질을 구현합니다.",
+    "price": "1626220",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1626220,
+      86,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "12",
+    "name": "LG전자 울트라HD 43UR340C9ND",
+    "brand": "LG전자",
+    "description": "43인치 4K 울트라HD TV로 선명한 화질과 HDR 지원으로 생생한 색감을 즐길 수 있습니다. 다양한 게임 관련 기능(ALLM, HGIG)을 지원하며 3개의 HDMI 포트로 편리하게 사용 가능합니다.",
+    "price": "455570",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      455570,
+      43,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "13",
+    "name": "LG전자 올레드 OLED48B4NNA",
+    "brand": "LG전자",
+    "description": "48인치 올레드 TV로 완벽한 블랙과 생생한 색감을 구현합니다. 120Hz 주사율과 돌비 비전 지원으로 영화와 드라마를 극장급 화질로 감상할 수 있습니다.",
+    "price": "909990",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "48 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "DoIby Vision,HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      909990,
+      48,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "14",
+    "name": "삼성전자 QLED KQ55QD60AFXKR",
+    "brand": "삼성전자",
+    "description": "55인치 QLED TV로 선명한 색감과 명암비를 제공합니다. HDR10+ 지원과 깊은 블랙 표현으로 영화나 드라마를 생생하게 감상할 수 있습니다.",
+    "price": "826330",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      826330,
+      55,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "15",
+    "name": "LG전자 QNED 75QNED85TKA",
+    "brand": "LG전자",
+    "description": "75인치 대화면 QNED TV로 미니 LED 백라이트와 퀀텀닷 기술을 결합하여 선명한 색감과 깊은 명암비를 제공합니다. 120Hz 주사율과 4개의 HDMI 포트로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "2235240",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2235240,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "16",
+    "name": "이스트라 120Hz AI 맥스 109cm (43인치) QLED 구글 5.0 스마트TV",
+    "brand": "구글",
+    "description": "43인치 QLED TV로 120Hz 주사율과 돌비 비전 지원으로 게이밍에 최적화되어 있습니다. 구글 스마트 TV 5.0 운영체제와 4개의 HDMI 포트로 다양한 게임 기기를 연결할 수 있습니다.",
+    "price": "358990",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      358990,
+      43,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "17",
+    "name": "LG전자 스탠바이미 27ART10DSPL",
+    "brand": "LG전자",
+    "description": "27인치 이동식 스마트 디스플레이로, 배터리를 내장하여 집안 어디서나 사용할 수 있습니다. 돌비비전 지원으로 생생한 화질을 제공하며, 터치스크린과 회전 기능으로 다양한 용도로 활용 가능합니다.",
+    "price": "732400",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "27 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "돌비비전",
+      "hdmi_ports": 1
+    },
+    "vector": [
+      732400,
+      27,
+      1080,
+      60,
+      1
+    ]
+  },
+  {
+    "_id": "18",
+    "name": "삼성전자 QLED KQ65QD60AFXKR",
+    "brand": "삼성전자",
+    "description": "65인치 QLED TV로 HDR10+와 다양한 게임 기능을 지원합니다. 퀀텀닷 기술로 선명한 색감과 풍부한 명암비를 구현하여 영화나 드라마를 생생하게 감상할 수 있습니다.",
+    "price": "1030880",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1030880,
+      65,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "19",
+    "name": "삼성전자 SMART M7 S32DM703 이동형 패키지",
+    "brand": "삼성전자",
+    "description": "32인치 이동형 스마트 모니터로, TV와 모니터 기능을 겸비하였습니다. 4K 해상도와 HDR10 지원으로 선명한 화질을 제공하며 스마트 기능으로 별도의 PC 없이도 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "502430",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "32 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      502430,
+      32,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "20",
+    "name": "LG전자 QNED evo 75QNED91TKA",
+    "brand": "LG전자",
+    "description": "75인치 QNED evo TV로 향상된 미니 LED 기술과 퀀텀닷-나노셀 결합으로 압도적인 화질을 제공합니다. 120Hz 주사율과 돌비 비전 지원으로 스포츠 경기도 선명하게 시청할 수 있습니다.",
+    "price": "3082930",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      3082930,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "21",
+    "name": "LG전자 QNED evo 86QNED91TKA",
+    "brand": "LG전자",
+    "description": "86인치 대화면 QNED evo TV로 압도적인 몰입감을 제공합니다. 120Hz 주사율과 미니 LED 백라이트로 선명한 화질과 깊은 명암비를 구현하며, 4개의 HDMI 포트로 다양한 기기 연결이 가능합니다.",
+    "price": "4286860",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      4286860,
+      86,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "22",
+    "name": "LG전자 올레드 evo OLED77C4FNA",
+    "brand": "LG전자",
+    "description": "77인치 올레드 evo TV로 더욱 밝아진 화면과 완벽한 블랙을 경험할 수 있습니다. 120Hz 주사율과 4K UHD 해상도로 영화, 드라마, 스포츠 등 다양한 콘텐츠를 생생하게 즐길 수 있습니다.",
+    "price": "3799700",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "77 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLF",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      3799700,
+      77,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "23",
+    "name": "LG전자 스탠바이미 Go 27LX5QKNA",
+    "brand": "LG전자",
+    "description": "27인치 이동식 스마트 디스플레이의 업그레이드 버전으로, 스탠바이미 대비 휴대성이 향상되었습니다. 배터리 내장으로 무선 사용이 가능하며 HDR10 지원으로 선명한 화질을 제공합니다.",
+    "price": "746030",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "27 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,HGIG",
+      "hdmi_ports": 1
+    },
+    "vector": [
+      746030,
+      27,
+      1080,
+      60,
+      1
+    ]
+  },
+  {
+    "_id": "24",
+    "name": "삼성전자 QLED KQ75QD67AFXKR",
+    "brand": "삼성전자",
+    "description": "75인치 대화면 QLED TV로 퀀텀닷 기술을 통한 생생한 색감을 즐길 수 있습니다. HDR10+와 다양한 게임 기능(ALLM, HGIG)을 지원하며 넓은 시청 각도를 제공합니다.",
+    "price": "1561350",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1561350,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "25",
+    "name": "LG전자 올레드 evo OLED83C4QNA",
+    "brand": "LG전자",
+    "description": "83인치 초대형 올레드 evo TV로 압도적인 몰입감을 선사합니다. 120Hz 주사율과 4K UHD 해상도, 완벽한 블랙 표현으로 극장급 영화 감상 경험을 집에서 즐길 수 있습니다.",
+    "price": "5751480",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "83 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      5751480,
+      83,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "26",
+    "name": "이스트라 120Hz AI 맥스 127cm (50인치) QLED 구글 5.0 스마트TV",
+    "brand": "구글",
+    "description": "50인치 QLED TV로 120Hz 주사율과 돌비 비전을 지원하여 게임과 스포츠에 최적화되어 있습니다. 구글 5.0 스마트 TV 운영체제와 4개의 HDMI 포트로 다양한 게임 기기를 연결할 수 있습니다.",
+    "price": "434000",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      434000,
+      50,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "27",
+    "name": "삼성전자 Crystal UHD KU98UD9000FXKR",
+    "brand": "삼성전자",
+    "description": "98인치 초대형 Crystal UHD TV로 압도적인 화면 크기와 몰입감을 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 스포츠 경기나 영화를 생생하게 즐길 수 있습니다.",
+    "price": "3942810",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "98 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      3942810,
+      98,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "28",
+    "name": "LG전자 QNED 86QNED85TKA",
+    "brand": "LG전자",
+    "description": "86인치 대화면 QNED TV로 미니 LED 백라이트와 퀀텀닷-나노셀 결합으로 선명한 화질을 제공합니다. 120Hz 주사율과 4개의 HDMI 포트로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "3184300",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      3184300,
+      86,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "29",
+    "name": "삼성전자 네오QLED KQ85QND90AFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 네오 QLED TV로 미니 LED 백라이트와 퀀텀 매트릭스 기술로 정밀한 밝기 제어와 선명한 화질을 제공합니다. 120Hz 주사율과 다양한 스마트 기능으로 프리미엄 시청 경험을 선사합니다.",
+    "price": "4350000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      4350000,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "30",
+    "name": "LG전자 울트라HD 50UT8300ENA",
+    "brand": "LG전자",
+    "description": "50인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 구현합니다. 게임 관련 기능(ALLM, HGIG)을 지원하며 가족 시청에 적합한 사이즈와 성능을 갖추고 있습니다.",
+    "price": "638920",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      638920,
+      50,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "31",
+    "name": "LG전자 올레드 OLED55B4KNA",
+    "brand": "LG전자",
+    "description": "55인치 올레드 TV로 완벽한 블랙과 생생한 색감을 구현합니다. 120Hz 주사율과 4개의 HDMI 포트로 영화와 게임을 모두 즐길 수 있으며, 슬림한 디자인으로 어떤 공간에도 잘 어울립니다.",
+    "price": "1299900",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1299900,
+      55,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "32",
+    "name": "LG전자 32LQ635BCNA",
+    "brand": "LG전자",
+    "description": "32인치 HD 해상도의 컴팩트한 TV로 침실이나 주방 등 소형 공간에 적합합니다. 게임 최적화 기능(HGIG)을 지원하며 가성비 좋은 2차 TV로 활용하기 좋습니다.",
+    "price": "285000",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "32 inch",
+      "resolution": "HD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      285000,
+      32,
+      720,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "33",
+    "name": "LG전자 올레드 evo OLED42C4ENA",
+    "brand": "LG전자",
+    "description": "42인치 컴팩트한 OLED evo 패널과 120Hz 주사율, VRR 지원으로 게이밍에 최적화된 TV입니다. 선명한 색감과 완벽한 블랙으로 높은 화질을 즐길 수 있습니다.",
+    "price": "1187120",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "42 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG,VRR",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1187120,
+      42,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "34",
+    "name": "삼성전자 UN43N5010AFXKR",
+    "brand": "삼성전자",
+    "description": "43인치 FHD 해상도의 실속형 TV로, 합리적인 가격으로 기본적인 TV 시청을 원하는 분들에게 적합합니다. 2개의 HDMI 포트로 게임기나 셋톱박스 연결이 가능합니다.",
+    "price": "338980",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      338980,
+      43,
+      1080,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "35",
+    "name": "프리즘코리아 CP55G5",
+    "brand": "프리즘코리아",
+    "description": "가성비 높은 55인치 4K TV로, 돌비 비전과 HDR10 지원으로 생생한 화질을 제공합니다. HDMI 2.1 지원과 4개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "418990",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "돌비비전,HDR10,HLG,HDMI2.1",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      418990,
+      55,
+      2160,
+      60,
+      4
+    ]
+  },
+  {
+    "_id": "36",
+    "name": "하이센스 85U7N",
+    "brand": "하이센스",
+    "description": "85인치 대화면 TV로 144Hz 고주사율과 돌비비전 IQ를 지원하여 스포츠 경기 시청에 최적화되어 있습니다. 선명한 화질과 부드러운 움직임 표현으로 역동적인 콘텐츠를 생생하게 즐길 수 있습니다.",
+    "price": "1782950",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "144Hz",
+      "hdr_support": "HDR10+,HLG,돌비비전IQ",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1782950,
+      85,
+      2160,
+      144,
+      4
+    ]
+  },
+  {
+    "_id": "37",
+    "name": "삼성전자 QLED KQ85QD80AFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 대화면 QLED TV로 퀀텀닷 기술로 생생한 색감을 제공합니다. 120Hz 주사율과 VRR, HDMI 2.1 지원으로 게임과 스포츠에 모두 적합하며 넓은 거실에서 압도적인 시청 경험을 선사합니다.",
+    "price": "2849990",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2849990,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "38",
+    "name": "LG전자 울트라HD 50UT8350KNA",
+    "brand": "LG전자",
+    "description": "50인치 4K TV로 HDR10과 게임 최적화 기능(ALLM, HGIG, 게임모드)을 지원합니다. 가족 시청에 적합한 크기와 선명한 화질로 일상적인 TV 시청과 가벼운 게임을 즐길 수 있습니다.",
+    "price": "665910",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG,게임모드",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      665910,
+      50,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "39",
+    "name": "삼성전자 Crystal UHD KU55UD7000FXKR",
+    "brand": "삼성전자",
+    "description": "55인치 Crystal UHD TV로 선명한 4K 화질과 HDR10+를 지원합니다. 게임 최적화 기능(VRR, ALLM, HGIG)을 갖추고 있어 일상 시청과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "694480",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+ / VRR(60Hz) / ALLM / HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      694480,
+      55,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "40",
+    "name": "삼성전자 QLED KQ55QD67AFXKR",
+    "brand": "삼성전자",
+    "description": "55인치 QLED TV로 퀀텀닷 기술을 통해 생생한 색감을 구현합니다. HDR10+와 게임 최적화 기능을 지원하며, 3개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "845990",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+ / HLG / ALLM / HGIG / 휴싱크 / 게임모드 ",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      845990,
+      55,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "41",
+    "name": "이스트라 쿠카 144Hz AI 86 미니LED 퀀텀 사운드 구글TV",
+    "brand": "이스트라",
+    "description": "86인치 초대형 미니 LED TV로 압도적인 몰입감을 제공합니다. 144Hz 고주사율과 HDMI 2.1, VRR 지원으로 게임과 스포츠에 최적화되어 있으며, 돌비 비전과 HDR10+로 생생한 화질을 구현합니다.",
+    "price": "1898990",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전 / HDR10+ / HLG / 플리커프리 / HDMI2.1 / VRR(144Hz) / ALLM",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1898990,
+      86,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "42",
+    "name": "LG전자 올레드 evo OLED42C4KNA",
+    "brand": "LG전자",
+    "description": "42인치 컴팩트한 OLED evo TV로, 게임룸이나 침실에 적합합니다. 120Hz 주사율과 돌비 비전 지원으로 게임과 영화 모두 고품질로 즐길 수 있으며, 4개의 HDMI 포트로 다양한 기기 연결이 가능합니다.",
+    "price": "1187560",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "42 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전 / HDR10 / HLG / 톤매핑 ",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1187560,
+      42,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "43",
+    "name": "삼성전자 올레드 KQ48SD90AEXKR",
+    "brand": "삼성전자",
+    "description": "48인치 올레드 TV로 선명한 명암비와 생생한 색감을 제공합니다. 120Hz 주사율과 다양한 게임 최적화 기능(HDMI 2.1, VRR, HGIG, FreeSync)을 지원하여 게이밍에 최적화되어 있습니다.",
+    "price": "989740",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "48 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDMI2.1,VRR,HGIG,FreeSync",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      989740,
+      48,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "44",
+    "name": "삼성전자 SMART M7 S43DM701 이동형 패키지",
+    "brand": "삼성전자",
+    "description": "43인치 이동형 스마트 모니터로, TV와 모니터 기능을 겸비하여 다양한 용도로 활용 가능합니다. 4K 해상도와 HDR10 지원으로 선명한 화질을 제공하며, 스마트 기능으로 별도의 PC 없이도 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "618990",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      618990,
+      43,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "45",
+    "name": "이스트라 120Hz AI 맥스 165cm (65인치) QLED 구글 5.0 스마트TV",
+    "brand": "이스트라",
+    "description": "65인치 QLED TV로 120Hz 주사율과 돌비 비전, HDR10 지원으로 선명한 화질과 부드러운 움직임을 제공합니다. 4개의 HDMI 포트와 구글 TV 5.0 운영체제로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "719000",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      719000,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "46",
+    "name": "LG전자 QNED 86QNED65TBA",
+    "brand": "LG전자",
+    "description": "86인치 대화면 QNED TV로 압도적인 시청 경험을 제공합니다. 퀀텀닷과 나노셀 기술의 결합으로 선명한 색감을 구현하며, 게임 최적화 기능도 지원합니다.",
+    "price": "2314640",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      2314640,
+      86,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "47",
+    "name": "하이센스 85U7N",
+    "brand": "하이센스스",
+    "description": "85인치 대화면 TV로 144Hz 고주사율 지원으로 스포츠 경기나 액션 영화의 빠른 움직임도 선명하게 표현합니다. 돌비 비전 IQ와 HDR10+로 다양한 환경에서 최적의 화질을 제공합니다.",
+    "price": "2269000",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "144Hz",
+      "hdr_support": "돌비비전IQ,HDR10+,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2269000,
+      85,
+      2160,
+      144,
+      4
+    ]
+  },
+  {
+    "_id": "48",
+    "name": "LG전자 울트라HD 50UT8350KNA",
+    "brand": "LG전자",
+    "description": "50인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 지원하여 일상 시청과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "653780",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      653780,
+      50,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "49",
+    "name": "삼성전자 QLED KQ85QC70AFXKR",
+    "brand": "삼성전자자",
+    "description": "85인치 대화면 QLED TV로 퀀텀닷 기술을 통한 생생한 색감과 선명한 화질을 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 게임이나 스포츠 시청에도 적합합니다.",
+    "price": "2235400",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2235400,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "50",
+    "name": "삼성전자 QLED KQ75QD70AFXKR",
+    "brand": "삼성전자자",
+    "description": "75인치 대화면 QLED TV로 퀀텀닷 기술을 통한 생생한 색감을 구현합니다. 120Hz 주사율과 HDMI 2.1 지원으로 영화와 게임을 모두 고품질로 즐길 수 있습니다.",
+    "price": "1714977",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1714977,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "51",
+    "name": "LG전자 울트라HD 55UR642S0NC",
+    "brand": "LG전자",
+    "description": "55인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 갖추고 있어 일상 시청과 가벼운 게임에 모두 적합합니다.",
+    "price": "669210",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      669210,
+      55,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "52",
+    "name": "삼성전자 네오QLED KQ65QND88AFXKR",
+    "brand": "삼성전자자",
+    "description": "65인치 네오 QLED TV로 미니 LED 백라이트와 퀀텀 매트릭스 기술로 정밀한 밝기 제어와 뛰어난 명암비를 제공합니다. 120Hz 주사율과 HDMI 2.1 지원으로 영화와 게임을 고품질로 즐길 수 있습니다.",
+    "price": "2015950",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HDMI2.1",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2015950,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "53",
+    "name": "삼성전자 올레드 KQ55SD90AFXKR",
+    "brand": "삼성전자자",
+    "description": "55인치 올레드 TV로 완벽한 블랙과 생생한 색감을 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 게임과 스포츠에 최적화되어 있으며, 슬림한 디자인으로 어떤 공간에도 잘 어울립니다.",
+    "price": "1377430",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1377430,
+      55,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "54",
+    "name": "이스트라 40 스마트 AN400FHD 구글 TV",
+    "brand": "이스트라라",
+    "description": "40인치 FHD 해상도의 실속형 스마트 TV로, 구글 TV 운영체제를 탑재해 다양한 스트리밍 서비스를 이용할 수 있습니다. 컴팩트한 크기로 소형 공간에 적합하며 합리적인 가격이 장점입니다.",
+    "price": "239000",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "40 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      239000,
+      40,
+      1080,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "55",
+    "name": "삼성전자 SMART M7 S43DM701 이동형 패키지",
+    "brand": "삼성전자자",
+    "description": "43인치 이동형 스마트 모니터로, TV와 모니터 기능을 겸비하여 다양한 용도로 활용 가능합니다. 4K 해상도와 HDR10 지원으로 선명한 화질을 제공하며 게임 모드도 탑재하고 있습니다.",
+    "price": "618990",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,게임모드",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      618990,
+      43,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "56",
+    "name": "이스트라 120Hz AI 맥스 165cm (65인치) QLED 구글 5.0 스마트TV",
+    "brand": "이스트라",
+    "description": "65인치 QLED TV로 120Hz 주사율과 HDR10+ 지원으로 선명한 화질과 부드러운 움직임을 제공합니다. 4개의 HDMI 포트와 구글 TV 5.0 운영체제로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "719000",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      719000,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "57",
+    "name": "이스트라 쿠카 144Hz AI 75 미니LED 퀀텀 사운드 구글TV",
+    "brand": "이스트라라",
+    "description": "75인치 미니 LED TV로 144Hz 주사율과 돌비 비전, HDR10+ 지원으로 스포츠 경기와 영화에 최적화되어 있습니다. 퀀텀 사운드 기능으로 풍부한 오디오 경험도 제공합니다.",
+    "price": "1289000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,돌비비전",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1289000,
+      75,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "58",
+    "name": "삼성전자 네오QLED KQ85QND90AFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 네오 QLED TV로 미니 LED 백라이트와 퀀텀 매트릭스 기술로 선명한 화질과 깊은 명암비를 구현합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 스포츠와 게임에도 최적화되어 있습니다.",
+    "price": "4350000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      4350000,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "59",
+    "name": "LG전자 울트라HD 75UR642S0NC",
+    "brand": "LG전자",
+    "description": "75인치 대화면 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능을 지원하며 넓은 시야각으로 가족 모두가 좋은 화질로 즐길 수 있습니다.",
+    "price": "957290",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      957290,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "60",
+    "name": "프리즘코리아 CP43G5",
+    "brand": "프리즘코리아",
+    "description": "가성비 좋은 43인치 4K TV로, 120Hz 주사율과 HDMI 2.1 지원으로 게임이나 스포츠 감상에 적합합니다. 4개의 HDMI 포트로 다양한 기기를 연결할 수 있어 멀티미디어 활용도가 높습니다.",
+    "price": "288990",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10,HLG,HDMI2.1",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      288990,
+      43,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "61",
+    "name": "LG전자 QNED 75QNED65TBA",
+    "brand": "LG전자자",
+    "description": "75인치 QNED TV로 퀀텀닷과 나노셀 기술의 결합으로 선명한 색감과 뛰어난 화질을 제공합니다. 게임 최적화 기능을 지원하며 대화면으로 넓은 거실에 적합합니다.",
+    "price": "1705510",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QNED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1705510,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "62",
+    "name": "LG전자 올레드 evo OLED42C4KNA",
+    "brand": "LG전자자",
+    "description": "42인치 컴팩트한 OLED evo TV로 완벽한 블랙과 생생한 색감을 제공합니다. 120Hz 주사율과 돌비 비전 지원으로 게임과 영화 모두에 최적화되어 있으며, 4개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "1187550",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "42 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG,톤매핑",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1187550,
+      42,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "63",
+    "name": "TCL 85C755",
+    "brand": "TCL",
+    "description": "85인치 대화면 TV로 돌비 비전 IQ와 HDR10+ 지원으로 다양한 환경에서 최적의 화질을 제공합니다. 120Hz 주사율과 4개의 HDMI 포트로 영화와 게임을 모두 즐길 수 있습니다.",
+    "price": "2249980",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전IQ,HDR10+,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2249980,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "64",
+    "name": "익스프레스럭코리아 에어리브 D400FHD",
+    "brand": "익스프레스럭코리아",
+    "description": "경제적인 40인치 FHD TV로, 기본적인 TV 시청에 최적화되어 있습니다. CEC 기능으로 다른 기기와의 연동이 가능하며, 주방이나 침실 등 소형 공간에 적합합니다.",
+    "price": "134000",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "40 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "CEC",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      134000,
+      40,
+      1080,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "65",
+    "name": "더함 리얼 화이트 스마트 32 QLED 돌비 AI 구글 3.0 홈시네마",
+    "brand": "더함함",
+    "description": "32인치 컴팩트한 QLED TV로, 선명한 색감과 HDR 지원으로 작은 공간에서도 뛰어난 화질을 제공합니다. 구글 TV 3.0 운영체제와 돌비 오디오 지원으로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "244710",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "32 inch",
+      "resolution": "FHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      244710,
+      32,
+      1080,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "66",
+    "name": "삼성전자 네오QLED KQ75QND87AFXKR",
+    "brand": "삼성전자",
+    "description": "75인치 네오 QLED TV로 미니 LED 백라이트와 퀀텀 프로세서로 선명한 화질과 깊은 명암비를 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 스포츠 경기와 게임에 모두 적합합니다.",
+    "price": "2172880",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2172880,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "67",
+    "name": "삼성전자 QLED KQ55QD67AFXKR",
+    "brand": "삼성전자",
+    "description": "55인치 QLED TV로 퀀텀닷 기술로 생생한 색감을 구현합니다. HDR10+와 게임 최적화 기능(ALLM, HGIG)을 지원하여 영화 감상과 가벼운 게임에 모두 적합합니다.",
+    "price": "843910",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      843910,
+      55,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "68",
+    "name": "삼성전자 Crystal UHD KU75UD7000FXKR",
+    "brand": "삼성전자",
+    "description": "75인치 Crystal UHD TV로 선명한 4K 해상도와 HDR10+ 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능과 60Hz 주사율로 일상 시청과 캐주얼 게이밍에 적합합니다.",
+    "price": "1208130",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,VRR,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1208130,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "69",
+    "name": "삼성전자 올레드 KQ48SD90AEXKR",
+    "brand": "삼성전자",
+    "description": "48인치 올레드 TV로 선명한 명암비와 생생한 색감을 제공합니다. 120Hz 주사율과 다양한 게임 최적화 기능(VRR, HDMI 2.1)을 지원해 게이밍에 최적화되어 있으며, 4개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "989560",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "48 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      989560,
+      48,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "70",
+    "name": "삼성전자 QLED KQ65QD67AFXKR",
+    "brand": "삼성전자",
+    "description": "65인치 QLED TV로 퀀텀닷 기술을 통해 생생한 색감과 선명한 화질을 제공합니다. HDR10+와 게임 최적화 기능(ALLM, HGIG)을 지원하여 영화 감상과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "1103710",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1103710,
+      65,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "71",
+    "name": "LG전자 울트라HD 55UR342C9NC",
+    "brand": "LG전자",
+    "description": "55인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 일상적인 TV 시청과 OTT 서비스 이용에 적합하며, 3개의 HDMI 포트로 다양한 기기 연결이 가능합니다.",
+    "price": "636480",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      636480,
+      55,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "72",
+    "name": "삼성전자 QLED KQ85QD80AFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 대화면 QLED TV로 퀀텀닷 기술을 통한 생생한 색감과 선명한 화질을 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR 지원으로 영화와 스포츠 경기를 더욱 몰입감 있게 즐길 수 있습니다.",
+    "price": "2849990",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      2849990,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "73",
+    "name": "LG전자 룸앤TV 27TQ600SW",
+    "brand": "LG전자",
+    "description": "27인치 컴팩트한 TV로 침실이나 주방 등 작은 공간에 적합합니다. 돌비 비전 지원으로 선명한 화질을 제공하며, 슬림한 디자인으로 어떤 공간에도 잘 어울립니다.",
+    "price": "316820",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "27 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "돌비비전",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      316820,
+      27,
+      1080,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "74",
+    "name": "LG전자 올레드 evo OLED48C4ENA",
+    "brand": "LG전자",
+    "description": "48인치 올레드 evo TV로 향상된 밝기와 완벽한 블랙으로 영화관 같은 시청 경험을 제공합니다. 돌비 비전과 120Hz 주사율 지원으로 영화와 드라마를 생생하게 즐길 수 있습니다.",
+    "price": "1328810",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "48 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1328810,
+      48,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "75",
+    "name": "삼성전자 Crystal UHD KU65UD7000FXKR",
+    "brand": "삼성전자",
+    "description": "65인치 Crystal UHD TV로 선명한 4K 해상도와 HDR10+ 지원으로 생생한 화질을 제공합니다. VRR 지원으로 게임 플레이 시 화면 끊김 현상을 최소화하며, 일상 시청에 적합합니다.",
+    "price": "900200",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,VRR",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      900200,
+      65,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "76",
+    "name": "삼성전자 Crystal UHD KU85UD8070FXKR",
+    "brand": "삼성전자",
+    "description": "85인치 대화면 Crystal UHD TV로 넓은 거실에서 온 가족이 함께 즐길 수 있습니다. 선명한 화질과 넓은 시야각으로 어느 위치에서나 좋은 화질로 시청이 가능합니다.",
+    "price": "1646730",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1646730,
+      85,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "77",
+    "name": "더함 우버 AMG UA431UHD M9GP CINEMA60 2025 WHITE",
+    "brand": "더함",
+    "description": "43인치 4K UHD TV로 선명한 화질과 컴팩트한 디자인이 특징입니다. HDR10과 게임 최적화 기능(ALLM)을 지원하여 일상 시청과 가벼운 게임에 적합합니다.",
+    "price": "309000",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      309000,
+      43,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "78",
+    "name": "LG전자 올레드 evo OLED65G5KNA",
+    "brand": "LG전자",
+    "description": "65인치 올레드 evo TV로 LG의 프리미엄 라인업입니다. 향상된 밝기와 완벽한 블랙으로 영화관 같은 화질을 제공하며, 120Hz 주사율과 4개의 HDMI 포트로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "4433710",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      4433710,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "79",
+    "name": "클라인즈 아텝 KM-32TH",
+    "brand": "클라인즈",
+    "description": "32인치 HD 해상도의 실속형 TV로, 합리적인 가격이 장점입니다. 주방이나 침실 등 작은 공간에 적합하며, ARC와 CEC 기능으로 간편한 연결이 가능합니다.",
+    "price": "86490",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "32 inch",
+      "resolution": "HD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "ARC,CEC",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      86490,
+      32,
+      720,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "80",
+    "name": "LG전자 울트라HD 43UT8300ENA",
+    "brand": "LG전자",
+    "description": "43인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 지원하여 일상 시청과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "609160",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      609160,
+      43,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "81",
+    "name": "이스트라 쿠카 144Hz AI 86 미니LED 퀀텀 사운드 구글TV",
+    "brand": "이스트라",
+    "description": "86인치 초대형 미니 LED TV로 압도적인 몰입감을 제공합니다. 120Hz 주사율과 HDMI 2.1 지원으로 스포츠 경기와 영화를 생생하게 즐길 수 있으며, 퀀텀 사운드로 풍부한 오디오도 경험할 수 있습니다.",
+    "price": "1899000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "86 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1899000,
+      86,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "82",
+    "name": "이스트라 쿠카 144Hz AI 55 미니LED 퀀텀 사운드 구글TV",
+    "brand": "이스트라",
+    "description": "55인치 미니 LED TV로 120Hz 주사율과 HDMI 2.1, VRR 지원으로 게이밍에 최적화되어 있습니다. HDR10+와 퀀텀 사운드 기능으로 게임과 영화를 모두 고품질로 즐길 수 있습니다.",
+    "price": "749000",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      749000,
+      55,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "83",
+    "name": "LG전자 오브제컬렉션 포제 올레드 evo 55LX1TKNA",
+    "brand": "LG전자",
+    "description": "LG 오브제컬렉션의 프리미엄 올레드 TV로, 인테리어와 조화를 이루는 세련된 디자인이 특징입니다. 올레드 evo 패널과 120Hz 주사율, 돌비 비전 지원으로 영화와 콘텐츠를 최상의 화질로 즐길 수 있습니다.",
+    "price": "2045190",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "55 inch",
+      "resolution": "4k UHD",
+      "panel_type": "OLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG,VRR",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      2045190,
+      55,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "84",
+    "name": "삼성전자 네오QLED KQ75QNC700EXKR",
+    "brand": "삼성전자",
+    "description": "75인치 네오 QLED TV로 압도적인 8K 해상도와 미니 LED 백라이트를 통한 뛰어난 명암비를 제공합니다. 120Hz 주사율과 다양한 게임 최적화 기능(FreeSync, ALLM, HGIG)을 지원하여 프리미엄 시청 경험을 선사합니다.",
+    "price": "3054140",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "8k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG,FreeSync",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      3054140,
+      75,
+      4320,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "85",
+    "name": "LG전자 울트라HD 75UT9300BNA",
+    "brand": "LG전자",
+    "description": "75인치 대화면 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG, 게임 모드)을 지원하여 가족 시청과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "1304690",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG,게임모드",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1304690,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "86",
+    "name": "삼성전자 네오QLED KQ85QND83BFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 네오 QLED TV로 미니 LED 백라이트와 퀀텀 매트릭스 프로세서로 선명한 화질과 정밀한 밝기 제어를 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR, FreeSync 지원으로 게임과 스포츠에 최적화되어 있습니다.",
+    "price": "3890000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HDMI2.1,VRR,HGIG,FreeSync",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      3890000,
+      85,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "87",
+    "name": "프리즘코리아 CP75G3MG",
+    "brand": "프리즘 코리아",
+    "description": "75인치 대화면 TV로 120Hz 주사율과 돌비 비전 IQ 지원으로 스포츠 경기 시청에 최적화되어 있습니다. HDMI 2.1과 VRR 지원으로 빠른 움직임도 부드럽게 표현되며, 4개의 HDMI 포트로 다양한 기기를 연결할 수 있습니다.",
+    "price": "1519040",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전IQ,HDR10,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1519040,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "88",
+    "name": "이스트라 120Hz AI 맥스 191cm (75인치) QLED 구글 5.0 스마트TV",
+    "brand": "이스트라",
+    "description": "75인치 QLED TV로 120Hz 주사율과 돌비 비전, HDMI 2.1, VRR 지원으로 스포츠 경기와 게임에 최적화되어 있습니다. 구글 TV 5.0 운영체제와 4개의 HDMI 포트로 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "959000",
+    "category": "스포츠 감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HFR10,HLG,HDMI2.1,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      959000,
+      75,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "89",
+    "name": "TCL 65V6B",
+    "brand": "TCL",
+    "description": "65인치 4K UHD TV로 선명한 화질과 HDMI 2.1 지원으로 다양한 콘텐츠를 즐길 수 있습니다. HDR10과 HLG 지원으로 생생한 색감을 구현하며, 합리적인 가격이 장점입니다.",
+    "price": "536640",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,HDMI2.1",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      536640,
+      65,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "90",
+    "name": "삼성전자 Crystal UHD KU98UD9000FXKR",
+    "brand": "삼성전자",
+    "description": "98인치 초대형 Crystal UHD TV로 압도적인 몰입감을 제공합니다. 120Hz 주사율과 HDMI 2.1, VRR, ALLM 지원으로 스포츠와 영화를 생생하게 즐길 수 있습니다.",
+    "price": "3942670",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "98 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,VRR,ALLM",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      3942670,
+      98,
+      2160,
+      120,
+      3
+    ]
+  },
+  {
+    "_id": "91",
+    "name": "LG전자 울트라HD 75UR342C9NC",
+    "brand": "LG전자",
+    "description": "75인치 대화면 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 넓은 시야각과 3개의 HDMI 포트로 가족 모두가 편리하게 사용할 수 있습니다.",
+    "price": "976620",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      976620,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "92",
+    "name": "더함 우버 AMG 스마트 50 QLED 120HZ 돌비 AI 구글 5.0",
+    "brand": "더함",
+    "description": "50인치 QLED TV로 120Hz 주사율과 돌비 비전, VRR 지원으로 게이밍에 최적화되어 있습니다. 구글 TV 5.0 운영체제와 4개의 HDMI 포트로 다양한 게임 기기를 연결할 수 있습니다.",
+    "price": "398990",
+    "category": "게임용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전,HDR10,HLG,VRR",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      398990,
+      50,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "93",
+    "name": "삼성전자 UN43N5000AFXKR",
+    "brand": "삼성전자",
+    "description": "43인치 FHD 해상도의 실속형 TV로, 120Hz 주사율을 지원하여 스포츠 경기나 액션 영화 시청 시 움직임이 부드럽습니다. 합리적인 가격에 기본적인 TV 시청을 즐길 수 있습니다.",
+    "price": "378900",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "FHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      378900,
+      43,
+      1080,
+      120,
+      2
+    ]
+  },
+  {
+    "_id": "94",
+    "name": "삼성전자 QLED KQ85QD60AFXKR",
+    "brand": "삼성전자",
+    "description": "85인치 대화면 QLED TV로 퀀텀닷 기술을 통해 생생한 색감을 구현합니다. HDR10+와 게임 최적화 기능(ALLM, HGIG)을 지원하여 넓은 거실에서 온 가족이 함께 콘텐츠를 즐길 수 있습니다.",
+    "price": "2077400",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "85 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      2077400,
+      85,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "95",
+    "name": "LG전자 울트라HD 70UT8300ENA",
+    "brand": "LG전자",
+    "description": "70인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 지원하여 가족 시청과 가벼운 게임에 모두 적합합니다.",
+    "price": "1026980",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "70 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      1026980,
+      70,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "96",
+    "name": "TCL 65C855",
+    "brand": "TCL",
+    "description": "65인치 TV로 120Hz 주사율과 돌비 비전 IQ, HDR10+ 지원으로 영화와 드라마를 생생하게 즐길 수 있습니다. 4개의 HDMI 포트로 다양한 기기를 연결할 수 있으며, 가성비 좋은 프리미엄 TV입니다.",
+    "price": "1277060",
+    "category": "영화감상용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "65 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "돌비비전IQ,HDR10+,HLG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      1277060,
+      65,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "97",
+    "name": "삼성전자 QLED KQ75QCE1AFXKR",
+    "brand": "삼성전자",
+    "description": "75인치 QLED TV로 퀀텀닷 기술을 통한 선명한 색감과 깊은 명암비를 제공합니다. HDR10+와 게임 최적화 기능(ALLM, HGIG)을 지원하여 넓은 거실에서 다양한 콘텐츠를 즐길 수 있습니다.",
+    "price": "1670000",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "75 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10+,HLG,ALLM,HGIG,휴싱크",
+      "hdmi_ports": 3
+    },
+    "vector": [
+      1670000,
+      75,
+      2160,
+      60,
+      3
+    ]
+  },
+  {
+    "_id": "98",
+    "name": "삼성전자 QLED KQ98QC88AFXKR",
+    "brand": "삼성전자",
+    "description": "98인치 초대형 QLED TV로 압도적인 몰입감을 제공합니다. 120Hz 주사율과 HDMI 2.1, 게임 최적화 기능(ALLM, HGIG)을 지원하여 영화와 게임을 극장급 화면으로 즐길 수 있습니다.",
+    "price": "5348990",
+    "category": "거실용 대형 TV",
+    "stock": 10,
+    "spec": {
+      "screen_size": "98 inch",
+      "resolution": "4k UHD",
+      "panel_type": "QLED",
+      "refresh_rate": "120Hz",
+      "hdr_support": "HDR10+,HLG,HDMI2.1,ALLM,HGIG",
+      "hdmi_ports": 4
+    },
+    "vector": [
+      5348990,
+      98,
+      2160,
+      120,
+      4
+    ]
+  },
+  {
+    "_id": "99",
+    "name": "LG전자 울트라HD 43UT8300NNA",
+    "brand": "LG전자",
+    "description": "43인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 지원하여 일상 시청과 가벼운 게임에 모두 적합합니다.",
+    "price": "596750",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "43 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      596750,
+      43,
+      2160,
+      60,
+      2
+    ]
+  },
+  {
+    "_id": "100",
+    "name": "LG전자 울트라HD 50UR8300ENA",
+    "brand": "LG전자",
+    "description": "50인치 울트라HD TV로 선명한 4K 해상도와 HDR 지원으로 생생한 화질을 제공합니다. 게임 최적화 기능(ALLM, HGIG)을 지원하여 일상 시청과 캐주얼 게이밍에 모두 적합합니다.",
+    "price": "609980",
+    "category": "일반 시청용",
+    "stock": 10,
+    "spec": {
+      "screen_size": "50 inch",
+      "resolution": "4k UHD",
+      "panel_type": "LED",
+      "refresh_rate": "60Hz",
+      "hdr_support": "HDR10,HLG,ALLM,HGIG",
+      "hdmi_ports": 2
+    },
+    "vector": [
+      609980,
+      50,
+      2160,
+      60,
+      2
+    ]
+  }
+]

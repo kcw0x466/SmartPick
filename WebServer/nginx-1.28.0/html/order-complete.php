@@ -1,3 +1,99 @@
+<?php 
+    session_start();
+    require_once 'DBconnect/mysql_connect.php';
+    require_once 'DBconnect/mongo_connect.php';
+    use MongoDB\Driver\Query;
+    use MongoDB\BSON\ObjectId;
+
+    // 로그인 확인
+    if (!isset($_SESSION['member_id'])) {
+        echo "<script>alert('로그인이 필요합니다.'); location.href='/log-in.php';</script>";
+        exit;
+    }
+
+    $isLoggedIn = isset($_SESSION['member_id']);
+
+    $memberId = $_SESSION['member_id'];
+
+    $orderId = $_GET['order_id'];
+
+    // 회원 정보 조회
+    $sql = "SELECT name, phone, address FROM member WHERE id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param('i', $memberId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $member = $result->fetch_assoc();
+    
+    // MySQL 주문 아이템 테이블 데이터 조회
+    $sql = "SELECT * FROM order_item WHERE order_id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param('i', $orderId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $cartItems = [];
+    while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row;
+    }
+
+    $imgPath= array(
+        "products_PC" => "/static/img/computer/",
+        "products_laptop" => "/static/img/laptop/",
+        "products_TV" => "/static/img/tv/",
+        "products_WashingMachine" => "/static/img/washer/",
+    );
+
+    $productDetails = [];
+
+    foreach ($cartItems as $item) {
+        $category = $item['category'];
+        $productId = $item['product_id'];
+        $quantity = $item['quantity'];
+
+        $filterVariants = [
+            ['_id' => (string)$productId],
+            ['_id' => (int)$productId]
+        ];
+
+        $found = false;
+        foreach ($filterVariants as $filter) {
+            $options = ['projection' => ['name' => 1, 'price' => 1, 'description' => 1]];
+            $query = new Query($filter, $options);
+            $cursor = $mongoManager->executeQuery("$mongoDBName.$category", $query);
+            $documents = $cursor->toArray();
+
+            // 디버깅용 출력
+            // echo "<strong>카테고리:</strong> $category<br>";
+            // echo "<strong>상품 ID:</strong> {$productId}<br>";
+            // echo "<strong>시도된 필터:</strong> ";
+            // print_r($filter);
+            // echo "<br>쿼리 결과:<pre>";
+            // print_r($documents);
+            // echo "</pre><hr>";
+
+            if (!empty($documents)) {
+                $product = $documents[0];
+                $productDetails[] = [
+                    'product_id' => $productId,
+                    'category' => $category,
+                    'name' => $product->name ?? '이름 없음',
+                    'price' => $product->price ?? 0,
+                    'description' => $product->description ?? '',
+                    'quantity' => $quantity,
+                    'image' => $imgPath[$category]. "{$productId}.png"
+                ];
+                $found = true;
+                break;
+            }
+        }
+
+        if (!$found) {
+            echo "<span style='color:red'>[!] 상품 ID {$productId} 를 찾을 수 없음.</span><hr>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -843,33 +939,44 @@
     </div>
 
     <!-- Header section - Sticky (메인 홈페이지 스타일) -->
+    <!-- Header section - Sticky (수정된 부분) -->
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo" onclick="window.location.href='mainpage.html'" style="cursor: pointer;">
-                    <div class="logo-box">스마<br>트픽</div>
-                    <span>스마트픽</span>
-                </div>
+                <a href="mainpage.php" class="logo">
+                    <div class="logo">
+                        <div class="logo-box">스마<br>트픽</div>
+                        <span>스마트픽</span>
+                    </div>
+                </a>
+
                 <div class="search-container">
-                    <form id="searchForm" action="search_results.html" method="get">
+                    <form id="searchForm" action="search_results.php" method="get">
                         <input type="text" class="search-bar" name="query" placeholder="찾으시는 상품을 검색해보세요">
                         <button type="submit" class="search-icon">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
                 </div>
+
                 <div class="nav-buttons">
-                    <button class="nav-button" onclick="window.location.href='log-in.html'">
-                        <i class="fas fa-user"></i>
-                        로그인
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='join1.html'">
-                        <i class="fas fa-user-plus"></i>
-                        회원가입
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='cart.html'">
-                        <i class="fas fa-shopping-cart"></i>
-                        장바구니
+                    <?php if (!$isLoggedIn): ?>
+                        <button class="nav-button" onclick="window.location.href='/log-in.php'">
+                            <i class="fas fa-user"></i> 로그인
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/join.php'">
+                            <i class="fas fa-user-plus"></i> 회원가입
+                        </button>
+                    <?php else: ?>
+                        <button class="nav-button" onclick="window.location.href='/api/process_logout.php'">
+                            <i class="fas fa-sign-out-alt"></i> 로그아웃
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/mypage.php'">
+                            <i class="fas fa-user-circle"></i> 마이페이지
+                        </button>
+                    <?php endif; ?>
+                    <button class="nav-button" onclick="window.location.href='/cart.php'">
+                        <i class="fas fa-shopping-cart"></i> 장바구니
                     </button>
                     <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
                         <i class="fas fa-sun"></i>
@@ -912,10 +1019,6 @@
             <p class="success-message">
                 홍길동님의 주문이 성공적으로 접수되었습니다. 주문 처리 상태는 아래 주문번호로 언제든지 확인하실 수 있습니다.
             </p>
-            <div class="order-number">
-                <div class="order-number-label">주문번호</div>
-                <div class="order-number-value">SP-20250313-12345</div>
-            </div>
             <p class="email-notice">
                 주문 확인 이메일이 example@gmail.com으로 발송되었습니다.
             </p>
@@ -974,64 +1077,47 @@
 
             <!-- Order Items -->
             <div class="order-items">
-                <div class="order-item">
-                    <div class="item-image">
-                        <img src="/api/placeholder/80/80" alt="Product">
-                    </div>
-                    <div class="item-details">
-                        <div class="item-name">스마트픽 울트라북 X15</div>
-                        <div class="item-option">옵션: 스페이스 그레이, 512GB SSD</div>
-                        <div class="item-price-qty">
-                            <div class="item-quantity">수량: 1개</div>
-                            <div class="item-price">1,290,000원</div>
+                <?php 
+                    $totalPrice = 0;
+                    foreach ($productDetails as $product): 
+                        $subtotal = $product['price'] * $product['quantity'];
+                        $totalPrice += $subtotal;
+                ?>
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="<?= htmlspecialchars($product['image']) ?>" alt="Product">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name"><?= htmlspecialchars($product['name']) ?></div>
+                            <div class="item-price-qty">
+                                <div class="item-quantity">수량: <?= $product['quantity'] ?>개</div>
+                                <div class="item-price"><?= number_format($product['price']) ?>원</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
 
-                <div class="order-item">
-                    <div class="item-image">
-                        <img src="/api/placeholder/80/80" alt="Product">
-                    </div>
-                    <div class="item-details">
-                        <div class="item-name">프리미엄 노트북 파우치</div>
-                        <div class="item-option">옵션: 블랙, 15인치</div>
-                        <div class="item-price-qty">
-                            <div class="item-quantity">수량: 1개</div>
-                            <div class="item-price">39,000원</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="order-item">
-                    <div class="item-image">
-                        <img src="/api/placeholder/80/80" alt="Product">
-                    </div>
-                    <div class="item-details">
-                        <div class="item-name">무선 블루투스 마우스</div>
-                        <div class="item-option">옵션: 그레이</div>
-                        <div class="item-price-qty">
-                            <div class="item-quantity">수량: 1개</div>
-                            <div class="item-price">29,000원</div>
-                        </div>
-                    </div>
+                <div class="payment-total">
+                    <div class="total-label">총 결제금액</div>
+                    <div class="total-value"><?= number_format($totalPrice) ?>원</div>
                 </div>
             </div>
 
-            <!-- Shipping Information -->
+            <!-- Shopping Information -->
             <div class="info-section">
                 <h3 class="info-title">배송 정보</h3>
                 <div class="info-content">
                     <div class="info-row">
                         <div class="info-label">받는 분</div>
-                        <div class="info-value">홍길동</div>
+                        <div class="info-value"><?= htmlspecialchars($member['name']) ?></div>
                     </div>
                     <div class="info-row">
                         <div class="info-label">연락처</div>
-                        <div class="info-value">010-1234-5678</div>
+                        <div class="info-value"><?= htmlspecialchars($member['phone']) ?></div>
                     </div>
                     <div class="info-row">
                         <div class="info-label">배송지</div>
-                        <div class="info-value">서울특별시 강남구 테헤란로 123 스마트빌딩 456호</div>
+                        <div class="info-value"><?= nl2br(htmlspecialchars($member['address'])) ?></div>
                     </div>
                     <div class="info-row">
                         <div class="info-label">배송 방법</div>
@@ -1043,54 +1129,15 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Payment Information -->
-            <div class="info-section">
-                <h3 class="info-title">결제 정보</h3>
-                <div class="info-content">
-                    <div class="info-row">
-                        <div class="info-label">결제 방법</div>
-                        <div class="info-value">신용카드 (KB국민카드)</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">결제일</div>
-                        <div class="info-value">2025년 3월 13일 15:42</div>
-                    </div>
-
-                    <div class="payment-summary">
-                        <div class="payment-row">
-                            <div class="payment-label">상품금액</div>
-                            <div class="payment-value">1,358,000원</div>
-                        </div>
-                        <div class="payment-row">
-                            <div class="payment-label">배송비</div>
-                            <div class="payment-value">무료</div>
-                        </div>
-                        <div class="payment-row">
-                            <div class="payment-label">할인금액</div>
-                            <div class="payment-value">-206,000원</div>
-                        </div>
-                        <div class="payment-row">
-                            <div class="payment-label">포인트 사용</div>
-                            <div class="payment-value">0원</div>
-                        </div>
-
-                        <div class="payment-total">
-                            <div class="total-label">총 결제금액</div>
-                            <div class="total-value">1,152,000원</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <a href="mainpage.html" class="btn btn-outline">
+            <a href="mainpage.php" class="btn btn-outline">
                 <i class="fas fa-home"></i> 홈으로 돌아가기
             </a>
             
-            <a href="mainpage.html" class="btn btn-primary">
+            <a href="mainpage.php" class="btn btn-primary">
                 <i class="fas fa-shopping-cart"></i> 쇼핑 계속하기
             </a>
         </div>

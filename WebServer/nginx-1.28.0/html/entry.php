@@ -405,7 +405,7 @@
                             <span>특별 할인 혜택</span>
                         </div>
                     </div>
-                    <a href="mainpage.html" class="btn btn-primary">
+                    <a href="mainpage.php" class="btn btn-primary">
                         <i class="fas fa-shopping-cart"></i> 쇼핑 시작하기
                     </a>
                 </div>
@@ -435,7 +435,7 @@
                             <span>개인 맞춤형 상품 비교</span>
                         </div>
                     </div>
-                    <a href="surveypage.php" class="btn btn-outline">
+                    <a href="/ai/survey" class="btn btn-outline">
                         <i class="fas fa-search"></i> 원하는 상품 스캔
                     </a>
                 </div>

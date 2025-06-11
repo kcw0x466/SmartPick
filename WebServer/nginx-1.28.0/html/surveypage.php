@@ -798,542 +798,197 @@
 
     <!-- Main content section -->
     <div class="main-content">
-        <div class="survey-container">
-            <!-- 설문조사 헤더 -->
-            <div class="survey-header">
-                <h1 class="survey-title">나에게 맞는 상품 찾기</h1>
-                <p class="survey-description">몇 가지 질문에 답하시면 고객님께 딱 맞는 상품을 추천해 드립니다.</p>
-            </div>
+    <div class="survey-container">
+      <div class="survey-header">
+        <h1 class="survey-title">나에게 맞는 상품 찾기</h1>
+        <p class="survey-description">몇 가지 질문에 답하시면 고객님께 딱 맞는 상품을 추천해 드립니다.</p>
+      </div>
 
-            <!-- 진행 상황 표시 -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text" id="progressText">0/6 완료</div>
-            </div>
-
-            <!-- 설문조사 폼 -->
-            <div class="survey-form" id="surveyForm">
-                <!-- 질문 1: 관심 카테고리 (라디오 버튼) -->
-                <div class="question-container active" id="question1">
-                    <h3 class="question-title">1. 어떤 제품에 가장 관심이 있으신가요?</h3>
-                    <div class="options-container">
-                        <div class="option-item" data-value="computer" onclick="selectOption(this, 'question1')">
-                            <i class="fas fa-laptop" style="margin-right: 10px;"></i> 컴퓨터 / 노트북
-                        </div>
-                        <div class="option-item" data-value="smartphone" onclick="selectOption(this, 'question1')">
-                            <i class="fas fa-mobile-alt" style="margin-right: 10px;"></i> 스마트폰 / 태블릿
-                        </div>
-                        <div class="option-item" data-value="home" onclick="selectOption(this, 'question1')">
-                            <i class="fas fa-home" style="margin-right: 10px;"></i> 가전제품
-                        </div>
-                        <div class="option-item" data-value="audio" onclick="selectOption(this, 'question1')">
-                            <i class="fas fa-headphones" style="margin-right: 10px;"></i> 오디오 / 이어폰
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 질문 2: 사용 목적 (라디오 버튼) -->
-                <div class="question-container" id="question2">
-                    <h3 class="question-title">2. 주로 어떤 용도로 사용하실 예정인가요?</h3>
-                    <div class="options-container">
-                        <div class="option-item" data-value="work" onclick="selectOption(this, 'question2')">
-                            <i class="fas fa-briefcase" style="margin-right: 10px;"></i> 업무/학업용
-                        </div>
-                        <div class="option-item" data-value="entertainment" onclick="selectOption(this, 'question2')">
-                            <i class="fas fa-film" style="margin-right: 10px;"></i> 엔터테인먼트/미디어 감상
-                        </div>
-                        <div class="option-item" data-value="gaming" onclick="selectOption(this, 'question2')">
-                            <i class="fas fa-gamepad" style="margin-right: 10px;"></i> 게임
-                        </div>
-                        <div class="option-item" data-value="daily" onclick="selectOption(this, 'question2')">
-                            <i class="fas fa-home" style="margin-right: 10px;"></i> 일상생활/가정용
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 질문 3: 가격대 (슬라이더) -->
-                <div class="question-container" id="question3">
-                    <h3 class="question-title">3. 생각하고 계신 예산 범위는 어떻게 되나요?</h3>
-                    <div class="slider-container">
-                        <input type="range" min="10" max="300" value="100" class="slider" id="priceSlider">
-                        <div class="slider-value" id="sliderValue">100만원</div>
-                        <div class="slider-labels">
-                            <span>10만원</span>
-                            <span>300만원+</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 질문 4: 중요 특성 (다중 선택) -->
-                <div class="question-container" id="question4">
-                    <h3 class="question-title">4. 제품 선택 시 가장 중요하게 생각하는 특성을 모두 선택해주세요.</h3>
-                    <div class="options-container">
-                        <div class="checkbox-option" onclick="toggleCheckbox(this)">
-                            <div class="custom-checkbox">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>성능/속도</span>
-                        </div>
-                        <div class="checkbox-option" onclick="toggleCheckbox(this)">
-                            <div class="custom-checkbox">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>디자인/외관</span>
-                        </div>
-                        <div class="checkbox-option" onclick="toggleCheckbox(this)">
-                            <div class="custom-checkbox">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>배터리 수명/전력 효율</span>
-                        </div>
-                        <div class="checkbox-option" onclick="toggleCheckbox(this)">
-                            <div class="custom-checkbox">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>내구성/품질</span>
-                        </div>
-                        <div class="checkbox-option" onclick="toggleCheckbox(this)">
-                            <div class="custom-checkbox">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span>가격 대비 가치</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 질문 5: 디자인 선호도 (이미지 선택) -->
-                <div class="question-container" id="question5">
-                    <h3 class="question-title">5. 어떤 디자인 스타일을 선호하시나요?</h3>
-                    <div class="image-options">
-                        <div class="image-option" onclick="selectImageOption(this, 'question5')">
-                            <img src="/api/placeholder/400/320" alt="모던한 디자인" class="option-image">
-                            <div class="option-caption">모던/심플</div>
-                        </div>
-                        <div class="image-option" onclick="selectImageOption(this, 'question5')">
-                            <img src="/api/placeholder/400/320" alt="클래식한 디자인" class="option-image">
-                            <div class="option-caption">클래식/고급스러움</div>
-                        </div>
-                        <div class="image-option" onclick="selectImageOption(this, 'question5')">
-                            <img src="/api/placeholder/400/320" alt="컬러풀한 디자인" class="option-image">
-                            <div class="option-caption">컬러풀/화려함</div>
-                        </div>
-                        <div class="image-option" onclick="selectImageOption(this, 'question5')">
-                            <img src="/api/placeholder/400/320" alt="미니멀한 디자인" class="option-image">
-                            <div class="option-caption">미니멀/실용적</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 질문 6: 추가 의견 (텍스트 입력) -->
-                <div class="question-container" id="question6">
-                    <h3 class="question-title">6. 추가로 고려하는 사항이 있으신가요? (선택사항)</h3>
-                    <textarea class="text-input" id="additionalComment" placeholder="추가적인 요구사항이나 고려사항을 자유롭게 입력해주세요."
-                        rows="5"></textarea>
-                </div>
-
-                <!-- 버튼 -->
-                <div class="nav-buttons-container">
-                    <button class="survey-button prev" id="prevButton" onclick="prevQuestion()">
-                        <i class="fas fa-arrow-left"></i> 이전
-                    </button>
-                    <button class="survey-button next" id="nextButton" onclick="nextQuestion()">
-                        다음 <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 결과 페이지 -->
-            <div class="results-container" id="resultsContainer">
-                <div class="results-header">
-                    <h1 class="results-title">맞춤 상품 추천 결과</h1>
-                    <p class="results-description">고객님의 선호도와 요구사항을 분석한 결과, 다음과 같은 상품들이 가장 적합할 것으로 예상됩니다.</p>
-                </div>
-
-                <div class="recommended-products">
-                    <h2 class="recommendation-title">최적 추천 상품</h2>
-                    <div class="product-grid">
-                        <!-- 추천 상품 1 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="추천 상품 1">
-                            </div>
-                            <div class="match-percentage">일치도 98%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">삼성 갤럭시북 Pro 360</h3>
-                                <div class="product-price">1,450,000원</div>
-                                <p class="product-description">고성능 노트북으로 업무와 엔터테인먼트 모두 완벽하게 지원합니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product1'">자세히 보기</button>
-                        </div>
-
-                        <!-- 추천 상품 2 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="추천 상품 2">
-                            </div>
-                            <div class="match-percentage">일치도 95%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">LG 그램 17인치 노트북</h3>
-                                <div class="product-price">1,599,000원</div>
-                                <p class="product-description">초경량 노트북으로 뛰어난 휴대성과 배터리 수명을 제공합니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product2'">자세히 보기</button>
-                        </div>
-
-                        <!-- 추천 상품 3 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="추천 상품 3">
-                            </div>
-                            <div class="match-percentage">일치도 92%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">애플 맥북 프로 M2</h3>
-                                <div class="product-price">2,350,000원</div>
-                                <p class="product-description">강력한 성능과 세련된 디자인의 프리미엄 노트북입니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product3'">자세히 보기</button>
-                        </div>
-                    </div>
-
-                    <h2 class="recommendation-title">대안 추천 상품</h2>
-                    <div class="product-grid">
-                        <!-- 대안 상품 1 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="대안 상품 1">
-                            </div>
-                            <div class="match-percentage">일치도 85%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">에이수스 게이밍 노트북</h3>
-                                <div class="product-price">1,250,000원</div>
-                                <p class="product-description">게이밍에 최적화된 성능과 냉각 시스템을 갖춘 노트북입니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product4'">자세히 보기</button>
-                        </div>
-
-                        <!-- 대안 상품 2 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="대안 상품 2">
-                            </div>
-                            <div class="match-percentage">일치도 80%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">MSI 크리에이터 노트북</h3>
-                                <div class="product-price">1,850,000원</div>
-                                <p class="product-description">크리에이티브 작업에 최적화된 고성능 노트북입니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product5'">자세히 보기</button>
-                        </div>
-
-                        <!-- 대안 상품 3 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="/api/placeholder/400/320" alt="대안 상품 3">
-                            </div>
-                            <div class="match-percentage">일치도 78%</div>
-                            <div class="product-details">
-                                <h3 class="product-title">레노버 씽크패드 X1</h3>
-                                <div class="product-price">1,750,000원</div>
-                                <p class="product-description">비즈니스 사용자를 위한 안정적이고 내구성 있는 노트북입니다.</p>
-                            </div>
-                            <button class="view-details-btn"
-                                onclick="window.location.href='product_details.html?id=product6'">자세히 보기</button>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="survey-button save-results-btn" onclick="saveResults()">
-                    <i class="fas fa-save"></i> 결과 저장하기
-                </button>
-            </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
+        <div class="progress-text" id="progressText">0 / 0 완료</div>
+      </div>
+
+      <div class="survey-form" id="surveyForm">
+        <!-- 공통 문항 -->
+        <div class="question-container active" data-step="1" data-product="all">
+          <h2 class="question-title">1. 어떤 제품에 가장 관심이 있으신가요?</h2>
+          <div class="options-container">
+            <div class="option-item" data-product="pc">PC</div>
+            <div class="option-item" data-product="laptop">노트북</div>
+            <div class="option-item" data-product="tv">TV</div>
+            <div class="option-item" data-product="washer">세탁기</div>
+          </div>
+        </div>
+
+        <!-- PC 질문 -->
+        <div class="question-container" data-step="2" data-product="pc">
+          <h2 class="question-title">주요 사용 목적은?</h2>
+          <div class="options-container">
+            <div class="option-item">문서작업 및 인터넷</div>
+            <div class="option-item">영상 시청 및 인기 온라인 게임</div>
+            <div class="option-item">고사양 게임</div>
+            <div class="option-item">영상 편집 / 3D 작업</div>
+            <div class="option-item">AI / 데이터 분석 / 가상화 / 서버 등</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="3" data-product="pc">
+          <h2 class="question-title">예산은 어느 정도?</h2>
+          <div class="slider-container">
+            <input type="range" min="10" max="300" value="100" class="slider" id="budgetSliderPc">
+            <div class="slider-value" id="budgetValuePc">100만원</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="4" data-product="pc">
+          <h2 class="question-title">파일 저장 공간이 얼마나 필요하신가요?</h2>
+          <div class="options-container">
+            <div class="option-item">256GB 이하</div>
+            <div class="option-item">512GB</div>
+            <div class="option-item">1TB</div>
+            <div class="option-item">2TB</div>
+            <div class="option-item">4TB 이상</div>
+          </div>
+        </div>
+
+        <!-- 노트북 질문 -->
+        <div class="question-container" data-step="2" data-product="laptop">
+          <h2 class="question-title">주요 사용 목적은?</h2>
+          <div class="options-container">
+            <div class="option-item">문서작업 및 인터넷</div>
+            <div class="option-item">영상 시청 및 인기 온라인 게임</div>
+            <div class="option-item">고사양 게임</div>
+            <div class="option-item">영상 편집 / 3D / 그래픽 작업</div>
+            <div class="option-item">AI / 데이터 분석 등</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="3" data-product="laptop">
+          <h2 class="question-title">예산은 어느 정도?</h2>
+          <div class="slider-container">
+            <input type="range" min="10" max="300" value="100" class="slider" id="budgetSliderLaptop">
+            <div class="slider-value" id="budgetValueLaptop">100만원</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="4" data-product="laptop">
+          <h2 class="question-title">화면 크기 선호?</h2>
+          <div class="options-container">
+            <div class="option-item">작은 화면</div>
+            <div class="option-item">보통 화면</div>
+            <div class="option-item">넓은 화면</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="5" data-product="laptop">
+          <h2 class="question-title">화면 크기 선호?</h2>
+          <div class="options-container">
+            <div class="option-item">상관없음</div>
+            <div class="option-item">보통</div>
+            <div class="option-item">그렇다</div>
+            <div class="option-item">매우 그렇다</div>
+          </div>
+        </div>
+
+        <div class="question-container" data-step="6" data-product="laptop">
+          <h2 class="question-title">화면 크기 선호?</h2>
+          <div class="options-container">
+            <div class="option-item">작은 화면</div>
+            <div class="option-item">보통 화면</div>
+            <div class="option-item">넓은 화면</div>
+          </div>
+        </div>
+
+        <!-- TV 질문 -->
+        <div class="question-container" data-step="2" data-product="tv">
+          <h2 class="question-title">TV 사이즈는?</h2>
+          <div class="options-container">
+            <div class="option-item">모니터급</div>
+            <div class="option-item">작은 거실용</div>
+            <div class="option-item">일반 거실용</div>
+            <div class="option-item">회의실용</div>
+          </div>
+        </div>
+
+        <!-- 세탁기 질문 -->
+        <div class="question-container" data-step="2" data-product="washer">
+          <h2 class="question-title">필요한 용량은?</h2>
+          <div class="slider-container">
+            <input type="range" min="5" max="25" value="10" class="slider" id="kgSlider">
+            <div class="slider-value" id="kgValue">10kg</div>
+          </div>
+        </div>
+
+        <div class="nav-buttons-container">
+          <button class="survey-button prev" onclick="goToPrev()">← 이전</button>
+          <button class="survey-button next" onclick="goToNext()">다음 →</button>
+        </div>
+      </div>
+    </div>
+        
     </div>
 
     <script>
-        // 현재 질문 인덱스
-        let currentQuestionIndex = 1;
-        const totalQuestions = 6;
+        let currentIndex = 0;
+        let selectedProduct = null;
 
-        // 사용자 응답 저장 객체
-        const userResponses = {};
+        const allQuestions = [...document.querySelectorAll(".question-container")];
+        const progressText = document.getElementById("progressText");
+        const progressFill = document.getElementById("progressFill");
 
-        // DOM이 로드되면 실행
-        document.addEventListener('DOMContentLoaded', function () {
-            // 테마 관련 초기화
-            initTheme();
-
-            // 슬라이더 이벤트 설정
-            const priceSlider = document.getElementById('priceSlider');
-            const sliderValue = document.getElementById('sliderValue');
-
-            priceSlider.addEventListener('input', function () {
-                sliderValue.textContent = this.value + '만원';
-                // 슬라이더 값 저장
-                userResponses['budget'] = this.value;
+        const showStep = (index) => {
+            const visible = allQuestions.filter(q => {
+                const p = q.dataset.product;
+                return p === "all" || p === selectedProduct;
             });
+            if (index < 0 || index >= visible.length) return;
 
-            // 이전 버튼 초기 상태 설정
-            updateButtonState();
+            allQuestions.forEach(q => q.classList.remove("active"));
+            visible[index].classList.add("active");
+            currentIndex = index;
+            progressText.textContent = `${index + 1} / ${visible.length} 완료`;
+            progressFill.style.width = `${((index + 1) / visible.length) * 100}%`;
+        };
 
-            // 진행 상황 업데이트
-            updateProgress();
-            // 검색창 클릭 시 검색 페이지로 이동
-            const searchBar = document.getElementById('searchInput');
-            if (searchBar) {
-                searchBar.style.cursor = 'pointer';
-                searchBar.addEventListener('click', function (e) {
-                    window.location.href = 'search_results.html';
-                    e.preventDefault(); // 폼 제출 방지
-                });
-            }
-        });
+        const goToNext = () => showStep(currentIndex + 1);
+        const goToPrev = () => showStep(currentIndex - 1);
 
-        // 테마 초기화 및 설정
-        function initTheme() {
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle.querySelector('i');
-            const savedTheme = localStorage.getItem('theme') || 'light';
+        // 선택 항목에 .selected 토글
+        document.querySelectorAll(".option-item").forEach(item => {
+            item.addEventListener("click", () => {
+                const container = item.closest(".options-container");
+                if (container) {
+                container.querySelectorAll(".option-item").forEach(i => i.classList.remove("selected"));
+                }
+                item.classList.add("selected");
 
-            // 저장된 테마 적용
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-
-            // 테마 토글 이벤트
-            themeToggle.addEventListener('click', function () {
-                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-
-                // 아이콘 변경
-                if (newTheme === 'dark') {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                } else {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
+                // 제품 선택일 경우 selectedProduct 설정만 (자동 넘기기 X)
+                const product = item.dataset.product;
+                if (product) {
+                selectedProduct = product;
                 }
             });
-        }
-
-        // 단일 선택 옵션 선택 처리
-        function selectOption(element, questionId) {
-            // 같은 질문의 모든 옵션에서 selected 클래스 제거
-            const options = document.querySelectorAll(`#${questionId} .option-item`);
-            options.forEach(option => option.classList.remove('selected'));
-
-            // 선택한 옵션에 selected 클래스 추가
-            element.classList.add('selected');
-
-            // 사용자 응답 저장
-            const questionNumber = questionId.replace('question', '');
-            const value = element.getAttribute('data-value');
-            userResponses[`question${questionNumber}`] = value;
-
-            // 버튼 상태 업데이트
-            updateButtonState();
-        }
-
-        // 이미지 옵션 선택 처리
-        function selectImageOption(element, questionId) {
-            // 같은 질문의 모든 이미지 옵션에서 selected 클래스 제거
-            const options = document.querySelectorAll(`#${questionId} .image-option`);
-            options.forEach(option => option.classList.remove('selected'));
-
-            // 선택한 옵션에 selected 클래스 추가
-            element.classList.add('selected');
-
-            // 사용자 응답 저장
-            const questionNumber = questionId.replace('question', '');
-            const value = element.querySelector('.option-caption').textContent;
-            userResponses[`question${questionNumber}`] = value;
-
-            // 버튼 상태 업데이트
-            updateButtonState();
-        }
-
-        // 체크박스 토글 처리
-        function toggleCheckbox(element) {
-            // 선택 상태 토글
-            element.classList.toggle('selected');
-
-            // 사용자 응답 저장 (다중 선택)
-            const selectedFeatures = [];
-            const checkboxes = document.querySelectorAll('#question4 .checkbox-option.selected');
-
-            checkboxes.forEach(checkbox => {
-                selectedFeatures.push(checkbox.querySelector('span').textContent);
-            });
-
-            userResponses['question4'] = selectedFeatures;
-
-            // 버튼 상태 업데이트
-            updateButtonState();
-        }
-
-        // 다음 질문으로 이동
-        function nextQuestion() {
-            // 마지막 질문이면 결과 페이지 표시
-            if (currentQuestionIndex === totalQuestions) {
-                showResults();
-                return;
-            }
-
-            // 현재 질문 숨기기
-            const currentQuestion = document.getElementById(`question${currentQuestionIndex}`);
-            currentQuestion.classList.remove('active');
-
-            // 다음 질문 표시
-            currentQuestionIndex++;
-            const nextQuestion = document.getElementById(`question${currentQuestionIndex}`);
-            nextQuestion.classList.add('active');
-
-            // 진행 상황 업데이트
-            updateProgress();
-
-            // 버튼 상태 업데이트
-            updateButtonState();
-
-            // 페이지 상단으로 스크롤
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // 이전 질문으로 이동
-        function prevQuestion() {
-            // 첫 번째 질문이면 아무것도 하지 않음
-            if (currentQuestionIndex === 1) {
-                return;
-            }
-
-            // 현재 질문 숨기기
-            const currentQuestion = document.getElementById(`question${currentQuestionIndex}`);
-            currentQuestion.classList.remove('active');
-
-            // 이전 질문 표시
-            currentQuestionIndex--;
-            const prevQuestion = document.getElementById(`question${currentQuestionIndex}`);
-            prevQuestion.classList.add('active');
-
-            // 진행 상황 업데이트
-            updateProgress();
-
-            // 버튼 상태 업데이트
-            updateButtonState();
-
-            // 페이지 상단으로 스크롤
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // 진행 상황 업데이트
-        function updateProgress() {
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
-
-            const progressPercentage = (currentQuestionIndex / totalQuestions) * 100;
-            progressFill.style.width = `${progressPercentage}%`;
-            progressText.textContent = `${currentQuestionIndex}/${totalQuestions} 완료`;
-        }
-
-        // 버튼 상태 업데이트
-        function updateButtonState() {
-            const prevButton = document.getElementById('prevButton');
-            const nextButton = document.getElementById('nextButton');
-
-            // 이전 버튼은 첫 번째 질문에서 비활성화
-            prevButton.disabled = currentQuestionIndex === 1;
-
-            // 다음 버튼 텍스트 변경 (마지막 질문이면 "결과 보기"로 변경)
-            if (currentQuestionIndex === totalQuestions) {
-                nextButton.innerHTML = '<i class="fas fa-chart-pie"></i> 결과 보기';
-            } else {
-                nextButton.innerHTML = '다음 <i class="fas fa-arrow-right"></i>';
-            }
-
-            // 현재 질문에 응답했는지 확인하여 다음 버튼 활성화/비활성화
-            let canProceed = true;
-
-            // 마지막 질문(추가 의견)은 선택 사항이므로 항상 진행 가능
-            if (currentQuestionIndex === 6) {
-                // 텍스트 영역의 값 저장
-                const additionalComment = document.getElementById('additionalComment').value;
-                userResponses['question6'] = additionalComment;
-                canProceed = true;
-            }
-            // 질문 4(다중 선택)는 최소 1개 이상 선택해야 함
-            else if (currentQuestionIndex === 4) {
-                canProceed = userResponses['question4'] && userResponses['question4'].length > 0;
-            }
-            // 다른 질문들은 응답이 있어야 함
-            else {
-                canProceed = userResponses[`question${currentQuestionIndex}`] !== undefined;
-            }
-
-            nextButton.disabled = !canProceed;
-        }
-
-        // 결과 페이지 표시
-        function showResults() {
-            // 설문 폼 숨기기
-            document.getElementById('surveyForm').style.display = 'none';
-
-            // 진행 상황 표시 완료
-            const progressFill = document.getElementById('progressFill');
-            progressFill.style.width = '100%';
-
-            // 결과 컨테이너 표시
-            const resultsContainer = document.getElementById('resultsContainer');
-            resultsContainer.style.display = 'block';
-
-            // TODO: 실제 구현에서는 사용자 응답을 기반으로 추천 상품을 계산하여 표시
-            console.log('사용자 응답:', userResponses);
-
-            // 페이지 상단으로 스크롤
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // 결과 저장하기
-        function saveResults() {
-            // TODO: 실제 구현에서는 결과를 저장하거나 이메일로 전송하는 등의 작업 수행
-            showToast('추천 결과가 저장되었습니다.');
-        }
-
-        // 토스트 알림 표시
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-
-            setTimeout(function () {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // 텍스트 영역 변경 감지
-        document.getElementById('additionalComment').addEventListener('input', function () {
-            userResponses['question6'] = this.value;
         });
+
+        const updateSlider = (id, labelId, unit) => {
+            const slider = document.getElementById(id);
+            const label = document.getElementById(labelId);
+            if (slider && label) {
+                slider.addEventListener("input", () => {
+                    label.textContent = slider.value + unit;
+                });
+            }
+        };
+
+        updateSlider("budgetSliderPc", "budgetValuePc", "만원");
+        updateSlider("budgetSliderLaptop", "budgetValueLaptop", "만원");
+        updateSlider("kgSlider", "kgValue", "kg");
+
+        showStep(0);
+
     </script>
 </body>
 

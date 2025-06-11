@@ -360,7 +360,7 @@
 
     <!-- Header -->
     <header>
-        <a href="mainpage.html" class="logo">
+        <a href="mainpage.php" class="logo">
             <div class="logo">
                 <div class="logo-box">스마<br>트픽</div>
                 <span>스마트픽</span>
@@ -376,16 +376,16 @@
         <div class="login-form-container">
             <h1 class="form-title">로그인</h1>
 
-            <form id="loginForm" onsubmit="return validateForm()">
+            <form id="loginForm" action="api/process_login.php" method="POST">
                 <div class="form-group">
                     <label for="userId" class="form-label">이메일 또는 사용자 이름</label>
-                    <input type="text" id="userId" class="form-input" placeholder="이메일 또는 사용자 이름 입력" required>
+                    <input type="text" id="userId" name="userId" class="form-input" placeholder="이메일 또는 사용자 이름 입력" required>
                     <i class="fas fa-user form-icon"></i>
                 </div>
 
                 <div class="form-group">
                     <label for="userPassword" class="form-label">비밀번호</label>
-                    <input type="password" id="userPassword" class="form-input" placeholder="비밀번호 입력" required>
+                    <input type="password" id="userPassword" name="userPassword" class="form-input" placeholder="비밀번호 입력" required>
                     <i class="fas fa-lock form-icon"></i>
                     <i class="fas fa-eye pw-toggle" id="pwToggle"></i>
                 </div>
@@ -449,33 +449,33 @@
         }
 
         // 폼 유효성 검사
-        function validateForm() {
-            const userId = document.getElementById('userId').value.trim();
-            const userPassword = document.getElementById('userPassword').value.trim();
+        // function validateForm() {
+        //     const userId = document.getElementById('userId').value.trim();
+        //     const userPassword = document.getElementById('userPassword').value.trim();
 
-            if (userId === '') {
-                showToast('이메일 또는 사용자 이름을 입력해주세요.');
-                return false;
-            }
+        //     if (userId === '') {
+        //         showToast('이메일 또는 사용자 이름을 입력해주세요.');
+        //         return false;
+        //     }
 
-            if (userPassword === '') {
-                showToast('비밀번호를 입력해주세요.');
-                return false;
-            }
+        //     if (userPassword === '') {
+        //         showToast('비밀번호를 입력해주세요.');
+        //         return false;
+        //     }
 
-            // 여기에 실제 로그인 로직이 들어갈 수 있습니다.
-            // 지금은 예시로 사용자에게 피드백을 제공하기 위해 아래와 같이 설정합니다.
+        //     // 여기에 실제 로그인 로직이 들어갈 수 있습니다.
+        //     // 지금은 예시로 사용자에게 피드백을 제공하기 위해 아래와 같이 설정합니다.
 
-            // 성공적인 로그인 시뮬레이션 (실제로는 서버에서 인증 후 리디렉션)
-            showToast('로그인 성공! 메인 페이지로 이동합니다.');
+        //     // 성공적인 로그인 시뮬레이션 (실제로는 서버에서 인증 후 리디렉션)
+        //     showToast('로그인 성공! 메인 페이지로 이동합니다.');
 
-            // 잠시 후 메인 페이지로 리디렉션
-            setTimeout(function () {
-                window.location.href = 'index.html';
-            }, 1500);
+        //     // 잠시 후 메인 페이지로 리디렉션
+        //     setTimeout(function () {
+        //         window.location.href = 'index.html';
+        //     }, 1500);
 
-            return false;  // 실제 서버 처리 시에는 true로 변경
-        }
+        //     return false;  // 실제 서버 처리 시에는 true로 변경
+        // }
 
         // 입력 필드 포커스/블러 효과
         const inputFields = document.querySelectorAll('.form-input');

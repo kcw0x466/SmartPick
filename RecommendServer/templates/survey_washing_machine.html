@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>PC 추천 설문</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .survey-box {
+      background-color: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 60px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .survey-title {
+      font-weight: bold;
+      font-size: 24px;
+      color: #e93170;
+    }
+
+    .survey-desc {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin: 30px 0 15px;
+    }
+
+    .option-item {
+      background-color: white;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 15px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .option-item:hover {
+      border-color: #e93170;
+      background-color: #fff0f5;
+      color: #e93170;
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="survey-box">
+    <h2 class="survey-title">나에게 맞는 세탁기 찾기</h2>
+    <p class="survey-desc">아래 문항에 답하면 딱 맞는 제품을 추천해 드려요.</p>
+
+    <form method="POST" action="/ai/recommend/washingmachine">
+        <input type="hidden" name="budget" id="hiddenBudget">
+        <input type="hidden" name="capacity" id="hiddenCapacity">
+        <input type="hidden" name="washing_type" id="hiddenWashingType">
+        <input type="hidden" name="dry_function" id="hiddenDryFunction">
+        <input type="hidden" name="energy_rating" id="hiddenEnergyRating">
+        <input type="hidden" name="noise" id="hiddenNoise">
+
+        <!-- 예산 슬라이더 -->
+        <div class="question-title">1. 예산은 어느 정도인가요?</div>
+        <input type="range" class="form-range" min="10" max="300" step="1" value="150" name="budget_input" id="budgetRange">
+        <div class="text-center fw-bold text-danger" id="budgetDisplay">150만원</div>
+
+        <!-- 용량 슬라이더 -->
+        <div class="question-title">2. 필요한 용량은 어느 정도인가요?</div>
+        <input type="range" class="form-range" min="1" max="30" step="1" value="10" name="capacity_input" id="capacityRange">
+        <div class="text-center fw-bold text-danger" id="capacityDisplay">10KG</div>
+
+        <!-- 세탁기 타입 -->
+        <div class="question-title">3. 원하시는 세탁기 타입은?</div>
+        <div class="d-grid gap-2">
+        {% set washing_type_options = [
+            "드럼세탁기",
+            "통돌이"
+        ] %}
+        {% for option in washing_type_options %}
+            <label class="option-item">
+            <input type="radio" name="washing_type_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 건조 기능 -->
+        <div class="question-title">4. 건조 기능이 필요하신가요?</div>
+        <div class="d-grid gap-2">
+        {% set dry_function_options = [
+            "예",
+            "아니오"
+        ] %}
+        {% for option in dry_function_options %}
+            <label class="option-item">
+            <input type="radio" name="dry_function_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 에너지 등급 -->
+        <div class="question-title">5. 원하시는 에너지 등급은?</div>
+        <div class="d-grid gap-2">
+        {% set energy_rating_options = [
+            "1등급",
+            "2등급",
+            "3등급",
+            "4등급"
+        ] %}
+        {% for option in energy_rating_options %}
+            <label class="option-item">
+            <input type="radio" name="energy_rating_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 소음 수준 -->
+        <div class="question-title">6. 원하시는 소음 수준은?</div>
+        <div class="d-grid gap-2">
+        {% set noise_options = [
+            "낮음",
+            "중간",
+            "높음"
+        ] %}
+        {% for option in noise_options %}
+            <label class="option-item">
+            <input type="radio" name="noise_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+      <!-- 제출 -->
+      <button type="submit" class="btn btn-primary w-100 submit-btn">추천 결과 보기</button>
+    </form>
+  </div>
+
+  <!-- 부트스트랩 스크립트 & 슬라이더 동기화 -->
+  <script>
+    const budget_range = document.getElementById("budgetRange");
+    const budget_display = document.getElementById("budgetDisplay");
+
+    const capacity_range = document.getElementById("capacityRange");
+    const capacity_display = document.getElementById("capacityDisplay")
+
+    const washingTypeMap = [1, 0]
+    const dryFunctionMap = [1, 0]
+    const energyRatingMap = [1, 2, 3, 4]
+    const noiseMap = [1, 2, 3]
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+        // 예산
+        const budget = parseInt(budget_range.value);
+        document.getElementById("hiddenBudget").value = String(budget * 10000);
+
+        const capacity = parseInt(capacity_range.value);
+        document.getElementById("hiddenCapacity").value = capacity;
+
+        const washingTypeValue = parseInt(document.querySelector('input[name="washing_type_options"]:checked').value);
+        const dryFunctionValue = parseInt(document.querySelector('input[name="dry_function_options"]:checked').value);
+        const energyRatingValue = parseInt(document.querySelector('input[name="energy_rating_options"]:checked').value);
+        const noiseValue = parseInt(document.querySelector('input[name="noise_options"]:checked').value);
+
+        document.getElementById("hiddenWashingType").value = washingTypeMap[washingTypeValue - 1];
+        document.getElementById("hiddenDryFunction").value = dryFunctionMap[dryFunctionValue - 1];
+        document.getElementById("hiddenEnergyRating").value = energyRatingMap[energyRatingValue - 1];
+        document.getElementById("hiddenNoise").value = noiseMap[noiseValue - 1];
+    });
+
+
+    budget_range.addEventListener("input", () => {
+      budget_display.textContent = budget_range.value + "만원";
+    });
+
+    capacity_range.addEventListener("input", () => {
+      capacity_display.textContent = capacity_range.value + "KG";
+    });
+
+    // 클릭한 옵션-item에 스타일 지정
+    document.querySelectorAll(".option-item").forEach(item => {
+        item.addEventListener("click", () => {
+            const input = item.querySelector("input");
+            input.checked = true;
+
+            // 동일한 name을 가진 그룹의 라디오들만 스타일 초기화
+            const groupName = input.name;
+            document.querySelectorAll(`input[name="${groupName}"]`).forEach(el => {
+                el.closest(".option-item").classList.remove("border-danger", "bg-light");
+            });
+
+            // 선택된 항목 스타일 적용
+            item.classList.add("border-danger", "bg-light");
+        });
+    });
+
+  </script>
+</body>
+</html>

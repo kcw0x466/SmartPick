@@ -1,10 +1,12 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스마트픽 - 노트북</title>
+    <title>스마트픽 - 컴퓨터</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -30,10 +32,14 @@
             --transition: all 0.3s ease;
         }
 
+        /* 다크 모드 변수 */
         [data-theme="dark"] {
             --primary: #4287f5;
+            /* 핑크색에서 파란색으로 변경 */
             --primary-dark: #2e6ad1;
+            /* 더 어두운 파란색 */
             --primary-light: #213547;
+            /* 파란색 계열의 어두운 배경 */
             --secondary: #343a40;
             --dark: #f8f9fa;
             --white: #343a40;
@@ -44,13 +50,17 @@
             --card-bg: #343a40;
             --header-bg: #282c31;
             --border-color: #495057;
+            --success: #5cb85c;
+            --warning: #f0ad4e;
+            --danger: #d9534f;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -98,7 +108,7 @@
             transform: scale(1.05);
         }
 
-    
+
 
         .logo-box {
             background-color: var(--gray);
@@ -132,6 +142,7 @@
             outline: none;
             background-color: var(--body-bg);
             color: var(--text);
+            cursor: pointer;
         }
 
         .search-bar:focus {
@@ -642,6 +653,35 @@
             object-fit: contain;
         }
 
+        /* 스크롤 상단 버튼 */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 90;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .product-grid {
@@ -683,6 +723,130 @@
                 flex-shrink: 0;
             }
         }
+
+        /* 상품 별점 스타일 */
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 5px 0;
+        }
+
+        .stars {
+            color: #ffbb00;
+        }
+
+        .rating-value {
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .review-count {
+            font-size: 12px;
+            color: var(--gray-dark);
+        }
+
+        /* 재고 상태 배지 */
+        .stock-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .in-stock {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+        }
+
+        .low-stock {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+        }
+
+        .out-of-stock {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--danger);
+        }
+
+        /* 로딩 표시 */
+        .loading-indicator {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .loading-indicator.show {
+            display: flex;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--gray);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 빈 상태 표시 */
+        .empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            text-align: center;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+        }
+
+        .empty-state.show {
+            display: flex;
+        }
+
+        .empty-state i {
+            font-size: 50px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+        }
+
+        .empty-state button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .empty-state button:hover {
+            background-color: var(--primary-dark);
+        }
     </style>
 </head>
 
@@ -693,2483 +857,346 @@
         <span id="toast-message">장바구니에 추가되었습니다.</span>
     </div>
 
-    <!-- Header section - Sticky -->
-    <header id="header">
-        <a href="mainpage.html" class="logo">
-            <div class="logo">
-                <div class="logo-box">스마<br>트픽</div>
-                <span>스마트픽</span>
-            </div>
-        </a>
-        <div class="search-container">
-            <form id="searchForm" action="search_results.html" method="get">
-                <input type="text" class="search-bar" name="query" placeholder="찾으시는 상품을 검색해보세요">
-                <button type="submit" class="search-icon">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
-        <div class="nav-buttons">
-            <button class="nav-button" onclick="window.location.href='log-in.html'">
-                <i class="fas fa-user"></i>
-                로그인
-            </button>
-            <button class="nav-button" onclick="window.location.href='join1.html'">
-                <i class="fas fa-user-plus"></i>
-                회원가입
-            </button>
-            <button class="nav-button" onclick="window.location.href='cart.html'">
-                <i class="fas fa-shopping-cart"></i>
-                장바구니
-            </button>
-            <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
-    </header>
+    <?php 
+        include 'header.php'; 
+    ?>
 
     <div class="container">
         <!-- Breadcrumb -->
         <div class="breadcrumb">
-            <a href="mainpage.html">홈</a>
+            <a href="mainpage.php">홈</a>
             <span class="breadcrumb-separator">></span>
             <span>노트북</span>
         </div>
 
         <!-- 카테고리 탭 메뉴 -->
         <div class="category-tabs">
-            <div class="tab active">전체</div>
-            <div class="tab">노트북</div>
-        </div>
-
-        <!-- 필터 옵션 -->
-        <div class="filter-options">
-            <div class="option active">전체</div>
-            <div class="option">100만원 이하</div>
-            <div class="option">100-200만원</div>
-            <div class="option">200만원 이상</div>
-            <div class="option">삼성</div>
-            <div class="option">LG</div>
-            <div class="option">게이밍</div>
-            <div class="option">인기순</div>
-            <div class="option more">
-                인기순 <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="tab">전체</div>
+            <div class="tab active">노트북</div>
         </div>
     </div>
 
     <div class="container">
-        <!-- Filter and Sort Section -->
-        <div class="filter-section">
-            <div class="filter-chips">
-                <div class="filter-chip active">전체</div>
-                <div class="filter-chip">100만원 이하</div>
-                <div class="filter-chip">100-200만원</div>
-                <div class="filter-chip">200만원 이상</div>
-                <div class="filter-chip">삼성전자</div>
-                <div class="filter-chip">LG전자</div>
-                <div class="filter-chip">애플</div>
-                <div class="filter-chip">게이밍</div>
-            </div>
+        <!-- 로딩 표시 -->
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="spinner"></div>
+        </div>
 
-            <div class="sort-dropdown">
-                <button class="sort-button" id="sortButton">
-                    인기순 <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="sort-menu" id="sortMenu">
-                    <div class="sort-option active">인기순</div>
-                    <div class="sort-option">최신순</div>
-                    <div class="sort-option">가격 낮은순</div>
-                    <div class="sort-option">가격 높은순</div>
-                    <div class="sort-option">리뷰 많은순</div>
-                </div>
-            </div>
+        <!-- 빈 상태 표시 -->
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-desktop"></i>
+            <h3>검색 결과가 없습니다</h3>
+            <p>다른 검색어나 필터를 사용해 보세요.</p>
+            <button onclick="resetFilters()">필터 초기화</button>
         </div>
 
         <!-- Product Grid -->
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop1"
-                        data-product-name="삼성 갤럭시북 4 Pro">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop1'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop1', '삼성 갤럭시북 4 Pro', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 Pro 16인치</div>
-                    <div class="product-price">1,890,000원 <span class="original-price">2,100,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 512GB / Win11</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 Pro가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop2"
-                        data-product-name="애플 맥북 프로 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop2'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop2', '애플 맥북 프로 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 프로 M3 14인치</div>
-                    <div class="product-price">2,390,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 프로 M3가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop3"
-                        data-product-name="LG 그램 2025">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop3'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop3', 'LG 그램 2025', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 그램 2025 17인치</div>
-                    <div class="product-price">1,790,000원 <span class="original-price">2,100,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / Win11</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 그램 2025가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop4"
-                        data-product-name="ASUS ROG 제피러스">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop4'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop4', 'ASUS ROG 제피러스', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">ASUS ROG 제피러스 G16</div>
-                    <div class="product-price">2,450,000원</div>
-                    <div class="product-specs">i9-14900H / RTX 4070 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('ASUS ROG 제피러스 G16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop5"
-                        data-product-name="MSI 크리에이터 Z17">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop5'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop5', 'MSI 크리에이터 Z17', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">20%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 크리에이터 Z17 HX</div>
-                    <div class="product-price">2,080,000원 <span class="original-price">2,600,000원</span></div>
-                    <div class="product-specs">i9-13950HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 크리에이터 Z17 HX가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop6"
-                        data-product-name="HP 파빌리온">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop6'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop6', 'HP 파빌리온', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 파빌리온 Plus 14</div>
-                    <div class="product-price">980,000원</div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 파빌리온 Plus 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop7"
-                        data-product-name="레노버 ThinkPad X1 Carbon">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop7'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn"
-                        onclick="addToCompare('laptop7', '레노버 ThinkPad X1 Carbon', 'laptop')" aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">5%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 ThinkPad X1 Carbon Gen 11</div>
-                    <div class="product-price">2,090,000원 <span class="original-price">2,200,000원</span></div>
-                    <div class="product-specs">i7-1365U / 32GB / 1TB / WUXGA</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 ThinkPad X1 Carbon이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop8"
-                        data-product-name="에이서 Swift Go 14">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop8'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop8', '에이서 Swift Go 14', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이서 Swift Go 14</div>
-                    <div class="product-price">899,000원</div>
-                    <div class="product-specs">R7-8840HS / 16GB / 512GB / OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이서 Swift Go 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 9 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 10 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 11 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 12 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 13 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 14 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 15 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 16 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 17 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 18 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 19 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 20 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 21 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 22 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 23 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 24 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 25 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 26 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 27 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 28 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 29 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 30 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 31 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 32 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 33 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 34 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 35 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 36 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 37 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 38 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 39 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 40 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 41 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 42 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 43 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 44 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 45 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 46 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 47 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 48 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 49 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 50 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 51 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 52 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 53 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 54 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 55 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 56 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 57 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 58 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 59 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop9"
-                        data-product-name="델 XPS 13 Plus">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop9'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop9', '델 XPS 13 Plus', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">15%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">델 XPS 13 Plus</div>
-                    <div class="product-price">1,850,000원 <span class="original-price">2,170,000원</span></div>
-                    <div class="product-specs">i7-1360P / 16GB / 512GB / FHD+</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('델 XPS 13 Plus가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 60 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop10"
-                        data-product-name="마이크로소프트 서피스 랩탑 6">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop10'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop10', '마이크로소프트 서피스 랩탑 6', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">마이크로소프트 서피스 랩탑 6</div>
-                    <div class="product-price">1,950,000원</div>
-                    <div class="product-specs">i7-14700H / 16GB / 512GB / PixelSense</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('마이크로소프트 서피스 랩탑 6이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 61 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop11"
-                        data-product-name="삼성 갤럭시북 4 360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop11'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop11', '삼성 갤럭시북 4 360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">8%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">삼성 갤럭시북 4 360</div>
-                    <div class="product-price">1,680,000원 <span class="original-price">1,820,000원</span></div>
-                    <div class="product-specs">코어 울트라 5 / 16GB / 512GB / 터치스크린</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('삼성 갤럭시북 4 360이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 62 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop12"
-                        data-product-name="레노버 요가 9i">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop12'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop12', '레노버 요가 9i', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">레노버 요가 9i</div>
-                    <div class="product-price">1,790,000원</div>
-                    <div class="product-specs">i7-1360P / 16GB / 1TB / 4K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('레노버 요가 9i가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 63 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop13"
-                        data-product-name="HP 엔비 x360">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop13'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop13', 'HP 엔비 x360', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">12%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">HP 엔비 x360 14</div>
-                    <div class="product-price">1,580,000원 <span class="original-price">1,799,000원</span></div>
-                    <div class="product-specs">코어 울트라 7 / 16GB / 1TB / OLED 터치</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('HP 엔비 x360 14가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 64 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop14"
-                        data-product-name="에이수스 젠북 S 13">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop14'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop14', '에이수스 젠북 S 13', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">에이수스 젠북 S 13</div>
-                    <div class="product-price">1,499,000원</div>
-                    <div class="product-specs">R9-8955HS / 32GB / 1TB / 3K OLED</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('에이수스 젠북 S 13이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 65 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop15"
-                        data-product-name="LG 울트라기어">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop15'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop15', 'LG 울트라기어', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">10%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">LG 울트라기어 17</div>
-                    <div class="product-price">2,250,000원 <span class="original-price">2,500,000원</span></div>
-                    <div class="product-specs">i9-14900HX / RTX 4060 / 32GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('LG 울트라기어 17이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 66 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop16"
-                        data-product-name="MSI 프레스티지 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop16'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop16', 'MSI 프레스티지 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">MSI 프레스티지 16</div>
-                    <div class="product-price">1,870,000원</div>
-                    <div class="product-specs">i7-13700H / RTX 4050 / 16GB / 1TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('MSI 프레스티지 16이 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 67 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop17"
-                        data-product-name="기가바이트 에어로 16">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop17'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop17', '기가바이트 에어로 16', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="discount-badge">18%</div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">기가바이트 에어로 16 OLED</div>
-                    <div class="product-price">2,290,000원 <span class="original-price">2,790,000원</span></div>
-                    <div class="product-specs">i9-13900H / RTX 4070 / 32GB / 2TB</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('기가바이트 에어로 16 OLED가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 68 -->
-            <div class="product-card">
-                <div class="product-quick-actions">
-                    <button class="quick-action-btn wishlist-toggle" data-product-id="laptop18"
-                        data-product-name="애플 맥북 에어 M3">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="window.location.href='product_details.html?id=laptop18'"
-                        aria-label="상품 상세보기">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="quick-action-btn" onclick="addToCompare('laptop18', '애플 맥북 에어 M3', 'laptop')"
-                        aria-label="상품 비교하기">
-                        <i class="fas fa-exchange-alt"></i>
-                    </button>
-                </div>
-                <div class="product-image">
-                    <img src="/api/placeholder/180/120" alt="Product">
-                </div>
-                <div class="product-info">
-                    <div class="product-name">애플 맥북 에어 M3 15인치</div>
-                    <div class="product-price">1,890,000원</div>
-                    <div class="product-specs">M3 칩 / 16GB / 512GB / macOS</div>
-                    <div class="quick-actions">
-                        <button class="cart-button" onclick="showToast('애플 맥북 에어 M3 15인치가 장바구니에 추가되었습니다.')">
-                            <i class="fas fa-shopping-cart"></i> 장바구니 추가
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="page-button arrow"><i class="fas fa-chevron-left"></i></button>
-            <button class="page-button active">1</button>
-            <button class="page-button">2</button>
-            <button class="page-button">3</button>
-            <button class="page-button">4</button>
-            <button class="page-button">5</button>
-            <button class="page-button">6</button>
-            <button class="page-button">7</button>
-            <button class="page-button">8</button>
-            <button class="page-button">9</button>
-            <button class="page-button arrow"><i class="fas fa-chevron-right"></i></button>
+        <div class="product-grid" id="productGrid">
+            <?php
+                require_once 'DBconnect/mongo_connect.php';
+                $query = new MongoDB\Driver\Query([], [
+                    'projection' => ['name' => 1, 'price' => 1, 'stock' => 1], // 필요한 필드만 가져오기
+                ]);
+                
+                $cursor = $mongoManager->executeQuery("$mongoDBName.products_laptop", $query);
+                
+                foreach ($cursor as $doc) {
+                    $doc = (array) $doc;
+                    $id = (string)$doc['_id'];
+                    $name = $doc['name'] ?? '이름 없음';
+                    $price = number_format($doc['price'] ?? 0);
+                    $stock = $doc['stock'] ?? 0;
+                    $inStock = ($stock > 0) ? '재고 있음' : '재고 없음';
+                
+                    echo <<<HTML
+                    <div class="product-card">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="$id" data-product-name="$name">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="quick-action-btn" onclick="window.location.href='product_details.php?category=products_laptop&id=$id'" aria-label="상품 상세보기">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="product-image">
+                            <img src="/static/img/laptop/$id.png" alt="$name">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">$name</div>
+                            <div class="product-price">{$price}원</div>
+                            <div class="stock-status in-stock">$inStock</div>
+                            <div class="quick-actions">
+                                <button class="cart-button" onclick="">
+                                    <i class="fas fa-shopping-cart"></i> 장바구니 추가
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                HTML;
+                }
+            ?>            
         </div>
     </div>
 
-    <!-- Recent Products Sidebar -->
-    <div class="recent-products">
-        <div class="recent-title">최근 본 상품</div>
-        <div class="recent-items">
-            <div class="recent-item">
-                <img src="/api/placeholder/50/50" alt="Recent product">
-            </div>
-            <div class="recent-item">
-                <img src="/api/placeholder/50/50" alt="Recent product">
-            </div>
-            <div class="recent-item">
-                <img src="/api/placeholder/50/50" alt="Recent product">
-            </div>
-        </div>
-    </div>
+    <!-- 맨 위로 버튼 -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // 테마 토글 기능을 즉시 수행하는 코드
+        // DOM이 로드되면 실행
         document.addEventListener('DOMContentLoaded', function () {
-            // 기존의 페이지 초기화 코드 유지
-            currentPage = 1;
-            updatePaginationButtons();
-            updateProductDisplay();
+            // 테마 관련 초기화
+            initTheme();
 
-            // 테마 토글 버튼에 이벤트 리스너 직접 추가
-            const themeToggle = document.getElementById('themeToggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function () {
-                    // 현재 테마 확인
-                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                    // 새 테마 설정
-                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            // 스크롤 이벤트 리스너
+            window.addEventListener('scroll', handleScroll);
 
-                    // HTML 요소에 테마 속성 적용
-                    document.documentElement.setAttribute('data-theme', newTheme);
-                    // 로컬 스토리지에 테마 저장
-                    localStorage.setItem('theme', newTheme);
+            // 위시리스트 토글 버튼 이벤트 설정
+            setupWishlistToggleButtons();
 
-                    // 아이콘 변경
-                    const themeIcon = themeToggle.querySelector('i');
-                    if (themeIcon) {
-                        if (newTheme === 'dark') {
-                            themeIcon.classList.remove('fa-sun');
-                            themeIcon.classList.add('fa-moon');
-                        } else {
-                            themeIcon.classList.remove('fa-moon');
-                            themeIcon.classList.add('fa-sun');
-                        }
-                    }
+            // 정렬 드롭다운 설정
+            setupSortDropdown();
 
-                    console.log('테마 변경:', newTheme); // 콘솔 로그로 확인
+            // 필터 칩 설정
+            setupFilterChips();
+
+            setupPagination();
+
+            // 페이지네이션 설정
+            setupPagination();
+
+            // 스크롤 위로 버튼 설정
+            document.getElementById('scrollTop').addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
-            } else {
-                console.error('테마 토글 버튼을 찾을 수 없습니다.');
-            }
+            });
+            const searchBar = document.getElementById('searchBar');
+            const searchIcon = document.getElementById('searchIcon');
+
+            // 검색창 클릭 시 이벤트
+            searchBar.addEventListener('click', function () {
+                window.location.href = 'search_results.html';
+            });
+
+            // 검색 아이콘 클릭 시 이벤트
+            searchIcon.addEventListener('click', function () {
+                window.location.href = 'search_results.html';
+            });
+            // 최근 본 상품 위젯 클릭 이벤트
+            const recentProductsWidget = document.getElementById('recentProductsWidget');
+
+            recentProductsWidget.addEventListener('click', function () {
+                window.location.href = 'recent_products.html';
+            });
+
+            // CSS 수정을 JavaScript로 추가
+            recentProductsWidget.style.cursor = 'pointer';
+        });
+
+        // 테마 초기화 및 설정
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme') || 'light';
 
             // 저장된 테마 적용
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
 
-                const themeIcon = themeToggle?.querySelector('i');
-                if (themeIcon && savedTheme === 'dark') {
+            // 테마 토글 이벤트
+            themeToggle.addEventListener('click', function () {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // 아이콘 변경
+                if (newTheme === 'dark') {
                     themeIcon.classList.remove('fa-sun');
                     themeIcon.classList.add('fa-moon');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
                 }
-            }
 
-            // 검색창 클릭 시 검색 페이지로 이동
-            const searchBar = document.querySelector('.search-bar');
-            if (searchBar) {
-                searchBar.addEventListener('click', function (e) {
-                    // 검색창을 클릭하면 search_results.html로 이동
-                    window.location.href = 'search_results.html';
-
-                    // 기본 동작(폼 제출) 방지
-                    e.preventDefault();
-                });
-            }
-
-            // 최근 본 상품 영역 클릭 시 최근 본 상품 페이지로 이동
-            const recentProducts = document.querySelector('.recent-products');
-            if (recentProducts) {
-                recentProducts.addEventListener('click', function () {
-                    window.location.href = 'recent_products.html';
-                });
-            }
-
-            // 카테고리 탭 클릭 이벤트 - 필터링 기능 추가
-            const categoryTabs = document.querySelectorAll('.tab');
-            if (categoryTabs) {
-                categoryTabs.forEach(tab => {
-                    tab.addEventListener('click', function () {
-                        // 모든 탭에서 active 클래스 제거
-                        categoryTabs.forEach(t => t.classList.remove('active'));
-
-                        // 클릭한 탭에 active 클래스 추가
-                        this.classList.add('active');
-
-                        // 카테고리 이름 가져오기
-                        const categoryName = this.textContent.trim();
-
-                        // 카테고리에 따라 상품 필터링
-                        filterProductsByCategory(categoryName);
-
-                        // 페이지 초기화 및 업데이트
-                        currentPage = 1;
-                        updatePaginationButtons();
-                        updateProductDisplay();
-                    });
-                });
-            }
-
-            // 필터 옵션 클릭 이벤트 - 필터링 기능 추가
-            const filterOptions = document.querySelectorAll('.option:not(.more)');
-            if (filterOptions) {
-                filterOptions.forEach(option => {
-                    option.addEventListener('click', function () {
-                        // 모든 옵션에서 active 클래스 제거 (자신 제외)
-                        filterOptions.forEach(o => {
-                            if (o !== this) o.classList.remove('active');
-                        });
-
-                        // 클릭한 옵션에 active 클래스 토글
-                        this.classList.toggle('active');
-
-                        // 필터 이름 가져오기
-                        const filterName = this.textContent.trim();
-
-                        // 필터에 따라 상품 필터링
-                        filterProductsByOption(filterName);
-
-                        // 페이지 초기화 및 업데이트
-                        currentPage = 1;
-                        updatePaginationButtons();
-                        updateProductDisplay();
-                    });
-                });
-            }
-
-            // 필터 칩 클릭 이벤트 - 필터링 기능 추가
-            const filterChips = document.querySelectorAll('.filter-chip');
-            if (filterChips) {
-                filterChips.forEach(chip => {
-                    chip.addEventListener('click', function () {
-                        // 모든 칩에서 active 클래스 제거
-                        filterChips.forEach(c => c.classList.remove('active'));
-
-                        // 클릭한 칩에 active 클래스 추가
-                        this.classList.add('active');
-
-                        // 필터 이름 가져오기
-                        const filterName = this.textContent.trim();
-
-                        // 필터에 따라 상품 필터링
-                        filterProductsByChip(filterName);
-
-                        // 페이지 초기화 및 업데이트
-                        currentPage = 1;
-                        updatePaginationButtons();
-                        updateProductDisplay();
-                    });
-                });
-            }
-
-            // 초기 필터링 상태 설정
-            resetFilters();
-        });
+                showToast(newTheme === 'dark' ? '다크 모드로 변경되었습니다.' : '라이트 모드로 변경되었습니다.');
+            });
+        }
 
         // 스크롤 이벤트 처리
         function handleScroll() {
             const header = document.getElementById('header');
+            const scrollTop = document.getElementById('scrollTop');
 
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
+                scrollTop.classList.add('show');
             } else {
                 header.classList.remove('scrolled');
+                scrollTop.classList.remove('show');
             }
         }
 
-        document.getElementById('sortButton').addEventListener('click', function () {
-            document.getElementById('sortMenu').classList.toggle('show');
-        });
+        // 위시리스트 버튼 설정
+        function setupWishlistToggleButtons() {
+            const wishlistButtons = document.querySelectorAll('.wishlist-toggle');
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
-        // Hide dropdown when clicking outside
-        window.addEventListener('click', function (event) {
-            if (!event.target.matches('.sort-button') && !event.target.matches('.sort-button *')) {
-                const dropdown = document.getElementById('sortMenu');
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
+            wishlistButtons.forEach(button => {
+                const productId = button.dataset.productId;
+
+                // 이미 위시리스트에 있으면 활성화 상태로 표시
+                if (wishlist.some(item => item.id === productId)) {
+                    button.classList.add('active');
+                    button.querySelector('i').classList.remove('far');
+                    button.querySelector('i').classList.add('fas');
                 }
-            }
-        });
 
-        // Sort options
-        document.querySelectorAll('.sort-option').forEach(option => {
-            option.addEventListener('click', function () {
-                document.querySelectorAll('.sort-option').forEach(opt => {
-                    opt.classList.remove('active');
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleWishlist(button.dataset.productId, button.dataset.productName);
+
+                    // 버튼 상태 토글
+                    button.classList.toggle('active');
+
+                    // 아이콘 변경
+                    if (button.classList.contains('active')) {
+                        button.querySelector('i').classList.remove('far');
+                        button.querySelector('i').classList.add('fas');
+                    } else {
+                        button.querySelector('i').classList.remove('fas');
+                        button.querySelector('i').classList.add('far');
+                    }
                 });
+            });
+        }
+
+        // 위시리스트에 추가/제거 토글
+        function toggleWishlist(productId, productName) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const exists = wishlist.findIndex(item => item.id === productId);
+
+            if (exists !== -1) {
+                // 제거
+                wishlist.splice(exists, 1);
+                showToast(`${productName}이(가) 위시리스트에서 제거되었습니다.`);
+            } else {
+                // 추가
+                wishlist.push({
+                    id: productId,
+                    name: productName,
+                    addedAt: new Date().toISOString()
+                });
+                showToast(`${productName}이(가) 위시리스트에 추가되었습니다.`);
+            }
+
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        // 카테고리 탭 클릭 이벤트
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
-                document.getElementById('sortButton').innerHTML = this.innerHTML + ' <i class="fas fa-chevron-down"></i>';
-                document.getElementById('sortMenu').classList.remove('show');
-
-                // 정렬 옵션에 따라 상품 정렬
-                const sortOption = this.textContent.trim();
-                sortProducts(sortOption);
-
-                // 페이지 업데이트
-                updateProductDisplay();
+                // 필터링 로직 추가 가능
             });
         });
 
-        // 위시리스트 토글 버튼
-        document.querySelectorAll('.wishlist-toggle').forEach(button => {
-            button.addEventListener('click', function () {
+        // 필터 옵션 클릭 이벤트
+        document.querySelectorAll('.option:not(.more)').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.option:not(.more)').forEach(o => {
+                    if (o !== this) o.classList.remove('active');
+                });
                 this.classList.toggle('active');
-                if (this.classList.contains('active')) {
-                    this.innerHTML = '<i class="fas fa-heart"></i>';
-                    showToast(`${this.dataset.productName}이(가) 위시리스트에 추가되었습니다.`);
-                } else {
-                    this.innerHTML = '<i class="far fa-heart"></i>';
-                    showToast(`${this.dataset.productName}이(가) 위시리스트에서 제거되었습니다.`);
+                // 필터링 로직 추가 가능
+                applyFilters(this.textContent.trim());
+            });
+        });
+
+        // 정렬 드롭다운 설정
+        function setupSortDropdown() {
+            // 정렬 드롭다운 토글
+            document.getElementById('sortButton').addEventListener('click', function (e) {
+                e.stopPropagation();
+                document.getElementById('sortMenu').classList.toggle('show');
+            });
+
+            // 외부 클릭 시 드롭다운 닫기
+            window.addEventListener('click', function (event) {
+                if (!event.target.matches('.sort-button') && !event.target.matches('.sort-button *')) {
+                    const dropdown = document.getElementById('sortMenu');
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
                 }
             });
-        });
 
-        // 상품 비교하기 기능
-        function addToCompare(productId, productName, category) {
+            // 정렬 옵션 선택
+            document.querySelectorAll('.sort-option').forEach(option => {
+                option.addEventListener('click', function () {
+                    document.querySelectorAll('.sort-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+
+                    const sortText = this.textContent.trim();
+                    document.getElementById('sortButton').innerHTML = `${sortText} <i class="fas fa-chevron-down"></i>`;
+                    document.getElementById('sortMenu').classList.remove('show');
+
+                    // 정렬 적용 시 토스트 메시지
+                    showToast(`${sortText}으로 정렬하였습니다.`);
+
+                    // 여기서 정렬 로직 구현 가능
+                });
+            });
+        }
+
+        // 필터 칩 설정
+        function setupFilterChips() {
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.addEventListener('click', function () {
+                    document.querySelectorAll('.filter-chip').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    this.classList.add('active');
+
+                    // 필터 적용 시 토스트 메시지
+                    showToast(`${this.textContent.trim()} 필터를 적용하였습니다.`);
+
+                    // 여기서 필터링 로직 구현 가능
+                    applyFilters(this.textContent.trim());
+                });
+            });
+        }
+
+        // 필터 초기화
+        function resetFilters() {
+            document.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+
+            document.querySelector('.filter-chip:first-child').classList.add('active');
+
+            // 빈 상태 숨기기
+            document.getElementById('emptyState').classList.remove('show');
+            // 제품 그리드 표시
+            document.getElementById('productGrid').style.display = 'grid';
+
+            // 필터 초기화 후 토스트 표시
+            showToast('필터가 초기화되었습니다.');
+        }
+
+        // 비교 목록에 상품 추가
+        function addToCompare(productId, productName, productCategory) {
             // 로컬 스토리지에서 현재 비교 목록 가져오기
             let compareList = JSON.parse(localStorage.getItem('compareList')) || [];
 
@@ -3189,11 +1216,14 @@
             compareList.push({
                 id: productId,
                 name: productName,
-                category: category
+                category: productCategory
             });
 
             localStorage.setItem('compareList', JSON.stringify(compareList));
             showToast(`${productName}이(가) 비교 목록에 추가되었습니다.`);
+
+            // 장바구니 정보 저장
+            localStorage.setItem('cart', JSON.stringify(cart));
         }
 
         // Toast notification
@@ -3209,421 +1239,161 @@
             }, 3000);
         }
 
-        // 페이지 변경 함수
-        function changePage(page) {
-            let newPage = currentPage;
+        // 검색 폼 제출 처리
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // 기본 제출 동작 방지
 
-            // 이전 또는 다음 버튼
-            if (page === 'prev') {
-                newPage = Math.max(1, currentPage - 1);
-            } else if (page === 'next') {
-                newPage = Math.min(9, currentPage + 1); // 최대 9페이지
+            const searchInput = this.querySelector('.search-bar');
+            const query = searchInput.value.trim();
+
+            if (query) {
+                // 실제로는 검색 결과 페이지로 이동
+                window.location.href = `search_result.html?query=${encodeURIComponent(query)}`;
             } else {
-                newPage = page;
+                showToast('검색어를 입력해주세요.');
+            }
+        });
+        // 장바구니에 상품 추가
+        function addToCart(productId, productName) {
+            // 장바구니 정보를 로컬 스토리지에 저장
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // 이미 장바구니에 있는지 확인
+            const existingProduct = cart.find(item => item.id === productId);
+
+            if (existingProduct) {
+                // 이미 있으면 수량 증가
+                existingProduct.quantity += 1;
+                showToast(`${productName} 수량이 증가되었습니다. (${existingProduct.quantity}개)`);
+            } else {
+                // 없으면 새로 추가
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    quantity: 1,
+                    addedAt: new Date().toISOString()
+                });
+                showToast(`${productName}이(가) 장바구니에 추가되었습니다.`);
             }
 
-            // 현재 페이지와 같으면 아무것도 하지 않음
-            if (newPage === currentPage) {
-                return;
-            }
+            // 장바구니 정보 저장
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        // 페이지네이션 설정
+        function setupPagination() {
+            const pageButtons = document.querySelectorAll('.page-button:not(.arrow)');
+            const productCards = document.querySelectorAll('#productGrid .product-card');
+            const productsPerPage = 8; // 페이지당 상품 수
 
-            // 페이지 변경
-            currentPage = newPage;
+            // 초기 페이지 설정
+            showProductsForPage(1, productCards, productsPerPage);
 
-            // 페이지네이션 버튼 업데이트
-            updatePaginationButtons();
+            // 페이지 버튼 클릭 이벤트
+            pageButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    pageButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
 
-            // 상품 표시 업데이트 - 여기가 중요!
-            updateProductDisplay(); // updateProductVisibility() 대신 이것을 호출
+                    const pageNum = parseInt(this.textContent);
+                    showProductsForPage(pageNum, productCards, productsPerPage);
+                });
+            });
 
-            // 스크롤 위치 조정
+            // 이전/다음 페이지 버튼
+            const prevButton = document.querySelector('.page-button.arrow:first-child');
+            const nextButton = document.querySelector('.page-button.arrow:last-child');
+
+            prevButton.addEventListener('click', function () {
+                const activePage = document.querySelector('.page-button.active');
+                const currentPage = parseInt(activePage.textContent);
+                if (currentPage > 1) {
+                    const pageButtons = Array.from(document.querySelectorAll('.page-button:not(.arrow)'));
+                    const prevPageButton = pageButtons.find(btn => parseInt(btn.textContent) === currentPage - 1);
+                    if (prevPageButton) {
+                        prevPageButton.click();
+                    }
+                }
+            });
+
+            nextButton.addEventListener('click', function () {
+                const activePage = document.querySelector('.page-button.active');
+                const currentPage = parseInt(activePage.textContent);
+                if (currentPage < 9) { // 9를 페이지 최대 수로 업데이트
+                    const pageButtons = Array.from(document.querySelectorAll('.page-button:not(.arrow)'));
+                    const nextPageButton = pageButtons.find(btn => parseInt(btn.textContent) === currentPage + 1);
+                    if (nextPageButton) {
+                        nextPageButton.click();
+                    }
+                }
+            });
+        }
+
+        // 특정 페이지의 상품만 표시
+        function showProductsForPage(pageNum, productCards, productsPerPage) {
+            const startIndex = (pageNum - 1) * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+
+            productCards.forEach((card, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // 페이지 상단으로 스크롤
             window.scrollTo({
-                top: 0,
+                top: document.querySelector('#productGrid').offsetTop - 100,
                 behavior: 'smooth'
             });
         }
+        // 필터 옵션 클릭 시 호출되는 함수
+        function applyFilters(filter) {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const specs = card.querySelector('.product-specs').textContent;
+                // 문자열에서 숫자만 뽑아서 정수로
+                const priceText = card.querySelector('.product-price').textContent;
+                const price = parseInt(priceText.replace(/[^0-9]/g, ''), 10);
 
-        // 페이지네이션 버튼에 이벤트 리스너 추가
-        document.querySelectorAll('.page-button').forEach(button => {
-            button.addEventListener('click', function () {
-                if (this.classList.contains('arrow')) {
-                    // 화살표 버튼인 경우
-                    if (this.querySelector('i').classList.contains('fa-chevron-left')) {
-                        changePage('prev');
-                    } else {
-                        changePage('next');
-                    }
-                } else {
-                    // 숫자 버튼인 경우
-                    changePage(parseInt(this.textContent));
+                let show = true;
+                switch (filter) {
+                    case '100만원 이하':
+                        show = price <= 1000000;
+                        break;
+                    case '100-150만원':
+                        show = price > 1000000 && price <= 1500000;
+                        break;
+                    case '150만원 이상':
+                        show = price > 1500000;
+                        break;
+                    case '인텔':
+                        show = specs.includes('Intel');
+                        break;
+                    case 'AMD':
+                        show = specs.includes('AMD');
+                        break;
+                    case '게이밍':
+                        show = specs.toLowerCase().includes('게이밍') || specs.toLowerCase().includes('gaming');
+                        break;
+                    case '사무용':
+                        // 예: 스펙에 '사무' 키워드가 없으면 브랜드별 조건 등 추가 가능
+                        show = specs.toLowerCase().includes('office') || specs.toLowerCase().includes('사무');
+                        break;
+                    default:
+                        show = true; // '전체' 등
                 }
-            });
-        });
 
-        // 현재 페이지 변수 초기화
-        let currentPage = 1;
-
-        // 페이지네이션 버튼 업데이트 함수
-        function updatePaginationButtons() {
-            document.querySelectorAll('.page-button').forEach(button => {
-                if (!button.classList.contains('arrow')) {
-                    button.classList.remove('active');
-                    if (parseInt(button.textContent) === currentPage) {
-                        button.classList.add('active');
-                    }
-                }
-            });
-        }
-
-        // 추가로 필요한 빈 객체 초기화
-        const pagesData = {};
-
-        // 필터 상태를 저장하는 객체
-        let filterState = {
-            category: '전체',
-            priceRange: '전체',
-            brand: '전체',
-            feature: '전체'
-        };
-
-        // 모든 필터 초기화 함수
-        function resetFilters() {
-            filterState = {
-                category: '전체',
-                priceRange: '전체',
-                brand: '전체',
-                feature: '전체'
-            };
-
-            // 모든 상품 카드의 filtered-out 클래스 제거
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.classList.remove('filtered-out');
+                card.style.display = show ? '' : 'none';
             });
 
-            // 필터링된 상품 목록 초기화
-            filteredProducts = Array.from(document.querySelectorAll('.product-card'));
-
-            // 메시지 제거
-            const noProductsMessage = document.querySelector('.no-products-message');
-            if (noProductsMessage) {
-                noProductsMessage.remove();
-            }
-
-            // 페이지네이션 표시
-            const pagination = document.querySelector('.pagination');
-            if (pagination) {
-                pagination.style.display = 'flex';
-            }
-
-            // 페이지네이션 버튼 업데이트
-            const totalPages = Math.max(1, Math.ceil(filteredProducts.length / 8));
-            updatePaginationButtonsCount(totalPages);
-
-            // 현재 페이지가 전체 페이지 수보다 크면 조정
-            if (currentPage > totalPages) {
-                currentPage = totalPages;
-            }
-
-            // 상품 표시 업데이트
-            updateProductDisplay();
+            // 빈 결과일 때 메시지 띄우기
+            const emptyState = document.getElementById('emptyState');
+            const anyVisible = Array.from(document.querySelectorAll('.product-card'))
+                .some(c => c.style.display !== 'none');
+            emptyState.classList.toggle('show', !anyVisible);
         }
 
-        // 카테고리별 상품 필터링 함수
-        function filterProductsByCategory(category) {
-            if (category === '전체') {
-                // '전체' 카테고리 선택 시 카테고리 필터만 초기화
-                filterState.category = '전체';
-            } else {
-                filterState.category = category;
-            }
-
-            applyFilters();
-        }
-
-        // 필터 옵션별 상품 필터링 함수
-        function filterProductsByOption(option) {
-            // 필터 옵션에 따라 상태 업데이트
-            if (option === '전체') {
-                // '전체' 옵션 선택 시 모든 필터 초기화
-                resetFilters();
-                return;
-            } else if (option === '100만원 이하' || option === '100-200만원' || option === '200만원 이상') {
-                filterState.priceRange = option;
-            } else if (option === '삼성' || option === 'LG' || option === '애플') {
-                filterState.brand = option;
-            } else if (option === '게이밍') {
-                filterState.feature = option;
-            } else if (option === '인기순') {
-                // 정렬 옵션은 필터와 별개로 처리
-                sortProducts('인기순');
-                return;
-            }
-
-            applyFilters();
-        }
-
-        // 필터 칩별 상품 필터링 함수
-        function filterProductsByChip(chip) {
-            // 필터 칩에 따라 상태 업데이트
-            if (chip === '전체') {
-                // '전체' 칩 선택 시 모든 필터 초기화
-                resetFilters();
-                return;
-            } else if (chip === '100만원 이하' || chip === '100-200만원' || chip === '200만원 이상') {
-                filterState.priceRange = chip;
-            } else if (chip === '삼성전자') {
-                filterState.brand = '삼성';
-            } else if (chip === 'LG전자') {
-                filterState.brand = 'LG';
-            } else if (chip === '애플') {
-                filterState.brand = '애플';
-            } else if (chip === '게이밍') {
-                filterState.feature = chip;
-            }
-
-            applyFilters();
-        }
-
-        // 모든 필터를 적용하는 함수
-        function applyFilters() {
-            const productCards = document.querySelectorAll('.product-card');
-
-            // 모든 상품 카드의 filtered-out 클래스 제거
-            productCards.forEach(card => {
-                card.classList.remove('filtered-out');
-            });
-
-            // 상품이 필터링 조건을 만족하는지 확인하는 함수
-            function meetsFilterCriteria(card) {
-                const productName = card.querySelector('.product-name').textContent.toLowerCase();
-                const productPrice = parseInt(card.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
-                const productSpecs = card.querySelector('.product-specs').textContent.toLowerCase();
-
-                // 카테고리 필터 확인
-                if (filterState.category !== '전체' && !productName.includes(filterState.category.toLowerCase())) {
-                    return false;
-                }
-
-                // 가격 범위 필터 확인
-                if (filterState.priceRange === '100만원 이하' && productPrice > 1000000) {
-                    return false;
-                } else if (filterState.priceRange === '100-200만원' && (productPrice <= 1000000 || productPrice > 2000000)) {
-                    return false;
-                } else if (filterState.priceRange === '200만원 이상' && productPrice <= 2000000) {
-                    return false;
-                }
-
-                // 브랜드 필터 확인
-                if (filterState.brand === '삼성' && !productName.toLowerCase().includes('삼성')) {
-                    return false;
-                } else if (filterState.brand === 'LG' && !productName.toLowerCase().includes('lg')) {
-                    return false;
-                } else if (filterState.brand === '애플' && !productName.toLowerCase().includes('애플')) {
-                    return false;
-                }
-
-                // 특징 필터 확인
-                if (filterState.feature === '게이밍' && !productSpecs.includes('rtx')) {
-                    return false;
-                }
-
-                return true;
-            }
-
-            // 각 상품에 필터 적용
-            productCards.forEach(card => {
-                if (!meetsFilterCriteria(card)) {
-                    card.classList.add('filtered-out');
-                }
-            });
-
-            // 필터링된 상품 목록 업데이트
-            updateFilteredProducts();
-        }
-
-        // 필터링된 상품 목록 업데이트
-        function updateFilteredProducts() {
-            // 필터링된 결과에 따라 상품 배열 업데이트
-            filteredProducts = Array.from(document.querySelectorAll('.product-card:not(.filtered-out)'));
-
-            // 필터링 결과 처리
-            handleFilterResults();
-        }
-
-        // 필터링 결과 처리
-        function handleFilterResults() {
-            const productGrid = document.querySelector('.product-grid');
-
-            // 필터링 결과가 없는 경우 메시지 표시
-            if (filteredProducts.length === 0) {
-                // 기존 메시지 제거
-                const existingMessage = document.querySelector('.no-products-message');
-                if (existingMessage) {
-                    existingMessage.remove();
-                }
-
-                // 새 메시지 추가
-                const message = document.createElement('div');
-                message.className = 'no-products-message';
-                message.textContent = '선택한 필터에 맞는 상품이 없습니다.';
-                message.style.gridColumn = '1 / -1';
-                message.style.textAlign = 'center';
-                message.style.padding = '50px 0';
-                message.style.fontSize = '16px';
-                message.style.color = 'var(--gray-dark)';
-
-                productGrid.appendChild(message);
-
-                // 페이지네이션 숨기기
-                const pagination = document.querySelector('.pagination');
-                if (pagination) {
-                    pagination.style.display = 'none';
-                }
-            } else {
-                // 메시지 제거
-                const noProductsMessage = document.querySelector('.no-products-message');
-                if (noProductsMessage) {
-                    noProductsMessage.remove();
-                }
-
-                // 페이지네이션 표시
-                const pagination = document.querySelector('.pagination');
-                if (pagination) {
-                    pagination.style.display = 'flex';
-                }
-
-                // 페이지네이션 버튼 업데이트
-                const totalPages = Math.max(1, Math.ceil(filteredProducts.length / 8));
-                updatePaginationButtonsCount(totalPages);
-
-                // 현재 페이지가 전체 페이지 수보다 크면 조정
-                if (currentPage > totalPages) {
-                    currentPage = totalPages;
-                    updatePaginationButtons();
-                }
-            }
-
-            // 상품 표시 업데이트
-            updateProductDisplay();
-        }
-
-        // 페이지네이션 버튼 개수 업데이트
-        function updatePaginationButtonsCount(totalPages) {
-            const pagination = document.querySelector('.pagination');
-            if (!pagination) return;
-
-            // 기존 페이지 버튼 제거 (화살표 버튼 제외)
-            const pageButtons = pagination.querySelectorAll('.page-button:not(.arrow)');
-            pageButtons.forEach(button => button.remove());
-
-            // 화살표 버튼 가져오기
-            const prevButton = pagination.querySelector('.page-button.arrow:first-child');
-            const nextButton = pagination.querySelector('.page-button.arrow:last-child');
-
-            // 페이지 버튼 생성 및 삽입
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.className = 'page-button' + (i === currentPage ? ' active' : '');
-                pageButton.textContent = i;
-                pageButton.addEventListener('click', function () {
-                    changePage(i);
-                });
-
-                // 다음 버튼 앞에 삽입
-                pagination.insertBefore(pageButton, nextButton);
-            }
-        }
-
-        // 정렬 함수
-        function sortProducts(sortOption) {
-            const productGrid = document.querySelector('.product-grid');
-            const productCards = Array.from(document.querySelectorAll('.product-card:not(.filtered-out)'));
-
-            if (productCards.length === 0) return;
-
-            // 정렬 로직
-            productCards.sort((a, b) => {
-                const priceA = parseInt(a.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
-                const priceB = parseInt(b.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
-
-                if (sortOption === '가격 낮은순') {
-                    return priceA - priceB;
-                } else if (sortOption === '가격 높은순') {
-                    return priceB - priceA;
-                } else if (sortOption === '인기순') {
-                    // 인기순은 기본 정렬로 가정 (제품 ID 순)
-                    const idA = a.querySelector('.wishlist-toggle').getAttribute('data-product-id');
-                    const idB = b.querySelector('.wishlist-toggle').getAttribute('data-product-id');
-                    return idA.localeCompare(idB);
-                } else if (sortOption === '최신순') {
-                    // 최신순은 역순으로 가정
-                    const idA = a.querySelector('.wishlist-toggle').getAttribute('data-product-id');
-                    const idB = b.querySelector('.wishlist-toggle').getAttribute('data-product-id');
-                    return idB.localeCompare(idA);
-                } else if (sortOption === '리뷰 많은순') {
-                    // 랜덤 정렬 (리뷰 정보가 없으므로)
-                    return Math.random() - 0.5;
-                }
-
-                return 0;
-            });
-
-            // 정렬된 카드를 그리드에 다시 추가
-            productCards.forEach(card => {
-                productGrid.appendChild(card);
-            });
-
-            // 필터링된 상품 배열 업데이트
-            filteredProducts = productCards;
-        }
-
-        // 필터링된 상품 목록
-        let filteredProducts = [];
-
-        function updateProductDisplay() {
-            const productCards = document.querySelectorAll('.product-card');
-            const productGrid = document.querySelector('.product-grid');
-
-            // 필터링 결과가 없는 경우는 이미 처리됨
-            if (document.querySelector('.no-products-message')) {
-                return;
-            }
-
-            // 모든 상품 카드 숨기기
-            productCards.forEach((card) => {
-                card.style.display = 'none';
-            });
-
-            // 현재 페이지에 해당하는 필터링된 상품만 표시하기
-            const startIndex = (currentPage - 1) * 8;
-            const endIndex = Math.min(startIndex + 8, filteredProducts.length);
-
-            for (let i = startIndex; i < endIndex; i++) {
-                filteredProducts[i].style.display = 'block';
-            }
-        }
-
-        // CSS 스타일 추가
-        const style = document.createElement('style');
-        style.textContent = `
-.filtered-out {
-    display: none !important;
-}
-
-.no-products-message {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 50px 0;
-    font-size: 16px;
-    color: var(--gray-dark);
-}
-`;
-        document.head.appendChild(style);
-
-        // 페이지 로드 시 필터링된 상품 목록 초기화
-        document.addEventListener('DOMContentLoaded', function () {
-            filteredProducts = Array.from(document.querySelectorAll('.product-card'));
-        });
     </script>
 </body>
 

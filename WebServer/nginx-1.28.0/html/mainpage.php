@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -973,69 +976,30 @@
         <span id="toast-message">상품이 장바구니에 추가되었습니다.</span>
     </div>
 
-    <!-- Header section - Sticky -->
-    <header id="header">
-        <div class="logo" onclick="window.location.href='mainpage.html'">
-            <div class="logo-box">스마<br>트픽</div>
-            <span>스마트픽</span>
-        </div>
-        <div class="search-container">
-            <form id="searchForm" action="search_results.html" method="get">
-                <input type="text" class="search-bar" id="searchInput" name="query" placeholder="찾으시는 상품을 검색해보세요">
-                <button type="submit" class="search-icon">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-            <!-- 자동완성 컨테이너 -->
-            <div id="autocompleteContainer" class="autocomplete-container"></div>
-        </div>
-        <div class="nav-buttons">
-            <button class="nav-button" onclick="window.location.href='log-in.html'">
-                <i class="fas fa-user"></i>
-                로그인
-            </button>
-            <button class="nav-button" onclick="window.location.href='join1.html'">
-                <i class="fas fa-user-plus"></i>
-                회원가입
-            </button>
-            <button class="nav-button" onclick="window.location.href='cart.html'">
-                <i class="fas fa-shopping-cart"></i>
-                장바구니
-            </button>
-            <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
-    </header>
+    <?php 
+        include 'header.php'; 
+    ?>
 
     <!-- Main content section -->
     <div class="main-content">
         <!-- Sidebar with categories -->
         <div class="sidebar">
-            <a href="computer.html" class="category-item">
+            <a href="computer.php" class="category-item">
                 <div class="category-icon">
                     <i class="fas fa-laptop"></i>
                 </div>
                 <div class="category-name">컴퓨터</div>
             </a>
             <!-- 세탁기 -->
-            <a href="washer.html" class="category-item">
+            <a href="washer.php" class="category-item">
                 <div class="category-icon">
                     <i class="fas fa-tshirt"></i>
                 </div>
                 <div class="category-name">세탁기</div>
             </a>
 
-            <!-- 냉장고 -->
-            <a href="refrigerator.html" class="category-item">
-                <div class="category-icon">
-                    <i class="fas fa-snowflake"></i>
-                </div>
-                <div class="category-name">냉장고</div>
-            </a>
-
             <!-- TV -->
-            <a href="tv.html" class="category-item">
+            <a href="tv.php" class="category-item">
                 <div class="category-icon">
                     <i class="fas fa-tv"></i>
                 </div>
@@ -1043,7 +1007,7 @@
             </a>
 
             <!-- 스마트폰 -->
-            <a href="laptop.html" class="category-item">
+            <a href="laptop.php" class="category-item">
                 <div class="category-icon">
                     <i class="fas fa-laptop"></i>
                 </div>
@@ -1053,32 +1017,6 @@
 
         <!-- Content area -->
         <div class="content-area">
-            <!-- Hero Banner Slider -->
-            <div class="hero-slider">
-                <div class="slide active">
-                    <div class="banner-placeholder">컴퓨터 이미지</div>
-                </div>
-                <div class="slide">
-                    <div class="banner-placeholder">세탁기 이미지</div>
-                </div>
-                <div class="slide">
-                    <div class="banner-placeholder">냉장고 이미지</div>
-                </div>
-
-                <div class="slide-controls">
-                    <div class="slide-dot active"></div>
-                    <div class="slide-dot"></div>
-                    <div class="slide-dot"></div>
-                </div>
-
-                <div class="slide-arrow prev">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="slide-arrow next">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-
             <!-- 추천 상품 섹션 -->
             <div class="section-header">
                 <h2 class="section-title">가장 인기있는 상품</h2>
@@ -1089,24 +1027,20 @@
                 <!-- 상품 1 - 재고 있음 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="삼성 갤럭시북 Pro 360">
+                        <img src="/static/img/laptop/2.png" alt="">
                         <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product1"
-                                data-product-name="삼성 갤럭시북 Pro 360" aria-label="위시리스트에 추가">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="2"
+                                data-product-name="삼성전자 갤럭시북4" aria-label="위시리스트에 추가">
                                 <i class="fas fa-heart"></i>
                             </button>
                             <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product1'" aria-label="상품 상세보기">
+                                onclick="window.location.href='product_details.php?category=products_laptop&id=2'" aria-label="상품 상세보기">
                                 <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product1', '삼성 갤럭시북 Pro 360', 'laptop')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
                             </button>
                         </div>
                     </div>
                     <div class="product-details">
-                        <h3 class="product-title">삼성 갤럭시북 Pro 360</h3>
+                        <h3 class="product-title">삼성전자 갤럭시북4</h3>
                         <!-- 별점 리뷰 -->
                         <div class="product-rating">
                             <div class="stars">
@@ -1120,179 +1054,32 @@
                             <span class="review-count">(128)</span>
                         </div>
                         <div class="product-price">
-                            <span>1,450,000원</span>
-
+                            <span>738,000원</span>
                         </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status in-stock">재고 있음</div>
                     </div>
-                    <button class="cart-button" onclick="addToCart('product1', '삼성 갤럭시북 Pro 360')"
+                    <button class="cart-button" onclick=""
                         aria-label="장바구니에 추가">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
 
-                <!-- 상품 2 - 재고 임박 -->
+                <!-- 상품 2 - 재고 있음 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="LG 그램 17인치 노트북">
+                        <img src="/static/img/laptop/25.png" alt="">
                         <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product2"
-                                data-product-name="LG 그램 17인치 노트북" aria-label="위시리스트에 추가">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="2"
+                                data-product-name="ASUS 비보북 16" aria-label="위시리스트에 추가">
                                 <i class="fas fa-heart"></i>
                             </button>
                             <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product2'" aria-label="상품 상세보기">
+                                onclick="window.location.href='product_details.php?category=products_laptop&id=25'" aria-label="상품 상세보기">
                                 <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product2', 'LG 그램 17인치 노트북', 'laptop')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
                             </button>
                         </div>
                     </div>
                     <div class="product-details">
-                        <h3 class="product-title">LG 그램 17인치 노트북</h3>
-                        <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.0</span>
-                            <span class="review-count">(95)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>1,599,000원</span>
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status low-stock">재고 임박 (5개 남음)</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product2', 'LG 그램 17인치 노트북')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 상품 3 - 품절 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="애플 맥북 프로 M2">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product3"
-                                data-product-name="애플 맥북 프로 M2" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product3'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product3', '애플 맥북 프로 M2', 'laptop')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">애플 맥북 프로 M2</h3>
-                        <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.9</span>
-                            <span class="review-count">(203)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>2,350,000원</span>
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status out-of-stock">품절</div>
-                    </div>
-                    <button class="cart-button disabled" disabled aria-label="품절">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-
-                <!-- 상품 4 - 재고 있음 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="에이수스 게이밍 노트북">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product4"
-                                data-product-name="에이수스 게이밍 노트북" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product4'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product4', '에이수스 게이밍 노트북', 'laptop')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">에이수스 게이밍 노트북</h3>
-                        <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-value">3.5</span>
-                            <span class="review-count">(42)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>1,250,000원</span>
-
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status in-stock">재고 있음</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product4', '에이수스 게이밍 노트북')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 다른 상품 섹션들... -->
-            <div class="section-header">
-                <h2 class="section-title">할인중인 상품</h2>
-                <a href="discountproducts.html" class="section-link">더보기 <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="product-grid">
-                <!-- 인기 상품 1 - 재고 있음 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="삼성 비스포크 냉장고">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product5"
-                                data-product-name="삼성 비스포크 냉장고" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product5'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product5', '삼성 비스포크 냉장고', 'refrigerator')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">삼성 비스포크 냉장고</h3>
+                        <h3 class="product-title">ASUS 비보북 16</h3>
                         <!-- 별점 리뷰 -->
                         <div class="product-rating">
                             <div class="stars">
@@ -1302,133 +1089,36 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="rating-value">4.7</span>
-                            <span class="review-count">(156)</span>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
                         </div>
                         <div class="product-price">
-                            <span>1,850,000원</span>
-                            <span class="original-price">2,150,000원</span>
-                            <span class="discount-badge">14%</span>
+                            <span>999,000원</span>
                         </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status in-stock">재고 있음</div>
                     </div>
-                    <button class="cart-button" onclick="addToCart('product5', '삼성 비스포크 냉장고')" aria-label="장바구니에 추가">
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
 
-                <!-- 인기 상품 2 - 재고 임박 -->
+                <!-- 상품 3 - 재고 있음 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="LG 트롬 세탁기 21kg">
+                        <img src="/static/img/laptop/32.png" alt="">
                         <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product6"
-                                data-product-name="LG 트롬 세탁기 21kg" aria-label="위시리스트에 추가">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="2"
+                                data-product-name="LG전자 2024 그램15" aria-label="위시리스트에 추가">
                                 <i class="fas fa-heart"></i>
                             </button>
                             <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product6'" aria-label="상품 상세보기">
+                                onclick="window.location.href='product_details.php?category=products_laptop&id=32'" aria-label="상품 상세보기">
                                 <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product6', 'LG 트롬 세탁기 21kg', 'washer')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
                             </button>
                         </div>
                     </div>
                     <div class="product-details">
-                        <h3 class="product-title">LG 트롬 세탁기 21kg</h3>
-                        <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.2</span>
-                            <span class="review-count">(87)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>1,350,000원</span>
-                            <span class="original-price">1,550,000원</span>
-                            <span class="discount-badge">13%</span>
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status low-stock">재고 임박 (3개 남음)</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product6', 'LG 트롬 세탁기 21kg')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 인기 상품 3 - 재고 있음 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="삼성 갤럭시 S25 울트라">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product7"
-                                data-product-name="삼성 갤럭시 S25 울트라" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product7'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="addToCompare('product7', '삼성 갤럭시 S25 울트라', 'smartphone')" aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">삼성 갤럭시 S25 울트라</h3>
-                        <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.9</span>
-                            <span class="review-count">(218)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>1,590,000원</span>
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status in-stock">재고 있음</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product7', '삼성 갤럭시 S25 울트라')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 인기 상품 4 - 품절 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="LG OLED TV 65인치">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product8"
-                                data-product-name="LG OLED TV 65인치" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product8'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product8', 'LG OLED TV 65인치', 'tv')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">LG OLED TV 65인치</h3>
+                        <h3 class="product-title">LG전자 2024 그램15</h3>
                         <!-- 별점 리뷰 -->
                         <div class="product-rating">
                             <div class="stars">
@@ -1438,19 +1128,54 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="rating-value">4.6</span>
-                            <span class="review-count">(135)</span>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
                         </div>
                         <div class="product-price">
-                            <span>2,190,000원</span>
-                            <span class="original-price">2,490,000원</span>
-                            <span class="discount-badge">12%</span>
+                            <span>1,430,000원</span>
                         </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status out-of-stock">품절</div>
                     </div>
-                    <button class="cart-button disabled" disabled aria-label="품절">
-                        <i class="fas fa-times"></i>
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/static/img/laptop/2.png" alt="">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="2"
+                                data-product-name="삼성전자 갤럭시북3 프로" aria-label="위시리스트에 추가">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="quick-action-btn"
+                                onclick="window.location.href='product_details.php?category=products_laptop&id=33'" aria-label="상품 상세보기">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">삼성전자 갤럭시북3 프로</h3>
+                        <!-- 별점 리뷰 -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span>1,579,000원</span>
+                        </div>
+                    </div>
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
+                        <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
             </div>
@@ -1462,157 +1187,24 @@
             </div>
 
             <div class="product-grid">
-                <!-- 신제품 1 -->
+                <!-- 상품 1 - 재고 있음 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="소니 블루투스 헤드폰">
+                        <img src="/static/img/computer/8.png" alt="">
                         <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product9"
-                                data-product-name="소니 블루투스 헤드폰" aria-label="위시리스트에 추가">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="8"
+                                data-product-name="중급 게이밍 PC" aria-label="위시리스트에 추가">
                                 <i class="fas fa-heart"></i>
                             </button>
                             <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product9'" aria-label="상품 상세보기">
+                                onclick="window.location.href='product_details.php?category=products_PC&id=8'" aria-label="상품 상세보기">
                                 <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product9', '소니 블루투스 헤드폰', 'audio')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
                             </button>
                         </div>
                     </div>
                     <div class="product-details">
-                        <h3 class="product-title">소니 블루투스 헤드폰</h3>
+                        <h3 class="product-title">중급 게이밍 PC</h3>
                         <!-- 별점 리뷰 -->
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.8</span>
-                            <span class="review-count">(42)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>389,000원</span>
-
-                        </div>
-                        <!-- 재고 상태 표시 -->
-                        <div class="stock-status in-stock">재고 있음</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product9', '소니 블루투스 헤드폰')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 신제품 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="애플 아이패드 프로">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product10"
-                                data-product-name="애플 아이패드 프로" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product10'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product10', '애플 아이패드 프로', 'tablet')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">애플 아이패드 프로</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-value">4.7</span>
-                            <span class="review-count">(56)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>1,290,000원</span>
-                        </div>
-                        <div class="stock-status in-stock">재고 있음</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product10', '애플 아이패드 프로')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 신제품 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="삼성 무선 이어버드">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product11"
-                                data-product-name="삼성 무선 이어버드" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product11'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product11', '삼성 무선 이어버드', 'audio')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">삼성 무선 이어버드</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-value">4.1</span>
-                            <span class="review-count">(32)</span>
-                        </div>
-                        <div class="product-price">
-                            <span>179,000원</span>
-
-                        </div>
-                        <div class="stock-status in-stock">재고 있음</div>
-                    </div>
-                    <button class="cart-button" onclick="addToCart('product11', '삼성 무선 이어버드')" aria-label="장바구니에 추가">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
-
-                <!-- 신제품 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="/api/placeholder/400/320" alt="다이슨 에어랩">
-                        <div class="product-quick-actions">
-                            <button class="quick-action-btn wishlist-toggle" data-product-id="product12"
-                                data-product-name="다이슨 에어랩" aria-label="위시리스트에 추가">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="quick-action-btn"
-                                onclick="window.location.href='product_details.html?id=product12'" aria-label="상품 상세보기">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="quick-action-btn" onclick="addToCompare('product12', '다이슨 에어랩', 'household')"
-                                aria-label="상품 비교하기">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-details">
-                        <h3 class="product-title">다이슨 에어랩</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1622,19 +1214,135 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <span class="rating-value">4.5</span>
-                            <span class="review-count">(87)</span>
+                            <span class="review-count">(128)</span>
                         </div>
                         <div class="product-price">
-                            <span>599,000원</span>
-
+                            <span>1,250,000원</span>
                         </div>
-                        <div class="stock-status low-stock">재고 임박 (2개 남음)</div>
                     </div>
-                    <button class="cart-button" onclick="addToCart('product12', '다이슨 에어랩')" aria-label="장바구니에 추가">
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
-            </div>
+
+                <!-- 상품 2 - 재고 있음 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/static/img/computer/16.png" alt="">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="16"
+                                data-product-name="트위치 방송용 PC" aria-label="위시리스트에 추가">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="quick-action-btn"
+                                onclick="window.location.href='product_details.php?category=products_PC&id=16'" aria-label="상품 상세보기">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">트위치 방송용 PC</h3>
+                        <!-- 별점 리뷰 -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span>1,850,000원</span>
+                        </div>
+                    </div>
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <!-- 상품 3 - 재고 있음 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/static/img/tv/3.png" alt="">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="3"
+                                data-product-name="삼성전자 SMART M7" aria-label="위시리스트에 추가">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="quick-action-btn"
+                                onclick="window.location.href='product_details.php?category=products_TV&id=3'" aria-label="상품 상세보기">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">삼성전자 SMART M7</h3>
+                        <!-- 별점 리뷰 -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span>623,140원</span>
+                        </div>
+                    </div>
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <!-- 상품 4 - 재고 있음 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/static/img/tv/5.png" alt="">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn wishlist-toggle" data-product-id="5"
+                                data-product-name="LG전자 울트라HD" aria-label="위시리스트에 추가">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="quick-action-btn"
+                                onclick="window.location.href='product_details.php?category=products_TV&id=5'" aria-label="상품 상세보기">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">LG전자 울트라HD</h3>
+                        <!-- 별점 리뷰 -->
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-value">4.5</span>
+                            <span class="review-count">(128)</span>
+                        </div>
+                        <div class="product-price">
+                            <span>1,072,620원</span>
+                        </div>
+                    </div>
+                    <button class="cart-button" onclick=""
+                        aria-label="장바구니에 추가">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>            
         </div>
     </div>
 

@@ -1,0 +1,2702 @@
+[
+  {
+    "_id": 1,
+    "name": "가성비 사무용 PC",
+    "description": "문서 작업과 인터넷 서핑에 최적화된 사무용 컴퓨터",
+    "price": 580000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 35,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i3-12100",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASUS PRIME H610M-K",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "256GB NVMe SSD",
+      "PowerSupply": "500W 80Plus",
+      "Case": "M-ATX 미들타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      580000,
+      12908,
+      8,
+      1579,
+      256
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "게이밍 고성능 PC",
+    "description": "고주사율 게이밍을 위한 최적의 조합",
+    "price": 1890000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 28,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7800X3D",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG B650 TOMAHAWK",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "850W 80Plus Gold",
+      "Case": "GAMDIAS TALOS E1",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1890000,
+      34264,
+      32,
+      31673,
+      3072
+    ]
+  },
+  {
+    "_id": 3,
+    "name": "4K 영상편집 워크스테이션",
+    "description": "4K 영상 편집과 렌더링에 특화된 고성능 시스템",
+    "price": 2450000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 35,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900K",
+      "RAM": "64GB DDR5",
+      "Mainboard": "GIGABYTE Z790 AORUS ELITE",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Fractal Design Define 7",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2450000,
+      58755,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 4,
+    "name": "인터넷 방송 전용 PC",
+    "description": "고품질 방송 송출에 최적화된 시스템",
+    "price": 3200000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 33,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E HERO",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD",
+      "PowerSupply": "1200W 80Plus Titanium",
+      "Case": "Lian Li PC-O11 Dynamic",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      3200000,
+      62588,
+      64,
+      38307,
+      2048
+    ]
+  },
+  {
+    "_id": 5,
+    "name": "개발자용 워크스테이션",
+    "description": "가상 환경 및 AI 학습에 적합한 고사양 시스템",
+    "price": 4150000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 44,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper PRO 5975WX",
+      "RAM": "128GB DDR4 ECC",
+      "Mainboard": "ASUS PRO WS WRX80E-SAGE SE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "Corsair Obsidian 1000D",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      4150000,
+      75650,
+      128,
+      28716,
+      12288
+    ]
+  },
+  {
+    "_id": 6,
+    "name": "디자인 그래픽 작업용 PC",
+    "description": "포토샵, 일러스트, 3D 모델링에 최적화",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 17,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI PRO Z790-P",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "NZXT H7 Flow",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      46116,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 7,
+    "name": "경량 사무용 미니 PC",
+    "description": "공간 절약형 초소형 사무용 컴퓨터",
+    "price": 520000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 20,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i3-12100T",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASRock H610M-ITX/ac",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "200W 외장형",
+      "Case": "MINISFORUM UM350",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      520000,
+      12524,
+      8,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 8,
+    "name": "중급 게이밍 PC",
+    "description": "FHD 고주사율 게이밍에 적합한 시스템",
+    "price": 1250000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 32,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "RAM": "16GB DDR5",
+      "Mainboard": "GIGABYTE B650M AORUS ELITE",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "DarkFlash DLM21 Mesh",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1250000,
+      28448,
+      16,
+      22730,
+      1024
+    ]
+  },
+  {
+    "_id": 9,
+    "name": "초고속 영상 편집 PC",
+    "description": "8K 영상 편집도 가능한 워크스테이션",
+    "price": 3850000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 32,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KS",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG MAXIMUS Z790 HERO",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Cooler Master COSMOS C700M",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      3850000,
+      61165,
+      128,
+      38307,
+      4096
+    ]
+  },
+  {
+    "_id": 10,
+    "name": "방송 송출 전용 PC",
+    "description": "고품질 실시간 방송 인코딩에 특화",
+    "price": 2750000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 46,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASRock X670E Taichi",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "be quiet! Dark Base Pro 901",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2750000,
+      62463,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 11,
+    "name": "AI 개발자 워크스테이션",
+    "description": "대규모 AI 모델 학습에 적합한 시스템",
+    "price": 7850000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 31,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD EPYC 9554P",
+      "RAM": "256GB DDR5 ECC",
+      "Mainboard": "ASUS Pro WS TRX50-SAGE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "2000W 80Plus Titanium",
+      "Case": "Phanteks Enthoo Elite",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      7850000,
+      109347,
+      256,
+      28716,
+      24576
+    ]
+  },
+  {
+    "_id": 12,
+    "name": "디자인 크리에이티브 PC",
+    "description": "3D 렌더링과 그래픽 디자인에 최적화",
+    "price": 2100000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 35,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "MSI MPG X670E CARBON WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Fractal Design Meshify 2",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2100000,
+      51494,
+      64,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 13,
+    "name": "가정용 올인원 PC",
+    "description": "가정용으로 적합한 기본 사양 컴퓨터",
+    "price": 650000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 18,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-12400",
+      "RAM": "16GB DDR4",
+      "Mainboard": "MSI PRO B660M-A WIFI",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "550W 80Plus Bronze",
+      "Case": "ABKO NCORE 아수라 풀체인지",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      650000,
+      19236,
+      16,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 14,
+    "name": "1440p 게이밍 PC",
+    "description": "QHD 해상도 게이밍에 최적화된 시스템",
+    "price": 1650000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 25,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS TUF GAMING Z790-PLUS WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "Lian Li Lancool 216",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1650000,
+      46363,
+      32,
+      31673,
+      3072
+    ]
+  },
+  {
+    "_id": 15,
+    "name": "4K 영상 제작 PC",
+    "description": "4K 영상 제작과 색보정에 특화된 시스템",
+    "price": 2950000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "128GB DDR5",
+      "Mainboard": "GIGABYTE X670E AORUS MASTER",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Corsair iCUE 5000T",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2950000,
+      62588,
+      128,
+      34507,
+      10240
+    ]
+  },
+  {
+    "_id": 16,
+    "name": "트위치 방송용 PC",
+    "description": "트위치 실시간 방송 송출에 최적화",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 25,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG Z790 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "850W 80Plus Gold",
+      "Case": "NZXT H5 Flow",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      46116,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 17,
+    "name": "소프트웨어 개발자 PC",
+    "description": "대규모 프로젝트 컴파일에 적합한 시스템",
+    "price": 3250000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper 7970X",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG ZENITH EXTREME TRX50",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Thermaltake Core WP200",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      3250000,
+      98349,
+      128,
+      38307,
+      12288
+    ]
+  },
+  {
+    "_id": 18,
+    "name": "3D 모델링 워크스테이션",
+    "description": "고품질 3D 모델링과 렌더링에 특화",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KF",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "be quiet! Silent Base 802",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2250000,
+      57980,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 19,
+    "name": "경제적인 사무용 PC",
+    "description": "기본적인 사무 작업에 적합한 저가형 시스템",
+    "price": 490000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 25,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 PRO 4650G",
+      "RAM": "8GB DDR4",
+      "Mainboard": "GIGABYTE B450M DS3H",
+      "GPU": "AMD Radeon Graphics",
+      "Storage": "256GB SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "DAVEN GT3",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      490000,
+      16141,
+      8,
+      1600,
+      256
+    ]
+  },
+  {
+    "_id": 20,
+    "name": "1080p 게이밍 PC",
+    "description": "FHD 고주사율 게이밍에 최적화된 시스템",
+    "price": 950000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 14,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i5-13600KF",
+      "RAM": "16GB DDR5",
+      "Mainboard": "ASRock B760M Steel Legend",
+      "GPU": "NVIDIA RTX 4060",
+      "Storage": "512GB NVMe SSD + 1TB HDD",
+      "PowerSupply": "600W 80Plus Gold",
+      "Case": "MSI MAG FORGE 100R",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      950000,
+      37571,
+      16,
+      19733,
+      1536
+    ]
+  },
+  {
+    "_id": 21,
+    "name": "유튜브 영상 편집 PC",
+    "description": "유튜브 크리에이터를 위한 영상 편집 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 25,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS TUF GAMING B650-PLUS",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "Cooler Master MasterBox TD500 Mesh",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      35864,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 22,
+    "name": "실시간 방송 송출 PC",
+    "description": "고품질 실시간 방송 인코딩 시스템",
+    "price": 2150000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900K",
+      "RAM": "64GB DDR5",
+      "Mainboard": "MSI MEG Z790 ACE",
+      "GPU": "NVIDIA RTX 3080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Phanteks Eclipse P600S",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2150000,
+      58755,
+      64,
+      25153,
+      6144
+    ]
+  },
+  {
+    "_id": 23,
+    "name": "데이터 사이언스 워크스테이션",
+    "description": "대규모 데이터 분석과 머신러닝에 최적화",
+    "price": 4850000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper PRO 5995WX",
+      "RAM": "256GB DDR4 ECC",
+      "Mainboard": "ASUS PRO WS WRX80E-SAGE SE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "2000W 80Plus Titanium",
+      "Case": "Thermaltake Core W200",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      4850000,
+      93981,
+      256,
+      28716,
+      24576
+    ]
+  },
+  {
+    "_id": 24,
+    "name": "그래픽 디자이너 PC",
+    "description": "포토샵, 일러스트레이터 작업에 최적화",
+    "price": 1550000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32GB DDR5",
+      "Mainboard": "GIGABYTE B760 AORUS ELITE AX",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Fractal Design Pop Air",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1550000,
+      36662,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 25,
+    "name": "홈 오피스 PC",
+    "description": "재택근무에 적합한 기본 사양 시스템",
+    "price": 620000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 17,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 5600G",
+      "RAM": "16GB DDR4",
+      "Mainboard": "MSI B550M PRO-VDH WIFI",
+      "GPU": "AMD Radeon Graphics",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "500W 80Plus Bronze",
+      "Case": "MICROLAB X120",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      620000,
+      19813,
+      16,
+      1600,
+      512
+    ]
+  },
+  {
+    "_id": 26,
+    "name": "4K 게이밍 PC",
+    "description": "4K 해상도 게이밍을 위한 고사양 시스템",
+    "price": 3250000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 3,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E EXTREME",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Lian Li PC-O11 Dynamic XL",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      3250000,
+      62463,
+      64,
+      38307,
+      6144
+    ]
+  },
+  {
+    "_id": 27,
+    "name": "프리미어 프로 편집 PC",
+    "description": "어도비 프리미어 프로 최적화 시스템",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "be quiet! Pure Base 500DX",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      46145,
+      64,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 28,
+    "name": "스트리밍 방송용 PC",
+    "description": "고품질 게임 방송 송출 시스템",
+    "price": 2350000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 15,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "GIGABYTE X670E AORUS XTREME",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Corsair iCUE 7000X RGB",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2350000,
+      62588,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 29,
+    "name": "AI 연구용 워크스테이션",
+    "description": "대규모 AI 모델 학습에 최적화된 시스템",
+    "price": 4900000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 15,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD EPYC 9654",
+      "RAM": "512GB DDR5 ECC",
+      "Mainboard": "ASUS KRPA-U16",
+      "GPU": "NVIDIA H100 80GB",
+      "Storage": "16TB NVMe SSD + 32TB HDD",
+      "PowerSupply": "2400W Redundant",
+      "Case": "Supermicro 6049P-E1CR90H",
+      "OS": "Windows Server 2022"
+    },
+    "vector": [
+      4900000,
+      120300,
+      512,
+      40200,
+      49152
+    ]
+  },
+  {
+    "_id": 30,
+    "name": "CAD 디자인 워크스테이션",
+    "description": "고정밀 CAD 설계에 최적화된 시스템",
+    "price": 2750000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KS",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS WS W790-ACE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "SilverStone RM51",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      2750000,
+      61165,
+      128,
+      28716,
+      12288
+    ]
+  },
+  {
+    "_id": 31,
+    "name": "초소형 사무용 PC",
+    "description": "공간 절약형 미니 PC",
+    "price": 550000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 22,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-1240P",
+      "RAM": "16GB LPDDR4",
+      "Mainboard": "ASUS PN64",
+      "GPU": "Intel Iris Xe Graphics",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "120W 외장형",
+      "Case": "초소형 베어본",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      550000,
+      16818,
+      16,
+      2671,
+      512
+    ]
+  },
+  {
+    "_id": 32,
+    "name": "144Hz 게이밍 PC",
+    "description": "고주사율 게이밍을 위한 중급 시스템",
+    "price": 1350000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 21,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MPG B650 EDGE WIFI",
+      "GPU": "AMD Radeon RX 7800 XT",
+      "Storage": "1TB NVMe SSD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "HYTE Y60",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1350000,
+      35864,
+      32,
+      24205,
+      1024
+    ]
+  },
+  {
+    "_id": 33,
+    "name": "다빈치 리졸브 편집 PC",
+    "description": "다빈치 리졸브 색보정에 최적화된 시스템",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG STRIX X670E-E GAMING WIFI",
+      "GPU": "NVIDIA RTX 3080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Lian Li O11 Air Mini",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2250000,
+      62588,
+      64,
+      25153,
+      6144
+    ]
+  },
+  {
+    "_id": 34,
+    "name": "유튜브 방송용 PC",
+    "description": "유튜브 실시간 방송 송출 시스템",
+    "price": 1650000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 25,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "GIGABYTE Z790 AORUS ELITE AX",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "850W 80Plus Gold",
+      "Case": "NZXT H7 Elite",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1650000,
+      46363,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 35,
+    "name": "클라우드 개발자 PC",
+    "description": "클라우드 환경 개발에 최적화된 시스템",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 25,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING X670E-PLUS WIFI",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Fractal Design Torrent",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      51494,
+      64,
+      23435,
+      6144
+    ]
+  },
+  {
+    "_id": 36,
+    "name": "일러스트레이터 PC",
+    "description": "벡터 그래픽 작업에 최적화된 시스템",
+    "price": 1450000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 30,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG B760 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 3060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Cooler Master MasterBox NR600",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1450000,
+      36662,
+      32,
+      20402,
+      3072
+    ]
+  },
+  {
+    "_id": 37,
+    "name": "가정용 미니 타워 PC",
+    "description": "가정용으로 적합한 미니 타워 시스템",
+    "price": 680000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 46,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-13400",
+      "RAM": "16GB DDR4",
+      "Mainboard": "ASRock B760M-HDV",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "500W 80Plus Bronze",
+      "Case": "MICROLAB X200",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      680000,
+      23552,
+      16,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 38,
+    "name": "240Hz 게이밍 PC",
+    "description": "초고주사율 e스포츠 게이밍 시스템",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 21,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS ROG STRIX Z790-F GAMING WIFI",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Lian Li Lancool III",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      46363,
+      32,
+      23435,
+      3072
+    ]
+  },
+  {
+    "_id": 39,
+    "name": "애프터 이펙트 렌더링 PC",
+    "description": "애프터 이펙트 컴포지팅에 최적화",
+    "price": 2550000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 21,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E HERO",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Corsair Obsidian 1000D",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2550000,
+      62463,
+      128,
+      38307,
+      10240
+    ]
+  },
+  {
+    "_id": 40,
+    "name": "트위치 방송 송출 PC",
+    "description": "트위치 고화질 방송 송출 시스템",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 21,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "GIGABYTE B650E AORUS MASTER",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "be quiet! Dark Base 900",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      51494,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 41,
+    "name": "가상화 개발자 PC",
+    "description": "다중 가상 머신 실행에 최적화된 시스템",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 21,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900K",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Fractal Design Define 7 XL",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2250000,
+      58755,
+      128,
+      34507,
+      12288
+    ]
+  },
+  {
+    "_id": 42,
+    "name": "포토샵 전용 PC",
+    "description": "고해상도 이미지 편집에 최적화",
+    "price": 1650000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "MSI PRO B650-P WIFI",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "NZXT H5 Elite",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1650000,
+      35864,
+      64,
+      26951,
+      6144
+    ]
+  },
+  {
+    "_id": 43,
+    "name": "재택근무 사무용 PC",
+    "description": "원격 근무에 적합한 기본 사양 시스템",
+    "price": 590000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 19,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 5600G",
+      "RAM": "16GB DDR4",
+      "Mainboard": "GIGABYTE B550M DS3H",
+      "GPU": "AMD Radeon Graphics",
+      "Storage": "512GB SSD",
+      "PowerSupply": "450W 80Plus Bronze",
+      "Case": "DAVEN GT5",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      590000,
+      19813,
+      16,
+      1600,
+      512
+    ]
+  },
+  {
+    "_id": 44,
+    "name": "FPS 게이밍 PC",
+    "description": "FPS 게임에 최적화된 중급 시스템",
+    "price": 1150000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 33,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i5-13600KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI PRO Z790-P WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Cooler Master MasterBox MB520",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1150000,
+      37571,
+      32,
+      22730,
+      1024
+    ]
+  },
+  {
+    "_id": 45,
+    "name": "영상 편집용 전문가 PC",
+    "description": "영상 편집용 전문가를 위한 고성능 편집 시스템",
+    "price": 2850000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 23,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KS",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG MAXIMUS Z790 EXTREME",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Mac Pro Tower Conversion",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2850000,
+      61165,
+      128,
+      38307,
+      12288
+    ]
+  },
+  {
+    "_id": 46,
+    "name": "아프리카TV 방송용 PC",
+    "description": "아프리카TV 실시간 방송 송출 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 27,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING X670E-PLUS",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Phanteks Eclipse G500A",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      51494,
+      64,
+      23435,
+      6144
+    ]
+  },
+  {
+    "_id": 47,
+    "name": "데이터베이스 서버 PC",
+    "description": "대규모 데이터베이스 운영에 최적화",
+    "price": 3250000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 24,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper PRO 5975WX",
+      "RAM": "256GB DDR4 ECC",
+      "Mainboard": "ASUS PRO WS TRX50-SAGE WIFI",
+      "GPU": "NVIDIA RTX A6000",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "Supermicro CSE-846",
+      "OS": "Windows Server 2022"
+    },
+    "vector": [
+      3250000,
+      75650,
+      256,
+      22746,
+      24576
+    ]
+  },
+  {
+    "_id": 48,
+    "name": "디자인 작업용 PC",
+    "description": "출판물 레이아웃 디자인에 최적화",
+    "price": 1550000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 29,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "64GB DDR5",
+      "Mainboard": "GIGABYTE Z790 AORUS ELITE AX",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Gold",
+      "Case": "be quiet! Pure Base 600",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1550000,
+      46116,
+      64,
+      26951,
+      6144
+    ]
+  },
+  {
+    "_id": 49,
+    "name": "교육용 기본 PC",
+    "description": "온라인 교육 및 기본 학습용 시스템",
+    "price": 520000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 21,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i3-12100",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASRock H610M-HDV",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "256GB SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "SAMSUNG 미니타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      520000,
+      12908,
+      8,
+      1579,
+      256
+    ]
+  },
+  {
+    "_id": 50,
+    "name": "와이드 게이밍 PC",
+    "description": "울트라와이드 모니터 게이밍에 최적화",
+    "price": 2450000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 35,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7800X3D",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS ROG STRIX X670E-E GAMING WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Lian Li O11 Dynamic EVO",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2450000,
+      34264,
+      32,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 51,
+    "name": "기본 사무용 데스크탑",
+    "description": "일상적인 사무 작업에 적합한 기본형 PC",
+    "price": 550000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 30,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Pentium Gold G7400",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASUS PRIME H610M-E",
+      "GPU": "Intel UHD Graphics 710",
+      "Storage": "256GB SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "기본 미니타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      550000,
+      6723,
+      8,
+      1085,
+      256
+    ]
+  },
+  {
+    "_id": 52,
+    "name": "e스포츠 게이밍 PC",
+    "description": "리그 오브 레전드, 발로란트 등 e스포츠 게임 최적화",
+    "price": 950000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 18,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "RAM": "16GB DDR5",
+      "Mainboard": "GIGABYTE B650M GAMING X AX",
+      "GPU": "NVIDIA RTX 4060",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "600W 80Plus Bronze",
+      "Case": "ABKO NCORE 아수라 풀체인지",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      950000,
+      28448,
+      16,
+      19733,
+      512
+    ]
+  },
+  {
+    "_id": 53,
+    "name": "유튜브 크리에이터 PC",
+    "description": "유튜브 콘텐츠 제작에 최적화된 시스템",
+    "price": 1450000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 22,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700F",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI PRO B760-P WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "DarkFlash DLX21 Mesh",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1450000,
+      38611,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 54,
+    "name": "트위치 크리에이터 PC",
+    "description": "트위치 실시간 방송 제작 시스템",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 38,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS TUF GAMING B650-PLUS WIFI",
+      "GPU": "NVIDIA RTX 3080",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "NZXT H5 Flow",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      35864,
+      32,
+      25153,
+      3072
+    ]
+  },
+  {
+    "_id": 55,
+    "name": "풀스택 개발자 PC",
+    "description": "프론트엔드 및 백엔드 개발에 최적화",
+    "price": 1650000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 21,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS PRIME Z790-P WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "Fractal Design Meshify C",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1650000,
+      36662,
+      64,
+      22730,
+      6144
+    ]
+  },
+  {
+    "_id": 56,
+    "name": "UI/UX 디자이너 PC",
+    "description": "웹/앱 인터페이스 디자인에 최적화",
+    "price": 1350000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 34,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI PRO B650M-A WIFI",
+      "GPU": "NVIDIA RTX 4060",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Cooler Master MasterBox Q300L",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1350000,
+      28448,
+      32,
+      19733,
+      3072
+    ]
+  },
+  {
+    "_id": 57,
+    "name": "홈 엔터테인먼트 PC",
+    "description": "가정용 멀티미디어 엔터테인먼트 시스템",
+    "price": 620000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 25,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 5600G",
+      "RAM": "16GB DDR4",
+      "Mainboard": "ASRock B550M-HDV",
+      "GPU": "AMD Radeon Graphics",
+      "Storage": "1TB SSD",
+      "PowerSupply": "450W 80Plus Bronze",
+      "Case": "MICROLAB X100",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      620000,
+      19813,
+      16,
+      1600,
+      1024
+    ]
+  },
+  {
+    "_id": 58,
+    "name": "VR 게이밍 PC",
+    "description": "가상 현실 게임 플레이에 최적화된 시스템",
+    "price": 2850000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 26,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KF",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG MAXIMUS Z790 HERO",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Lian Li PC-O11 Dynamic",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2850000,
+      57980,
+      64,
+      38307,
+      6144
+    ]
+  },
+  {
+    "_id": 59,
+    "name": "애니메이션 렌더링 PC",
+    "description": "3D 애니메이션 제작에 최적화된 워크스테이션",
+    "price": 3250000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 24,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper 7970X",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS Pro WS TRX50-SAGE WIFI",
+      "GPU": "NVIDIA RTX 3090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "Thermaltake Core W100",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      3250000,
+      98349,
+      128,
+      26670,
+      12288
+    ]
+  },
+  {
+    "_id": 60,
+    "name": "유튜브 라이브 방송 PC",
+    "description": "유튜브 실시간 라이브 방송 송출 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 39,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "GIGABYTE X670 AORUS ELITE AX",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Phanteks Eclipse P500A",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      51494,
+      64,
+      23435,
+      6144
+    ]
+  },
+  {
+    "_id": 61,
+    "name": "AI 엔지니어링 워크스테이션",
+    "description": "머신러닝 모델 개발 및 학습에 최적화",
+    "price": 4850000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 23,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD EPYC 9554P",
+      "RAM": "256GB DDR5 ECC",
+      "Mainboard": "ASUS KRPA-U16",
+      "GPU": "NVIDIA H100 80GB",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "2000W Redundant",
+      "Case": "Supermicro 6049P-E1CR90H",
+      "OS": "Windows Server 2022"
+    },
+    "vector": [
+      4850000,
+      109347,
+      256,
+      40200,
+      24576
+    ]
+  },
+  {
+    "_id": 62,
+    "name": "패키지 디자인 PC",
+    "description": "제품 패키지 디자인에 최적화된 시스템",
+    "price": 1450000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 32,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG B760 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 3060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "be quiet! Pure Base 500",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1450000,
+      36662,
+      32,
+      20402,
+      3072
+    ]
+  },
+  {
+    "_id": 63,
+    "name": "온라인 강의용 PC",
+    "description": "원격 교육 및 화상 회의에 적합한 시스템",
+    "price": 580000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 22,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i3-12100",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASRock H610M-HDV/M.2",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "SAMSUNG 미니타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      580000,
+      12908,
+      8,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 64,
+    "name": "4K 울트라 게이밍 PC",
+    "description": "4K 해상도 초고설정 게이밍 시스템",
+    "price": 3850000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 23,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E EXTREME",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "HYTE Y60",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      3850000,
+      62463,
+      64,
+      38307,
+      12288
+    ]
+  },
+  {
+    "_id": 65,
+    "name": "영화 색보정 워크스테이션",
+    "description": "영화급 색보정 및 그레이딩 시스템",
+    "price": 4250000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 22,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KS",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR 10G",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "SilverStone RM52",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      4250000,
+      61165,
+      128,
+      28716,
+      24576
+    ]
+  },
+  {
+    "_id": 66,
+    "name": "프로 스트리머 PC",
+    "description": "프로급 게임 방송 송출 시스템",
+    "price": 2950000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 24,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG STRIX X670E-E GAMING WIFI",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "Lian Li PC-O11 Dynamic XL",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2950000,
+      62463,
+      128,
+      38307,
+      12288
+    ]
+  },
+  {
+    "_id": 67,
+    "name": "클라우드 네이티브 개발 PC",
+    "description": "쿠버네티스 및 클라우드 네이티브 개발 최적화",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 28,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING X670E-PLUS WIFI",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Fractal Design Define 7",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      51494,
+      64,
+      23435,
+      6144
+    ]
+  },
+  {
+    "_id": 68,
+    "name": "웹툰 작가용 PC",
+    "description": "고해상도 웹툰 제작에 최적화된 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 27,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "64GB DDR5",
+      "Mainboard": "MSI MPG Z790 EDGE WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "NZXT H7 Flow",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      46116,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 69,
+    "name": "가정용 올인원 미니 PC",
+    "description": "공간 절약형 올인원 미니 시스템",
+    "price": 650000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 20,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-1240P",
+      "RAM": "16GB LPDDR4",
+      "Mainboard": "ASUS PN64-E1",
+      "GPU": "Intel Iris Xe Graphics",
+      "Storage": "1TB NVMe SSD",
+      "PowerSupply": "120W 외장형",
+      "Case": "초소형 베어본",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      650000,
+      16818,
+      16,
+      2671,
+      1024
+    ]
+  },
+  {
+    "_id": 70,
+    "name": "240Hz e스포츠 PC",
+    "description": "프로 게이머를 위한 초고주사율 시스템",
+    "price": 2150000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 26,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "ASUS ROG STRIX Z790-F GAMING WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Lian Li Lancool III",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2150000,
+      46363,
+      32,
+      34507,
+      3072
+    ]
+  },
+  {
+    "_id": 71,
+    "name": "VFX 편집 워크스테이션",
+    "description": "영화 특수 효과 제작에 최적화된 시스템",
+    "price": 3550000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 33,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper PRO 5995WX",
+      "RAM": "256GB DDR4 ECC",
+      "Mainboard": "ASUS PRO WS WRX80E-SAGE SE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "2000W 80Plus Titanium",
+      "Case": "Thermaltake Core W200",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      3550000,
+      93981,
+      256,
+      28716,
+      24576
+    ]
+  },
+  {
+    "_id": 72,
+    "name": "트위치 파트너 PC",
+    "description": "트위치 파트너를 위한 고품질 방송 시스템",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E HERO",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Lian Li PC-O11 Dynamic",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2250000,
+      62588,
+      64,
+      38307,
+      6144
+    ]
+  },
+  {
+    "_id": 73,
+    "name": "데브옵스 엔지니어 PC",
+    "description": "CI/CD 파이프라인 구축에 최적화된 시스템",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 27,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Fractal Design Meshify 2",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      46145,
+      64,
+      26951,
+      6144
+    ]
+  },
+  {
+    "_id": 74,
+    "name": "광고 디자인 PC",
+    "description": "고퀄리티 광고 디자인에 최적화",
+    "price": 1350000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 39,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG B650 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 4060",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "NZXT H5 Elite",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1350000,
+      35864,
+      32,
+      19733,
+      3072
+    ]
+  },
+  {
+    "_id": 75,
+    "name": "소규모 사무실 PC",
+    "description": "중소기업 사무실용 기본 시스템",
+    "price": 590000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 28,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i3-12100",
+      "RAM": "8GB DDR4",
+      "Mainboard": "GIGABYTE H610M H",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "기본 마이크로타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      590000,
+      12908,
+      8,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 76,
+    "name": "레이싱 시뮬레이터 PC",
+    "description": "고사양 레이싱 게임 최적화 시스템",
+    "price": 2750000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 24,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900KF",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG MAXIMUS Z790 EXTREME",
+      "GPU": "NVIDIA RTX 4080 SUPER",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Corsair iCUE 5000X RGB",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2750000,
+      57980,
+      64,
+      34299,
+      6144
+    ]
+  },
+  {
+    "_id": 77,
+    "name": "다큐멘터리 편집 PC",
+    "description": "고해상도 다큐멘터리 제작 시스템",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 26,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING X670E-PLUS WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "be quiet! Silent Base 802",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      51494,
+      64,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 78,
+    "name": "아프리카TV BJ PC",
+    "description": "아프리카TV BJ를 위한 방송 송출 시스템",
+    "price": 1550000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 30,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG Z790 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "Phanteks Eclipse G360A",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1550000,
+      46116,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 79,
+    "name": "블록체인 개발자 PC",
+    "description": "블록체인 노드 운영 및 개발에 최적화",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 25,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper 7970X",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG ZENITH EXTREME TRX50",
+      "GPU": "NVIDIA RTX 4080 SUPER",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Thermaltake Core WP200",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      2250000,
+      98349,
+      128,
+      34299,
+      12288
+    ]
+  },
+  {
+    "_id": 80,
+    "name": "패션 디자인 PC",
+    "description": "패션 디자인 및 텍스처 작업에 최적화",
+    "price": 1350000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 21,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i5-13600K",
+      "RAM": "32GB DDR5",
+      "Mainboard": "GIGABYTE Z790 UD AX",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Cooler Master MasterBox TD300",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1350000,
+      37733,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 81,
+    "name": "교육 기관용 PC",
+    "description": "학교 및 교육 기관용 기본 시스템",
+    "price": 520000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 35,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 PRO 4650G",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASRock A520M-HDV",
+      "GPU": "AMD Radeon Graphics",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "400W 80Plus",
+      "Case": "기본 마이크로타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      520000,
+      16141,
+      8,
+      1600,
+      512
+    ]
+  },
+  {
+    "_id": 82,
+    "name": "MMORPG 게이밍 PC",
+    "description": "대규모 MMORPG 게임 최적화 시스템",
+    "price": 1450000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 22,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "GIGABYTE B650 AORUS ELITE AX",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "DarkFlash DLX22 Mesh",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1450000,
+      35864,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 83,
+    "name": "쇼트 영화 편집 PC",
+    "description": "단편 영화 제작에 최적화된 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 18,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS PRIME Z790-P WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "NZXT H7 Flow",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      46116,
+      64,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 84,
+    "name": "유튜브 쇼츠 제작 PC",
+    "description": "유튜브 쇼츠 제작에 최적화된 시스템",
+    "price": 1250000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 5 7600X",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI PRO B650-P WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Cooler Master MasterBox MB511",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1250000,
+      28448,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 85,
+    "name": "임베디드 개발자 PC",
+    "description": "임베디드 시스템 개발에 최적화",
+    "price": 1550000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 10,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING B760-PLUS WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "Fractal Design Focus G",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1550000,
+      36662,
+      64,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 86,
+    "name": "제품 디자인 PC",
+    "description": "3D 제품 모델링에 최적화된 시스템",
+    "price": 1850000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 17,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7900X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG STRIX B650E-F GAMING WIFI",
+      "GPU": "NVIDIA RTX 3070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Lian Li Lancool 215",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1850000,
+      51494,
+      64,
+      23435,
+      6144
+    ]
+  },
+  {
+    "_id": 87,
+    "name": "공공기관 사무용 PC",
+    "description": "공공기관 전산실용 기본 시스템",
+    "price": 610000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 30,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-12400",
+      "RAM": "16GB DDR4",
+      "Mainboard": "ASUS PRIME B660M-A WIFI D4",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB SSD",
+      "PowerSupply": "500W 80Plus Bronze",
+      "Case": "기본 미들타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      610000,
+      19236,
+      16,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 88,
+    "name": "플라이트 시뮬레이터 PC",
+    "description": "고사양 비행 시뮬레이션 게임 시스템",
+    "price": 3250000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 23,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E EXTREME",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "2TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Corsair iCUE 7000D RGB",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      3250000,
+      62463,
+      64,
+      38307,
+      10240
+    ]
+  },
+  {
+    "_id": 89,
+    "name": "애니메이션 제작 워크스테이션",
+    "description": "풀 3D 애니메이션 제작 시스템",
+    "price": 3850000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 22,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen Threadripper PRO 5995WX",
+      "RAM": "256GB DDR4 ECC",
+      "Mainboard": "ASUS PRO WS WRX80E-SAGE SE",
+      "GPU": "NVIDIA RTX 6000 Ada Generation",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "2000W 80Plus Titanium",
+      "Case": "Thermaltake Core W200",
+      "OS": "Windows 11 Pro for Workstations"
+    },
+    "vector": [
+      3850000,
+      93981,
+      256,
+      28716,
+      24576
+    ]
+  },
+  {
+    "_id": 90,
+    "name": "음악 방송용 PC",
+    "description": "고음질 음악 방송 송출 시스템",
+    "price": 1650000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700K",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MPG Z790 EDGE WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "be quiet! Pure Base 500DX",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1650000,
+      46116,
+      32,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 91,
+    "name": "사이버 보안 연구용 PC",
+    "description": "보안 연구 및 테스트에 최적화된 시스템",
+    "price": 2250000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 15,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG STRIX X670E-E GAMING WIFI",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1200W 80Plus Platinum",
+      "Case": "Fractal Design Define 7 XL",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2250000,
+      62588,
+      128,
+      38307,
+      12288
+    ]
+  },
+  {
+    "_id": 92,
+    "name": "캐릭터 디자인 PC",
+    "description": "3D 캐릭터 모델링에 최적화된 시스템",
+    "price": 1750000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS TUF GAMING B650-PLUS WIFI",
+      "GPU": "NVIDIA RTX 4070 Ti",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "NZXT H7 Elite",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1750000,
+      35864,
+      64,
+      31673,
+      6144
+    ]
+  },
+  {
+    "_id": 93,
+    "name": "도서관 공용 PC",
+    "description": "도서관 공용 컴퓨터 시스템",
+    "price": 530000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 40,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Celeron G6900",
+      "RAM": "8GB DDR4",
+      "Mainboard": "ASRock H610M-HDV/M.2",
+      "GPU": "Intel UHD Graphics 710",
+      "Storage": "256GB NVMe SSD",
+      "PowerSupply": "300W 80Plus",
+      "Case": "기본 마이크로타워",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      530000,
+      4509,
+      8,
+      1085,
+      256
+    ]
+  },
+  {
+    "_id": 94,
+    "name": "RPG 게이밍 PC",
+    "description": "대규모 오픈월드 RPG 게임 최적화",
+    "price": 1550000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 20,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i5-13600KF",
+      "RAM": "32GB DDR5",
+      "Mainboard": "GIGABYTE Z790 UD AC",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "750W 80Plus Gold",
+      "Case": "MSI MAG FORGE 111R",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      1550000,
+      37571,
+      32,
+      26951,
+      3072
+    ]
+  },
+  {
+    "_id": 95,
+    "name": "광고 영상 편집 PC",
+    "description": "고퀄리티 광고 영상 제작 시스템",
+    "price": 2150000,
+    "category": "컴퓨터",
+    "sub_category": "영상 편집용",
+    "stock": 15,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ProArt X670E-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4080",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "1000W 80Plus Platinum",
+      "Case": "Lian Li PC-O11 Dynamic",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      2150000,
+      62588,
+      64,
+      34507,
+      6144
+    ]
+  },
+  {
+    "_id": 96,
+    "name": "ASMR 방송용 PC",
+    "description": "고음질 ASMR 방송 송출 시스템",
+    "price": 1450000,
+    "category": "컴퓨터",
+    "sub_category": "인터넷 방송용",
+    "stock": 12,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32GB DDR5",
+      "Mainboard": "MSI MAG B760 TOMAHAWK WIFI",
+      "GPU": "NVIDIA RTX 4060 Ti",
+      "Storage": "1TB NVMe SSD + 2TB HDD",
+      "PowerSupply": "650W 80Plus Gold",
+      "Case": "be quiet! Pure Base 500",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1450000,
+      36662,
+      32,
+      22730,
+      3072
+    ]
+  },
+  {
+    "_id": 97,
+    "name": "클라우드 인프라 PC",
+    "description": "프라이빗 클라우드 구축에 최적화",
+    "price": 2750000,
+    "category": "컴퓨터",
+    "sub_category": "개발자용",
+    "stock": 14,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD EPYC 9554P",
+      "RAM": "256GB DDR5 ECC",
+      "Mainboard": "ASUS KRPA-U16",
+      "GPU": "NVIDIA RTX A6000",
+      "Storage": "8TB NVMe SSD + 16TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "Supermicro 6049P-E1CR90H",
+      "OS": "Windows Server 2022"
+    },
+    "vector": [
+      2750000,
+      109347,
+      256,
+      22746,
+      24576
+    ]
+  },
+  {
+    "_id": 98,
+    "name": "아키텍처 디자인 PC",
+    "description": "건축 설계 및 시각화에 최적화",
+    "price": 1950000,
+    "category": "컴퓨터",
+    "sub_category": "디자인/그래픽용",
+    "stock": 15,
+    "spec_class": "중사양",
+    "spec": {
+      "CPU": "Intel Core i9-13900",
+      "RAM": "64GB DDR5",
+      "Mainboard": "ASUS ProArt Z790-CREATOR WIFI",
+      "GPU": "NVIDIA RTX 4070",
+      "Storage": "2TB NVMe SSD + 4TB HDD",
+      "PowerSupply": "850W 80Plus Platinum",
+      "Case": "Fractal Design Define 7",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      1950000,
+      46145,
+      64,
+      26951,
+      6144
+    ]
+  },
+  {
+    "_id": 99,
+    "name": "가정용 미디어 센터 PC",
+    "description": "홈 시어터 및 미디어 센터용 시스템",
+    "price": 680000,
+    "category": "컴퓨터",
+    "sub_category": "가정/사무용",
+    "stock": 18,
+    "spec_class": "저사양",
+    "spec": {
+      "CPU": "Intel Core i5-12400",
+      "RAM": "16GB DDR4",
+      "Mainboard": "ASRock B660M-ITX/ac",
+      "GPU": "Intel UHD Graphics 730",
+      "Storage": "512GB NVMe SSD",
+      "PowerSupply": "450W 80Plus Bronze",
+      "Case": "MINISFORUM HX90G",
+      "OS": "Windows 11 Home"
+    },
+    "vector": [
+      680000,
+      19236,
+      16,
+      1579,
+      512
+    ]
+  },
+  {
+    "_id": 100,
+    "name": "울트라 게이밍 PC",
+    "description": "모든 게임을 울트라 설정으로 즐길 수 있는 최고사양 시스템",
+    "price": 4850000,
+    "category": "컴퓨터",
+    "sub_category": "게이밍용",
+    "stock": 12,
+    "spec_class": "고사양",
+    "spec": {
+      "CPU": "AMD Ryzen 9 7950X3D",
+      "RAM": "128GB DDR5",
+      "Mainboard": "ASUS ROG CROSSHAIR X670E EXTREME",
+      "GPU": "NVIDIA RTX 4090",
+      "Storage": "4TB NVMe SSD + 8TB HDD",
+      "PowerSupply": "1600W 80Plus Titanium",
+      "Case": "HYTE Y60",
+      "OS": "Windows 11 Pro"
+    },
+    "vector": [
+      4850000,
+      62463,
+      128,
+      38307,
+      12288
+    ]
+  }
+]

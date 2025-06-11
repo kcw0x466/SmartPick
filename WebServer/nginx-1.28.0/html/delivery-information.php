@@ -1,3 +1,99 @@
+<?php 
+    session_start();
+
+    require_once 'DBconnect/mysql_connect.php';
+    require_once 'DBconnect/mongo_connect.php';
+
+    use MongoDB\Driver\Query;
+    use MongoDB\BSON\ObjectId;
+
+    // 로그인 확인
+    if (!isset($_SESSION['member_id'])) {
+        echo "<script>alert('로그인이 필요합니다.'); location.href='/log-in.php';</script>";
+        exit;
+    }
+
+    $isLoggedIn = isset($_SESSION['member_id']);
+
+    $memberId = $_SESSION['member_id'];
+
+    // 회원 정보 조회
+    $sql = "SELECT name, phone, address FROM member WHERE id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param('i', $memberId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $member = $result->fetch_assoc();
+    
+    // MySQL 장바구니 데이터 조회
+    $sql = "SELECT * FROM cart_item WHERE member_id = ?";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param('i', $memberId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $cartItems = [];
+    while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row;
+    }
+
+    $imgPath= array(
+        "products_PC" => "/static/img/computer/",
+        "products_laptop" => "/static/img/laptop/",
+        "products_TV" => "/static/img/tv/",
+        "products_WashingMachine" => "/static/img/washer/",
+    );
+
+    $productDetails = [];
+
+    foreach ($cartItems as $item) {
+        $category = $item['category'];
+        $productId = $item['product_id'];
+        $quantity = $item['quantity'];
+
+        $filterVariants = [
+            ['_id' => (string)$productId],
+            ['_id' => (int)$productId]
+        ];
+
+        $found = false;
+        foreach ($filterVariants as $filter) {
+            $options = ['projection' => ['name' => 1, 'price' => 1, 'description' => 1]];
+            $query = new Query($filter, $options);
+            $cursor = $mongoManager->executeQuery("$mongoDBName.$category", $query);
+            $documents = $cursor->toArray();
+
+            // 디버깅용 출력
+            // echo "<strong>카테고리:</strong> $category<br>";
+            // echo "<strong>상품 ID:</strong> {$productId}<br>";
+            // echo "<strong>시도된 필터:</strong> ";
+            // print_r($filter);
+            // echo "<br>쿼리 결과:<pre>";
+            // print_r($documents);
+            // echo "</pre><hr>";
+
+            if (!empty($documents)) {
+                $product = $documents[0];
+                $productDetails[] = [
+                    'product_id' => $productId,
+                    'category' => $category,
+                    'name' => $product->name ?? '이름 없음',
+                    'price' => $product->price ?? 0,
+                    'description' => $product->description ?? '',
+                    'quantity' => $quantity,
+                    'image' => $imgPath[$category]. "{$productId}.png"
+                ];
+                $found = true;
+                break;
+            }
+        }
+
+        if (!$found) {
+            echo "<span style='color:red'>[!] 상품 ID {$productId} 를 찾을 수 없음.</span><hr>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -107,6 +203,7 @@
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .logo:hover {
@@ -127,6 +224,7 @@
             font-size: 14px;
             line-height: 1.2;
             text-align: center;
+            text-decoration: none;
         }
 
         /* Search bar with animation */
@@ -746,32 +844,44 @@
     </div>
 
     <!-- Header section - Sticky (메인 홈페이지 스타일) -->
+    <!-- Header section - Sticky (수정된 부분) -->
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo" onclick="window.location.href='mainpage.html'">
-                    <div class="logo-box">스마<br>트픽</div>
-                    <span>스마트픽</span>
-                </div>
+                <a href="mainpage.php" class="logo">
+                    <div class="logo">
+                        <div class="logo-box">스마<br>트픽</div>
+                        <span>스마트픽</span>
+                    </div>
+                </a>
+
                 <div class="search-container">
-                    <input type="text" class="search-bar" id="searchBar" name="query" placeholder="찾으시는 상품을 검색해보세요"
-                        readonly>
-                    <button type="button" class="search-icon" id="searchIcon">
-                        <i class="fas fa-search"></i>
-                    </button>
+                    <form id="searchForm" action="search_results.php" method="get">
+                        <input type="text" class="search-bar" name="query" placeholder="찾으시는 상품을 검색해보세요">
+                        <button type="submit" class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </div>
+
                 <div class="nav-buttons">
-                    <button class="nav-button" onclick="window.location.href='log-in.html'">
-                        <i class="fas fa-user"></i>
-                        로그인
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='join1.html'">
-                        <i class="fas fa-user-plus"></i>
-                        회원가입
-                    </button>
-                    <button class="nav-button" onclick="window.location.href='cart.html'">
-                        <i class="fas fa-shopping-cart"></i>
-                        장바구니
+                    <?php if (!$isLoggedIn): ?>
+                        <button class="nav-button" onclick="window.location.href='/log-in.php'">
+                            <i class="fas fa-user"></i> 로그인
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/join.php'">
+                            <i class="fas fa-user-plus"></i> 회원가입
+                        </button>
+                    <?php else: ?>
+                        <button class="nav-button" onclick="window.location.href='/api/process_logout.php'">
+                            <i class="fas fa-sign-out-alt"></i> 로그아웃
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='/mypage.php'">
+                            <i class="fas fa-user-circle"></i> 마이페이지
+                        </button>
+                    <?php endif; ?>
+                    <button class="nav-button" onclick="window.location.href='/cart.php'">
+                        <i class="fas fa-shopping-cart"></i> 장바구니
                     </button>
                     <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
                         <i class="fas fa-sun"></i>
@@ -823,19 +933,8 @@
                     </div>
                     <div class="address-info">
                         <div class="address-name">우리집 (기본배송지)</div>
-                        <div class="address-detail">서울특별시 강남구 테헤란로 123 스마트빌딩 456호</div>
-                        <div class="address-contact">홍길동, 010-1234-5678</div>
-                    </div>
-                </div>
-
-                <div class="saved-address">
-                    <div class="address-radio">
-                        <input type="radio" name="address" id="address2">
-                    </div>
-                    <div class="address-info">
-                        <div class="address-name">회사</div>
-                        <div class="address-detail">서울특별시 서초구 서초대로 789 테크타워 10층</div>
-                        <div class="address-contact">홍길동, 010-1234-5678</div>
+                        <div class="address-detail"><?= htmlspecialchars($member['address']) ?></div>
+                        <div class="address-contact"><?= htmlspecialchars($member['name']) ?>, <?= htmlspecialchars($member['phone']) ?></div>
                     </div>
                 </div>
 
@@ -943,10 +1042,10 @@
 
                 <!-- Action Buttons -->
                 <div class="action-buttons">
-                    <button class="btn btn-outline" onclick="location.href='cart.html'">
+                    <button class="btn btn-outline" onclick="location.href='cart.php'">
                         <i class="fas fa-chevron-left"></i> 장바구니로 돌아가기
                     </button>
-                    <button class="btn btn-primary" onclick="location.href='payment.html'">
+                    <button class="btn btn-primary" onclick="location.href='payment.php'">
                         결제 계속하기 <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -954,69 +1053,51 @@
 
             <!-- Order Summary Section -->
             <div class="summary-section">
-                <h2 class="section-title">
-                    주문 요약
-                    <a href="cart.html" class="edit-cart">편집</a>
-                </h2>
+            <h2 class="section-title">
+                주문 요약
+                <a href="cart.php" class="edit-cart">편집</a>
+            </h2>
 
-                <div class="summary-items">
-                    <!-- Item 1 -->
-                    <div class="summary-item">
-                        <div class="item-image">
-                            <img src="/api/placeholder/60/60" alt="Product">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-name">스마트픽 울트라북 X15</div>
-                            <div class="item-option">옵션: 스페이스 그레이, 512GB SSD</div>
-                            <div class="item-price">1,290,000원</div>
-                        </div>
+            <div class="summary-items">
+                <?php
+                $totalPrice = 0;
+
+                foreach ($productDetails as $product):
+                    $subtotal = $product['price'] * $product['quantity'];
+                    $totalPrice += $subtotal;
+                ?>
+                <div class="summary-item">
+                    <div class="item-image">
+                        <img src="<?= $product['image'] ?>" alt="Product">
                     </div>
-
-                    <!-- Item 2 -->
-                    <div class="summary-item">
-                        <div class="item-image">
-                            <img src="/api/placeholder/60/60" alt="Product">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-name">프리미엄 노트북 파우치</div>
-                            <div class="item-option">옵션: 블랙, 15인치</div>
-                            <div class="item-price">39,000원</div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="summary-item">
-                        <div class="item-image">
-                            <img src="/api/placeholder/60/60" alt="Product">
-                        </div>
-                        <div class="item-details">
-                            <div class="item-name">무선 블루투스 마우스</div>
-                            <div class="item-option">옵션: 그레이</div>
-                            <div class="item-price">29,000원</div>
-                        </div>
+                    <div class="item-details">
+                        <div class="item-name"><?= htmlspecialchars($product['name']) ?></div>
+                        <div class="item-price"><?= number_format($product['price']) ?>원</div>
                     </div>
                 </div>
-
-                <div class="summary-line">
-                    <div class="summary-label">상품금액</div>
-                    <div class="summary-value">1,358,000원</div>
-                </div>
-
-                <div class="summary-line">
-                    <div class="summary-label">상품 할인</div>
-                    <div class="summary-value">-206,000원</div>
-                </div>
-
-                <div class="summary-line">
-                    <div class="summary-label">배송비</div>
-                    <div class="summary-value">무료</div>
-                </div>
-
-                <div class="summary-total">
-                    <div class="total-label">총 결제금액</div>
-                    <div class="total-value">1,152,000원</div>
-                </div>
+                <?php endforeach; ?>
             </div>
+
+            <div class="summary-line">
+                <div class="summary-label">상품금액</div>
+                <div class="summary-value"><?= number_format($totalPrice) ?>원</div>
+            </div>
+
+            <div class="summary-line">
+                <div class="summary-label">상품 할인</div>
+                <div class="summary-value">-0원</div>
+            </div>
+
+            <div class="summary-line">
+                <div class="summary-label">배송비</div>
+                <div class="summary-value">무료</div>
+            </div>
+
+            <div class="summary-total">
+                <div class="total-label">총 결제금액</div>
+                <div class="total-value"><?= number_format($totalPrice) ?>원</div>
+            </div>
+        </div>
         </div>
     </div>
 

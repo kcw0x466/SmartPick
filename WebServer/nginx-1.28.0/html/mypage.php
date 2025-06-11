@@ -1,3 +1,76 @@
+<?php
+session_start();
+require_once './DBconnect/mysql_connect.php';
+require_once './DBconnect/mongo_connect.php';
+
+use MongoDB\Driver\Query;
+
+if (!isset($_SESSION['member_id'])) {
+    echo "<script>alert('로그인이 필요합니다.'); location.href='log-in.php';</script>";
+    exit();
+}
+
+$member_id = $_SESSION['member_id'];
+$query = "SELECT * FROM member WHERE id = ?";
+$stmt = $connect->prepare($query);
+$stmt->bind_param("i", $member_id);
+$stmt->execute();
+$user_result = $stmt->get_result();
+$user = $user_result->fetch_assoc();
+
+$order_query = "SELECT * FROM orders WHERE member_id = ?";
+$stmt = $connect->prepare($order_query);
+$stmt->bind_param("i", $member_id);
+$stmt->execute();
+$order_result = $stmt->get_result();
+
+$orders = [];
+$imgPath = [
+    "products_PC" => "/static/img/computer/",
+    "products_laptop" => "/static/img/laptop/",
+    "products_TV" => "/static/img/tv/",
+    "products_WashingMachine" => "/static/img/washer/"
+];
+
+while ($order = $order_result->fetch_assoc()) {
+    $order_id = $order['id'];
+    $items_query = "SELECT * FROM order_item WHERE order_id = ?";
+    $stmt_items = $connect->prepare($items_query);
+    $stmt_items->bind_param("i", $order_id);
+    $stmt_items->execute();
+    $items_result = $stmt_items->get_result();
+
+    $items = [];
+    while ($item = $items_result->fetch_assoc()) {
+        $category = $item['category'];
+        $productId = $item['product_id'];
+
+        // MongoDB에서 제품 이름 가져오기
+        $filterVariants = [
+            ['_id' => (string)$productId],
+            ['_id' => (int)$productId]
+        ];
+        $productName = '이름 없음';
+
+        foreach ($filterVariants as $filter) {
+            $query = new Query($filter, ['projection' => ['name' => 1]]);
+            $cursor = $mongoManager->executeQuery("$mongoDBName.$category", $query);
+            $docs = $cursor->toArray();
+            if (!empty($docs)) {
+                $productName = $docs[0]->name ?? '이름 없음';
+                break;
+            }
+        }
+
+        $item['product_name'] = $productName;
+        $items[] = $item;
+    }
+
+    $order['items'] = $items;
+    $orders[] = $order;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -1435,7 +1508,7 @@
 
     <!-- Header section -->
     <header>
-        <a href="mainpage.html" class="logo">
+        <a href="mainpage.php" class="logo">
             <div class="logo">
                 <div class="logo-box">스마<br>트픽</div>
                 <span>스마트픽</span>
@@ -1443,11 +1516,11 @@
         </a>
 
         <div class="nav-buttons">
-            <a href="mainpage.html" class="nav-button">
+            <a href="mainpage.php" class="nav-button">
                 <i class="fas fa-home"></i>
                 홈
             </a>
-            <a href="cart.html" class="nav-button">
+            <a href="cart.php" class="nav-button">
                 <i class="fas fa-shopping-cart"></i>
                 장바구니
             </a>
@@ -1465,8 +1538,8 @@
                 <div class="user-profile-img">
                     <img src="/api/placeholder/150/150" alt="Profile">
                 </div>
-                <div class="user-name">홍길동</div>
-                <div class="user-email">user@example.com</div>
+                <div class="user-name"><?= htmlspecialchars($user['name']) ?></div>
+                <div class="user-email"><?= htmlspecialchars($user['email']) ?></div>
             </div>
 
             <div class="sidebar-menu">
@@ -1533,32 +1606,32 @@
                         <div class="profile-info-section">
                             <div class="form-group">
                                 <label for="userName" class="form-label required-mark">이름</label>
-                                <input type="text" id="userName" class="form-input" value="홍길동" required>
+                                <input type="text" id="userName" class="form-input" value="<?= htmlspecialchars($user['name']) ?>" required>
                                 <i class="fas fa-user form-icon"></i>
                             </div>
 
                             <div class="form-group">
                                 <label for="userEmail" class="form-label required-mark">이메일</label>
-                                <input type="email" id="userEmail" class="form-input" value="user@example.com" required>
+                                <input type="email" id="userEmail" class="form-input" value="<?= htmlspecialchars($user['email']) ?>" required>
                                 <i class="fas fa-envelope form-icon"></i>
                             </div>
 
                             <div class="form-group">
                                 <label for="userPhone" class="form-label required-mark">전화번호</label>
-                                <input type="tel" id="userPhone" class="form-input" value="010-1234-5678" required>
+                                <input type="tel" id="userPhone" class="form-input" value="<?= htmlspecialchars($user['phone']) ?>" required>
                                 <i class="fas fa-phone form-icon"></i>
                                 <div class="helper-text">'-' 없이 숫자만 입력하세요. 예) 01012345678</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="userBirth" class="form-label">생년월일</label>
-                                <input type="date" id="userBirth" class="form-input" value="1990-01-01">
+                                <input type="date" id="userBirth" class="form-input" value="<?= htmlspecialchars($user['birth_date'] ?? '') ?>">
                                 <i class="fas fa-calendar form-icon"></i>
                             </div>
 
                             <div class="form-group">
                                 <label for="userAddress" class="form-label">주소</label>
-                                <input type="text" id="userAddress" class="form-input" value="서울특별시 강남구 테헤란로 123">
+                                <input type="text" id="userAddress" class="form-input" value="<?= htmlspecialchars($user['address']) ?>">
                                 <i class="fas fa-map-marker-alt form-icon"></i>
                             </div>
 
@@ -1580,111 +1653,39 @@
                 </div>
 
                 <div class="order-list">
-                    <!-- 첫번째 주문 -->
+                <?php foreach ($orders as $order): ?>
                     <div class="order-item">
                         <div class="order-header">
-                            <div class="order-number">주문번호: ORD-2023120101</div>
-                            <div class="order-date">2023-12-01</div>
-                            <div class="order-status status-complete">배송 완료</div>
+                            <div class="order-number">주문번호: <?= $order['id'] ?></div>
+                            <div class="order-date"><?= $order['ordered_at'] ?? '-' ?></div>
+                            <div class="order-status <?= $order['status'] === '배송 완료' ? 'status-complete' : ($order['status'] === '배송 중' ? 'status-shipping' : 'status-processing') ?>">
+                                <?= $order['status'] ?? '처리 중' ?>
+                            </div>
                         </div>
                         <div class="order-content">
-                            <div class="order-product">
-                                <div class="product-image">
-                                    <img src="/api/placeholder/80/80" alt="Product">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">삼성 갤럭시북 Pro 360</div>
-                                    <div class="product-meta">
-                                        <div class="product-quantity">수량: 1개</div>
-                                        <div class="product-price">1,450,000원</div>
+                            <?php foreach ($order['items'] as $item): ?>
+                                <div class="order-product">
+                                    <div class="product-image">
+                                        <img src="<?= $imgPath[$item['category']] . $item['product_id'] ?>.png" alt="Product">
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="product-name"><?= htmlspecialchars($item['product_name']) ?></div>
+                                        <div class="product-meta">
+                                            <div class="product-quantity">수량: <?= $item['quantity'] ?>개</div>
+                                            <div class="product-price"><?= number_format($item['price']) ?>원</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                         <div class="order-footer">
                             <div class="order-total">
-                                총 결제금액: <span class="order-total-price">1,450,000원</span>
-                            </div>
-                            <div class="order-actions">
-                                <button class="order-btn order-btn-detail" data-order-id="ORD-2023120101">주문 상세</button>
+                                총 결제금액: <span class="order-total-price"><?= number_format($order['total_price']) ?>원</span>
                             </div>
                         </div>
                     </div>
+                <?php endforeach; ?>
 
-                    <!-- 두번째 주문 -->
-                    <div class="order-item">
-                        <div class="order-header">
-                            <div class="order-number">주문번호: ORD-2023112501</div>
-                            <div class="order-date">2023-11-25</div>
-                            <div class="order-status status-shipping">배송 중</div>
-                        </div>
-                        <div class="order-content">
-                            <div class="order-product">
-                                <div class="product-image">
-                                    <img src="/api/placeholder/80/80" alt="Product">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">LG OLED TV 65인치</div>
-                                    <div class="product-meta">
-                                        <div class="product-quantity">수량: 1개</div>
-                                        <div class="product-price">2,190,000원</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-footer">
-                            <div class="order-total">
-                                총 결제금액: <span class="order-total-price">2,190,000원</span>
-                            </div>
-                            <div class="order-actions">
-                                <button class="order-btn order-btn-detail" data-order-id="ORD-2023112501">주문 상세</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 세번째 주문 -->
-                    <div class="order-item">
-                        <div class="order-header">
-                            <div class="order-number">주문번호: ORD-2023111501</div>
-                            <div class="order-date">2023-11-15</div>
-                            <div class="order-status status-processing">처리 중</div>
-                        </div>
-                        <div class="order-content">
-                            <div class="order-product">
-                                <div class="product-image">
-                                    <img src="/api/placeholder/80/80" alt="Product">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">애플 맥북 프로 M2</div>
-                                    <div class="product-meta">
-                                        <div class="product-quantity">수량: 1개</div>
-                                        <div class="product-price">2,350,000원</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-product">
-                                <div class="product-image">
-                                    <img src="/api/placeholder/80/80" alt="Product">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">애플 에어팟 프로 2</div>
-                                    <div class="product-meta">
-                                        <div class="product-quantity">수량: 1개</div>
-                                        <div class="product-price">359,000원</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-footer">
-                            <div class="order-total">
-                                총 결제금액: <span class="order-total-price">2,709,000원</span>
-                            </div>
-                            <div class="order-actions">
-                                <button class="order-btn order-btn-detail" data-order-id="ORD-2023111501">주문 상세</button>
-                                <button class="order-btn order-btn-track">주문 취소</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- 주문 상세 모달 - 여기에 추가 -->

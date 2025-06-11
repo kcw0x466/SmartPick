@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>PC 추천 설문</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .survey-box {
+      background-color: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 60px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .survey-title {
+      font-weight: bold;
+      font-size: 24px;
+      color: #e93170;
+    }
+
+    .survey-desc {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin: 30px 0 15px;
+    }
+
+    .option-item {
+      background-color: white;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      padding: 15px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .option-item:hover {
+      border-color: #e93170;
+      background-color: #fff0f5;
+      color: #e93170;
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="survey-box">
+    <h2 class="survey-title">나에게 맞는 TV 찾기</h2>
+    <p class="survey-desc">아래 문항에 답하면 딱 맞는 제품을 추천해 드려요.</p>
+
+    <form method="POST" action="/ai/recommend/tv">
+        <input type="hidden" name="budget" id="hiddenBudget">
+        <input type="hidden" name="screen_size" id="hiddenScreenSize">
+        <input type="hidden" name="screen_resolution" id="hiddenScreenResolution">
+        <input type="hidden" name="refresh_rate" id="hiddenRefreshRate">
+        <input type="hidden" name="ports" id="hiddenPorts">
+
+        <!-- 예산 슬라이더 -->
+        <div class="question-title">1. 예산은 어느 정도인가요?</div>
+        <input type="range" class="form-range" min="10" max="300" step="1" value="150" name="budget_input" id="budgetRange">
+        <div class="text-center fw-bold text-danger" id="budgetDisplay">150만원</div>
+
+        <!-- TV 사이즈 -->
+        <div class="question-title">2. 원하시는 TV 사이즈는?</div>
+        <div class="d-grid gap-2">
+        {% set screen_size_options = [
+            "컴퓨터 모니터와 비슷한 사이즈",
+            "작은 거실, 침실, 원룸에 적당한 사이즈",
+            "일반 거실에 적당한 사이즈",
+            "회의실이나 강의실에 적당한 사이즈 "
+        ] %}
+        {% for option in screen_size_options %}
+            <label class="option-item">
+            <input type="radio" name="screen_size_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 화질 -->
+        <div class="question-title">3. 어느 정도의 화질을 원하시나요?</div>
+        <div class="d-grid gap-2">
+        {% set screen_resolution_options = [
+            "화질 상관 없음",
+            "중간 화질",
+            "고화질",
+            "초고화질",
+        ] %}
+        {% for option in screen_resolution_options %}
+            <label class="option-item">
+            <input type="radio" name="screen_resolution_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 화면 주사율 -->
+        <div class="question-title">4. TV로 게임을 즐기시거나 부드러움 화면 전환이나 움직임을 원하시나요?</div>
+        <div class="d-grid gap-2">
+        {% set refresh_rate_options = [
+            "예",
+            "아니오"
+        ] %}
+        {% for option in refresh_rate_options %}
+            <label class="option-item">
+            <input type="radio" name="refresh_rate_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+        <!-- 포트 수 -->
+        <div class="question-title">5. TV에 연결할 외부 장치가 몇개 정도 되나요?</div>
+        <div class="d-grid gap-2">
+        {% set ports_options = [
+            "2개",
+            "3개",
+            "4개",
+            "5개",
+        ] %}
+        {% for option in ports_options %}
+            <label class="option-item">
+            <input type="radio" name="ports_options" value="{{ loop.index }}" required hidden>
+            {{ option }}
+            </label>
+        {% endfor %}
+        </div>
+
+      <!-- 제출 -->
+      <button type="submit" class="btn btn-primary w-100 submit-btn">추천 결과 보기</button>
+    </form>
+  </div>
+
+  <!-- 부트스트랩 스크립트 & 슬라이더 동기화 -->
+  <script>
+    const range = document.getElementById("budgetRange");
+    const display = document.getElementById("budgetDisplay");
+
+    const screen_size_map = [35, 49, 72, 88]
+    const screen_resolution_map = [1080, 1440, 2160, 4320]
+    const refresh_rate_map = [120, 60]
+    const ports_map = [2, 3, 4, 5]
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+        // 예산
+        const budget = parseInt(range.value);
+        document.getElementById("hiddenBudget").value = String(budget * 10000);
+
+        // TV 사이즈
+        const screenSize = parseInt(document.querySelector('input[name="screen_size_options"]:checked').value);
+        document.getElementById("hiddenScreenSize").value = screen_size_map[screenSize - 1];
+
+        // 화질
+        const resolution = parseInt(document.querySelector('input[name="screen_resolution_options"]:checked').value);
+        document.getElementById("hiddenScreenResolution").value = screen_resolution_map[resolution - 1];
+
+        // 주사율 (예/아니오 → 1/2)
+        const refresh = parseInt(document.querySelector('input[name="refresh_rate_options"]:checked').value);
+        document.getElementById("hiddenRefreshRate").value = refresh_rate_map[refresh - 1];
+
+        // 포트 수
+        const portValue = parseInt(document.querySelector('input[name="ports_options"]:checked').value);
+        document.getElementById("hiddenPorts").value = ports_map[portValue - 1];
+    });
+
+
+    range.addEventListener("input", () => {
+      display.textContent = range.value + "만원";
+    });
+
+    // 클릭한 옵션-item에 스타일 지정
+    document.querySelectorAll(".option-item").forEach(item => {
+        item.addEventListener("click", () => {
+            const input = item.querySelector("input");
+            input.checked = true;
+
+            // 동일한 name을 가진 그룹의 라디오들만 스타일 초기화
+            const groupName = input.name;
+            document.querySelectorAll(`input[name="${groupName}"]`).forEach(el => {
+                el.closest(".option-item").classList.remove("border-danger", "bg-light");
+            });
+
+            // 선택된 항목 스타일 적용
+            item.classList.add("border-danger", "bg-light");
+        });
+    });
+
+  </script>
+</body>
+</html>
